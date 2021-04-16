@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class TableroController extends Controller
 {
-    public function __construct(){
+    /*public function __construct(){
         $this->middleware("auth");
-     }
+     }*/
 
     public function tablero(){
-        return view('index');
+        return view('tablero');
     }
 }

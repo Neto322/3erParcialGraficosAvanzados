@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TableroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
+    
+//Registro de las rutas de autenticacion
+require __DIR__.'/auth.php';
+
+
+Route::get("/admin", [TableroController::class, "tablero"])->name("admin.tablero");
 });
