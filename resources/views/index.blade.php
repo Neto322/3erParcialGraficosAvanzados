@@ -133,8 +133,8 @@ License: You must have a valid license purchased only from themeforest(the above
 										<span class="menu-text">Lista de Usuarios</span>
 									</a>
 								</li>
-								<li class="menu-item nav-item has-treeview" aria-haspopup="true">
-									<a href="#" class="nav-link">
+								<li class="menu-item menu-item-active dropdown-menu" aria-haspopup="true">
+									<a href="index.html" class="menu-link">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -146,17 +146,11 @@ License: You must have a valid license purchased only from themeforest(the above
 											</svg>
 											<!--end::Svg Icon-->
 										</span>
-										<span class="menu-text">Configuracion</span>
+										<span class="menu-text dropdown-header">Configuracion</span>
+										<a class="dropdown-item" href="{{ route('tags') }}">Tags</a>
 									</a>
-									<ul class="nav nav-treeview">
-										<li class="nav-item">
-											<a href="#" class="nav-link">
-											<i class="far fa-circle nav-icon"></i>
-											<p>Tags</p>
-											</a>
-										</li>
-									</ul>
 								</li>
+
 									
 							<!--end::Menu Nav-->
 						</div>
