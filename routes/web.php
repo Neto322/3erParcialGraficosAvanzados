@@ -23,3 +23,7 @@ require __DIR__.'/auth.php';
 
 //Route::get("/admin", [TableroController::class, "tablero"])->name("index");
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
