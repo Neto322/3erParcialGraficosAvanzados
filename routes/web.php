@@ -21,5 +21,5 @@ Route::get('/', function () {
 require __DIR__.'/auth.php';
 
 
-Route::get("/admin", [TableroController::class, "tablero"])->name("admin.tablero");
+//Route::get("/admin", [TableroController::class, "tablero"])->name("index");
 });
