@@ -16,7 +16,7 @@
                                 echo "Activo";
                                 }
                                 else{
-                                    "No activo"
+                                    "No activo";
                                 }
                             ?>
                             </td>
@@ -32,7 +32,7 @@
                                     </button>
                                     </div>
                                     <div class="modal-body">
-                                    <p>¿Esta seguro de eliminar la noticia: "{{$usuario->name}}"?</p>
+                                    <p>Revocar usuario? "{{$usuario->name}}"?</p>
                                     </div>
                                     <div class="modal-footer">
                                     <form method="POST"  action="{{route("revocar", $usuario->id)}}">
@@ -49,5 +49,5 @@
                             </td>
                         </tr>
                     @endforeach
-asss
+
 @endsection
