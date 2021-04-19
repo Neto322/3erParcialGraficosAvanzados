@@ -38,7 +38,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="assets/favicon.png" />
-		
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -217,7 +217,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<!--end::Page Title-->
 									<!--begin::Actions-->
 									<div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200"></div>
-					
+
 									<!--end::Actions-->
 								</div>
 								<!--end::Info-->
@@ -226,7 +226,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									
 									<!--end::Actions-->
 									<!--begin::Daterange-->
-									
+									@yield("contenido_principal")
 									<!--end::Daterange-->
 									<!--begin::Dropdowns-->
 									

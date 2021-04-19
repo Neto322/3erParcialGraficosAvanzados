@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\TableroController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,7 @@ require __DIR__.'/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home/tags', [App\Http\Controllers\HomeController::class, 'tags'])->name('tags');
+Route::get('/home', [HomeController::class, "index"])->name("home");
+Route::get('/tags', [HomeController::class, "tags"])->name("tags");
+Route::delete('/tags', [HomeController::class, "destroy"])->name("destroy");
+Route::get("/tags/confirmdelete", [HomeController::class, "confirmdelete"])->name("confirmdelete");
