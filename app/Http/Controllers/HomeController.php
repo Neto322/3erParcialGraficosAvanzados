@@ -27,6 +27,37 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function revocar($id)
+    {
+
+        $usuarios = User::find($id);
+
+        $argumentos = array();
+        $argumentos["usuarios"] = $usuarios;
+
+        $argumentos->update(['activo' => '0']);
+        if($noticia->activo == 0){
+            
+            return redirect()->route("lista")->with("exito", "Se revoco el usuario");
+        }
+
+        return redirect()->route("lista")->with("error", "no se revoco el usuario");
+    }
+    
+    public function lista()
+    {   
+        $usuarios = User::all();
+        $argumentos=array();
+        $argumentos["usuarios"] = $usuarios;
+        return view('lista', $argumentos);
+    }
+
+    public function create()
+    {   
+        return view('auth/register');
+    }
+
     public function tags()
     {
         $descripcion = Tags::all();
@@ -52,4 +83,6 @@ class HomeController extends Controller
         }
         return redirect()->route("tags")->with("exito", "se eliminó correctamente");
     }
+
+    
 }
