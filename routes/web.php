@@ -33,6 +33,7 @@ Route::get('/lista', [HomeController::class, "lista"])->name("lista");
 Route::get("/lista/{id}",[HomeController::class, "revocar"])->name("revocar");
 Route::get('/create', [HomeController::class, "create"])->name("create");
 
-Route::delete('/tags', [HomeController::class, "destroy"])->name("destroy");
+Route::delete('/tags/{id}', [HomeController::class, "destroy"])->name("destroy");
 Route::get("/tags/confirmdelete", [HomeController::class, "confirmdelete"])->name("confirmdelete");
 
+//cambio
