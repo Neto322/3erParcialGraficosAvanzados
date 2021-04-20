@@ -7,7 +7,7 @@
                         <tr>
                             <td>{{ $usuario->name}}</td>
                             <td>
-                                <br>{{ $usuario->email}}<br>
+                                {{ $usuario->email}}<br>
                             </td>
 
                             <td>
@@ -26,6 +26,6 @@
                             
                             </td>
                         </tr>
-                    @endforeach
+    @endforeach
 
 @endsection
