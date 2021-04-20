@@ -7,45 +7,23 @@
                         <tr>
                             <td>{{ $usuario->name}}</td>
                             <td>
-                                {{ $usuario->email}}
+                                <br>{{ $usuario->email}}<br>
                             </td>
 
                             <td>
                             <?php
-                                if ($usuario > 0) {
-                                echo "Activo";
+                                if ($usuario->activo > 0) {
+                                echo '<div class="text-success">Activo</div>';
                                 }
                                 else{
-                                    "No activo";
+                                    echo '<div class="text-danger">No Activo</div>';
                                 }
                             ?>
                             </td>
                             <td>
-                            <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmarRevocar{{$usuario->id}}">Revocar usuario</button>
-                            <div class="modal fade" id="#confirmarRevocar{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Revocar usuario {{$usuario->id}}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                    <p>Revocar usuario? "{{$usuario->name}}"?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <form method="POST"  action="{{route("revocar", $usuario->id)}}">
-                                        @csrf 
-    
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                                    </form>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-
+                            <br>
+                            <button class="btn btn-xs btn-danger" type="button" >Revocar usuario</button>
+                            
                             </td>
                         </tr>
                     @endforeach
