@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Tags;
+
 
 class HomeController extends Controller
 {
@@ -27,20 +27,38 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+        
+    }
+
+    public function guardar(Request $request)
+    {
+        $usuarios = new User();
+        $usuarios->id_tipo_usuario = $request->input("id_tipo_usuario");
+        $usuarios->activo = $request->input("activo");
     }
 
     public function revocar($id)
     {
-
         $usuarios = User::find($id);
 
         $argumentos = array();
         $argumentos["usuarios"] = $usuarios;
 
-        $argumentos->update(['activo' => '0']);
-        if($noticia->activo == 0){
+        if($usuarios->activo == 0)
+        {
+            $argumentos['activo'] = 1;
+        }else{
+            $argumentos['activo'] = 0;
+        }
+        
+
+        //$argumentos->update(['activo' => '0']);
+        $usuarios->update($argumentos);
+        if($argumentos['activo'] == 0){
             
             return redirect()->route("lista")->with("exito", "Se revoco el usuario");
+        }if($argumentos['activo'] == 1){
+            return redirect()->route("lista")->with("exito2", "Se dio acceso al usuario");
         }
 
         return redirect()->route("lista")->with("error", "no se revoco el usuario");
@@ -57,31 +75,6 @@ class HomeController extends Controller
     public function create()
     {   
         return view('auth/register');
-    }
-    public function tags()
-    {
-        $descripcion = Tags::all();
-        $argumentos = array();
-        $argumentos["tags"] = $descripcion;
-        return view("tags", $argumentos);
-
-    }
-    public function confirmdelete($id) {
-        $descripcion = Tags::find($id);
-
-        $argumentos = array();
-        $argumentos["tags"] = $descripcion;
-
-        return view("confirmdelete", $argumentos);
-    }
-    
-    public function destroy($id) {
-        $descripcion = Tags::find($id);
-        if ($tag) {
-            $tag->delete();
-            return redirect()->route("tags")->with("error", "No se pudo eliminar el tag");
-        }
-        return redirect()->route("tags")->with("exito", "se eliminó correctamente");
     }
     
 }

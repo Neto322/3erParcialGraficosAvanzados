@@ -33,4 +33,8 @@ class TagsController extends Controller
         }
         return redirect()->route("tags")->with("exito", "se eliminó correctamente");
     }
+    public function Tcreate()
+        {
+            $descripcion = new Tags();
+        }
 }

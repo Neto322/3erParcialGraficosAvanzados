@@ -1,7 +1,7 @@
 
-@extends('layouts.app')
+@extends('index')
 
-@section('content')
+@section('contenido_principal')
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <section class="content-header">
       <div class="container-fluid">
@@ -39,22 +39,6 @@
                 <div class="form-group">
                     <label>Titulo:</label>
                      <input class="form-control" name="titulo" type="text">
-                 </div>
-                 <div class="form-group">
-                    <label>Fecha:</label>
-                    <input class="form-control" name="fecha" type="date">
-                 </div>
-                 <div class="form-group">
-                    <label>Autor:</label>
-                    <input class="form-control" name="autor" type="text">
-                 </div>
-                 <div  class="form-group">
-                 <label>Cuerpo:</label>
-                 <textarea class="form-control" rows="5" name="cuerpo"></textarea>
-                 </div>
-                 <div class="form-group">
-                    <label>Foto</label>
-                    <input class="form-control" name="foto" type="text">
                  </div>
                  <button type="submit" class="btn btn-primary">Agregar nueva noticia</button>
              </form>

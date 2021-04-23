@@ -1,7 +1,7 @@
 
-@extends('layouts.app')
+@extends('index')
 
-@section('content')
+@section('contenido_principal')
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <section class="content-header">
       <div class="container-fluid">
@@ -51,7 +51,6 @@
                     <tr>
                         <td><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}<a data-toggle="modal" data-target="#confirmarEliminacion{{ $tag->id }}"><i class="far fa-trash-alt"></i></a></button></td>
                         <td>
-                            <a href="#"><button class="btn btn-xs btn-primary">Ver</button></a>
                             <a href="#"><button class="btn btn-xs btn-primary">Editar</button></a>
                             <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmarEliminacion{{ $tag->id }}">Eliminar</button>
                             <!-- Modal -->

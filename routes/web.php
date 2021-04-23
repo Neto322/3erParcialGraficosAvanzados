@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\TableroController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TagsController;
 
 
 /*
@@ -29,14 +30,15 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 Route::get('/home', [HomeController::class, "index"])->name("home");
-Route::get('/tags', [HomeController::class, "tags"])->name("tags");
 Route::get('/lista', [HomeController::class, "lista"])->name("lista");
-Route::get("/lista/{id}",[HomeController::class, "revocar"])->name("revocar");
+Route::put("/lista/{id}",[HomeController::class, "revocar"])->name("revocar");
 Route::get('/create', [HomeController::class, "create"])->name("create");
+Route::post('/guardar', [HomeController::class, "guardar"])->name("guardar");
 
 //TAGS
-Route::get("/tags/create", [HomeController::class, "create"])->name("create");
-Route::delete('/tags/{id}', [HomeController::class, "destroy"])->name("destroy");
-Route::get("/tags/confirmdelete", [HomeController::class, "confirmdelete"])->name("confirmdelete");
+Route::get('/tags', [TagsController::class, "tags"])->name("tags");
+Route::get('/tags/create', [TagsController::class, "Tcreate"])->name("Tcreate");
+Route::delete('/tags/{id}', [TagsController::class, "destroy"])->name("destroy");
+Route::get("/tags/confirmdelete", [TagsController::class, "confirmdelete"])->name("confirmdelete");
 
 

@@ -61,6 +61,27 @@
                             </div>
                         </div>
 
+                        <table>
+                            <form method="POST" action="{{ route("guardar") }}">
+                                @csrf
+                                <div class="form-group row">
+                                    <label for="">Id tipo usuario</label>
+                                    <input id="id_tipo_usuario" type="text" class="form-control" name="id_tipo_usuario">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="form-check">
+                                      <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="activo" id="activo" value="checkedValue" checked>
+                                        Activo
+                                      </label>
+                                    </div>
+                                </div>
+                            </form>
+                        </table>
+                        
+
+
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
