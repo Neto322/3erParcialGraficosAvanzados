@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Tags;
 use App\Models\User;
-
+use App\Models\Tags;
 
 class HomeController extends Controller
 {
@@ -59,7 +58,6 @@ class HomeController extends Controller
     {   
         return view('auth/register');
     }
-
     public function tags()
     {
         $descripcion = Tags::all();
@@ -85,6 +83,5 @@ class HomeController extends Controller
         }
         return redirect()->route("tags")->with("exito", "se eliminó correctamente");
     }
-
     
 }

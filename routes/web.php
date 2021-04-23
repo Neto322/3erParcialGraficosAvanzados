@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\TableroController;
 use App\Http\Controllers\HomeController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +34,9 @@ Route::get('/lista', [HomeController::class, "lista"])->name("lista");
 Route::get("/lista/{id}",[HomeController::class, "revocar"])->name("revocar");
 Route::get('/create', [HomeController::class, "create"])->name("create");
 
+//TAGS
+Route::get("/tags/create", [HomeController::class, "create"])->name("create");
 Route::delete('/tags/{id}', [HomeController::class, "destroy"])->name("destroy");
 Route::get("/tags/confirmdelete", [HomeController::class, "confirmdelete"])->name("confirmdelete");
 
-//cambio
+
