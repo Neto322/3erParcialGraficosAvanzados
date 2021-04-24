@@ -1,18 +1,15 @@
 @extends('index')
 @section("titulo")
-<h1>Lista de editores</h1>
+<h1>Editar</h1>
 @endsection
 @section('contenido_principal')
 
 <div class="card card-custom gutter-b">
     <div class="card-header flex-wrap py-3">
         <div class="card-title">
-            {{-- <h3 class="card-label">Editores registrados</h3> --}}
+            {{-- <h3 class="card-label">Crear nuevo editor</h3> --}}
                 @if(Session::has('exito'))
                     <h5><p style="color: #15b915">{{Session::get('exito')}}</p></h5>
-                @endif
-                @if(Session::has('exito2'))
-                    <h5><p style="color: #15b915">{{Session::get('exito2')}}</p></h5>
                 @endif
                 @if(Session::has('error'))
                     <h5><p style="color: #bb1717">{{Session::get('error')}}</p></h5>
@@ -104,79 +101,45 @@
     <div class="card-body">
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($usuarios as $usuario)
-                    <tr>
-                        <td>{{ $usuario->name}}</td>
-                        <td>{{ $usuario->email}}<br></td>
-                        <td>
-                            @if($usuario->activo > 0)
-                                <div class="text-success">Activo</div>
-                            @endif
-                            @if($usuario->activo == 0)
-                                <div class="text-danger">No Activo</div>
-                            @endif
-                        </td>
-                        <td>
-                            @if ($usuario->activo > 0)
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$usuario->id}}">
-                                    Revocar acceso
-                                </button>
-                            @endif
-                            @if ($usuario->activo == 0)
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal{{$usuario->id}}">
-                                    Dar acceso
-                                </button>
-                            @endif
-                            <a href="{{route('editar', $usuario->id)}}">
-                                <button type="button" class="btn btn-primary">
-                                    Editar
-                                </button>
-                            </a>
-                            {{-- modal --}}
-                            <div class="modal fade" id="exampleModal{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            @if ($usuario->activo > 0)
-                                                ¿Seguro de querer revocar el acceso a {{$usuario->email}}?
-                                            @endif
-                                            @if ($usuario->activo == 0)
-                                                ¿Seguro de querer dar acceso a {{$usuario->email}}?
-                                            @endif
-                                        </div>
-                                        <div class="modal-footer">
-                                            <form method="POST" action="{{route("revocar", $usuario->id)}}">
-                                                @csrf
-                                                @method('put')
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                <button type="submit" class="btn btn-primary">Guardar</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
+            <form method="POST" action="{{route("store")}}">
+                @csrf
+                
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input class="form-control" name="name" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label>Correo:</label>
+                    <input class="form-control" name="email" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <input class="form-control" name="email" type="text">
+                </div>
+   
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <input class="form-control" name="password" type="password">
+                </div>
+
+                <div class="form-group">
+                    <label>Confirmar contraseña:</label>
+                    <input type="password" class="form-control" name="confirm_password" value="" onclick="$('.password').slideUp();">
+                    @error('confirm_password')
+                      <div class="alert-danger password">{{ $message }}</div>
+                    @enderror
+                </div>
+        
+                <button type="submit" class="btn btn-success">
+                    Guardar usuario
+                </button>
+            
+            </form>
+            
         </table>
     </div>
 </div>
-
 
 @endsection

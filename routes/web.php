@@ -27,6 +27,8 @@ require __DIR__.'/auth.php';
 //Route::get("/admin", [TableroController::class, "tablero"])->name("index");
 });
 
+
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, "index"])->name("home");
@@ -34,6 +36,9 @@ Route::get('/lista', [HomeController::class, "lista"])->name("lista");
 Route::put("/lista/{id}",[HomeController::class, "revocar"])->name("revocar");
 Route::get('/create', [HomeController::class, "create"])->name("create");
 Route::post('/guardar', [HomeController::class, "guardar"])->name("guardar");
+Route::get("/editar/{id}", [HomeController::class, "editar"])->name("editar");
+Route::put("/editar/{id}/actualizar", [homeController::class, "actualizar"])->name("actualizar");
+
 
 //TAGS
 Route::get('/tags', [TagsController::class, "tags"])->name("tags");

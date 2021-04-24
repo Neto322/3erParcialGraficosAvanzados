@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 
 
 class HomeController extends Controller
@@ -72,9 +74,64 @@ class HomeController extends Controller
         return view('lista', $argumentos);
     }
 
+    public function editar($id)
+    {
+        $usuarios = User::find($id);
+        $argumentos = array();
+        $argumentos["usuarios"] = $usuarios;
+        return view("editar",$argumentos);
+    }
+
+    public function actualizar(Request $request, $id)
+    {
+        $usuarios = User::find($id);
+
+        $request->validate([
+            'name' => 'required',
+            'confirm_password' => 'same:password',
+        ]);
+
+        if($request->input("password") != $request->input("confirm_password"))
+        {
+            return redirect()->route("editar", $usuarios->id);
+        }
+
+        $usuarios->name = $request->input("name");
+
+        if($request->input("password") != null)
+        {
+            $usuarios->password = Hash::make($request->input("password"));
+        }
+
+        if($usuarios->save())
+        {
+            return redirect()->route("editar",$id)->with("exito", "Se actualizó correctamente el usuario");
+        }
+        return redirect()->route("editar",$id)->with("error", "No se ha podio actualizar el usuario");
+    }
+
     public function create()
     {   
-        return view('auth/register');
+        return view('create');
+    }
+
+    public function store(Request $request)
+    {
+        $nuevoUsuario = new User();
+
+        $nuevoUsuario->name = $request->input("name");
+        $nuevoUsuario->email = $request->input("email");
+        $nuevoUsuario->password = $request->input("password");
+        $nuevoUsuario->id_tipo_usuario = $request->input("id_tipo_usuario");
+        $nuevoUsuario->activo = $request->input("activo");
+
+        if($nuevoUsuario->save())
+        {
+            return redirect()->route("index")->with("exito", "Se agregó la noticia exitosamente");
+        }
+
+        return redirect()->route("index")->with("error", "no se pudo agregar noticia");
+
     }
     
 }
