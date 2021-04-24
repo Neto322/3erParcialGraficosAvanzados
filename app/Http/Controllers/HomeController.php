@@ -127,10 +127,10 @@ class HomeController extends Controller
 
         if($nuevoUsuario->save())
         {
-            return redirect()->route("index")->with("exito", "Se agregó la noticia exitosamente");
+            return redirect()->route("home")->with("exito", "Se agregó el usuario exitosamente");
         }
 
-        return redirect()->route("index")->with("error", "no se pudo agregar noticia");
+        return redirect()->route("home")->with("error", "no se pudo agregar el usuario");
 
     }
     

@@ -1,6 +1,6 @@
 @extends('index')
 @section("titulo")
-<h1>Editar</h1>
+<h1>Crear Usuario</h1>
 @endsection
 @section('contenido_principal')
 
@@ -101,43 +101,59 @@
     <div class="card-body">
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
-            <form method="POST" action="{{route("store")}}">
-                @csrf
-                
+        <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+           
+        <form method="POST" action="{{route("store")}}">
+        @csrf
                 <div class="form-group">
                     <label>Nombre:</label>
                     <input class="form-control" name="name" type="text">
                 </div>
-
                 <div class="form-group">
-                    <label>Correo:</label>
+                    <label>Email:</label>
                     <input class="form-control" name="email" type="text">
                 </div>
 
                 <div class="form-group">
-                    <label>Contraseña:</label>
-                    <input class="form-control" name="email" type="text">
+                    <label for="">Nueva contraseña</label>
+                    <input type="password" class="form-control" name="password" value="">
                 </div>
-   
                 <div class="form-group">
-                    <label>Contraseña:</label>
-                    <input class="form-control" name="password" type="password">
-                </div>
-
-                <div class="form-group">
-                    <label>Confirmar contraseña:</label>
+                    <label for="">Confirmar contraseña:</label>
                     <input type="password" class="form-control" name="confirm_password" value="" onclick="$('.password').slideUp();">
                     @error('confirm_password')
                       <div class="alert-danger password">{{ $message }}</div>
                     @enderror
                 </div>
-        
-                <button type="submit" class="btn btn-success">
-                    Guardar usuario
-                </button>
+                <div class="form-group row">
+                    <label for="">Id tipo usuario</label>
+                    <input id="id_tipo_usuario" type="text" class="form-control" name="id_tipo_usuario">
+                </div>
+                <div class="form-group row">
+                    <label for="">activo</label>
+                    <input id="activo" type="text" class="form-control" name="activo">
+                </div>
+                {{-- <div class="form-group row">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" name="activo" id="activo" value="checkedValue" checked>
+                        Activo
+                            </label>
+                        </div>
+                    </div> --}}
+                <div class="form-group">
+                <button class="btn btn-primary" type="submit">agregar nuevo usuario</button>
+                </div>
+
             
-            </form>
+           
+        </form>
             
+        </div>
+    </div>
+</div>
         </table>
     </div>
 </div>

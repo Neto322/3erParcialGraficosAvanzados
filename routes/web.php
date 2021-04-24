@@ -38,7 +38,7 @@ Route::get('/create', [HomeController::class, "create"])->name("create");
 Route::post('/guardar', [HomeController::class, "guardar"])->name("guardar");
 Route::get("/editar/{id}", [HomeController::class, "editar"])->name("editar");
 Route::put("/editar/{id}/actualizar", [homeController::class, "actualizar"])->name("actualizar");
-
+Route::post("/create",[HomeController::class, "store"])->name("store");
 
 //TAGS
 Route::get('/tags', [TagsController::class, "tags"])->name("tags");
