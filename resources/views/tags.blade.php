@@ -40,7 +40,7 @@
         @if(Session::has("error"))
             <p style="color: #a11919a1">{{ Session::get("error") }}</p>
         @endif
-        <a href="#">Crear nueva tag</button></a>
+        <a href="{{route("tags.create")}}">Crear nueva tag</button></a>
         <table class="table table-borderer">
             <thead>
                 <th>Tags</th>
@@ -51,7 +51,7 @@
                     <tr>
                         <td><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}<a data-toggle="modal" data-target="#confirmarEliminacion{{ $tag->id }}"><i class="far fa-trash-alt"></i></a></button></td>
                         <td>
-                            <a href="#"><button class="btn btn-xs btn-primary">Editar</button></a>
+                            <a href="{{route('tags.editar', $tag->id)}}"><button class="btn btn-xs btn-primary">Editar</button></a>
                             <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmarEliminacion{{ $tag->id }}">Eliminar</button>
                             <!-- Modal -->
                             <div class="modal fade" id="confirmarEliminacion{{ $tag->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -65,7 +65,7 @@
                                     <p>¿Estas seguro de eliminar el tag: "{{$tag->descripcion}}"? </p>
                                   </div>
                                   <div class="modal-footer">
-                                    <form method="POST" action="#">
+                                    <form method="POST" action="{{route("tags.destroy", $tag->id)}}">
                                       @csrf
                                       @method('delete')
                                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

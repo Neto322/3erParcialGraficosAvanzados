@@ -24,7 +24,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Crear noticia</h3>
+          <h3 class="card-title">Crear tags</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -34,13 +34,13 @@
           </div>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{ route("admin.noticias.store") }}">
+            <form method="POST" action="{{ route("tags.store") }}">
                 @csrf
                 <div class="form-group">
-                    <label>Titulo:</label>
-                     <input class="form-control" name="titulo" type="text">
+                    <label>Descripcion:</label>
+                     <input class="form-control" name="descripcion" type="text">
                  </div>
-                 <button type="submit" class="btn btn-primary">Agregar nueva noticia</button>
+                 <button type="submit" class="btn btn-primary">Agregar nueva tag</button>
              </form>
         </div>
         <!-- /.card-body -->

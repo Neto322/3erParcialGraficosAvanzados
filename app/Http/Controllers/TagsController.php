@@ -8,6 +8,11 @@ use App\Models\Tags;
 
 class TagsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function tags()
     {
         $descripcion = Tags::all();
@@ -26,15 +31,61 @@ class TagsController extends Controller
     }
     
     public function destroy($id) {
-        $descripcion = Tags::find($id);
+        $tag = Tags::find($id);
         if ($tag) {
             $tag->delete();
-            return redirect()->route("tags")->with("error", "No se pudo eliminar el tag");
+            return redirect()->route("tags")->with("exito", "se pudo eliminar el tag");
         }
-        return redirect()->route("tags")->with("exito", "se eliminó correctamente");
+        return redirect()->route("tags")->with("error", "no se eliminó correctamente");
     }
-    public function Tcreate()
+
+    public function create()
+    {   
+        return view('createtags');
+    }
+
+    public function store(Request $request)
+    {
+        $nuevoTag = new Tags();
+
+        $nuevoTag->descripcion = $request->input("descripcion");
+
+     
+
+        if($nuevoTag->save())
         {
-            $descripcion = new Tags();
+            return view("tags");        
         }
+
+
+    }
+    
+    public function editar($id)
+    {
+        $tags = Tags::find($id);
+        $argumentos = array();
+        $argumentos["tags"] = $tags;
+        return view("editartag",$argumentos);
+    }
+
+    public function actualizar(Request $request, $id)
+    {
+        $tags = Tags::find($id);
+
+        $request->validate([
+            'descripcion' => 'required',
+   
+        ]);
+
+       
+
+        $tags->descripcion = $request->input("descripcion");
+
+
+        if($tags->save())
+        {
+            return redirect()->route("tags",$id)->with("exito", "Se actualizó correctamente el tag");
+        }
+        return redirect()->route("tags",$id)->with("error", "No se ha podio actualizar el tag");
+    }
 }
