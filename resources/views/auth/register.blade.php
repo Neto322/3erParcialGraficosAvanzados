@@ -73,7 +73,7 @@
 								<!--end::Title-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<input id="name" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6 @error('name') is-invalid @enderror" type="text" placeholder="Name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
+									<input id="name" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6 @error('name') is-invalid @enderror" type="text" placeholder="Nombre" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus />
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -93,7 +93,7 @@
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<input id="password" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6 @error('password') is-invalid @enderror" type="password" placeholder="Password" name="password" required autocomplete="new-password" />
+									<input id="password" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6 @error('password') is-invalid @enderror" type="password" placeholder="Contraseña" name="password" required autocomplete="new-password" />
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -103,7 +103,7 @@
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div class="form-group">
-									<input id="password-confirm" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" placeholder="Confirm password" name="password_confirmation" required autocomplete="new-password" />
+									<input id="password-confirm" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="password" placeholder="Repetir contraseña" name="password_confirmation" required autocomplete="new-password" />
 								</div>
 								<!--end::Form group-->
                                 	<!--begin::Form group-->
