@@ -138,9 +138,7 @@
 							<span class="mr-1">2021©</span>
 							<a href="http://keenthemes.com/metronic" target="_blank" class="text-dark-75 text-hover-primary">Keenthemes</a>
 						</div>
-						<a href="#" class="text-primary font-weight-bolder font-size-lg">Terms</a>
-						<a href="#" class="text-primary ml-5 font-weight-bolder font-size-lg">Plans</a>
-						<a href="#" class="text-primary ml-5 font-weight-bolder font-size-lg">Contact Us</a>
+						
 					</div>
 					<!--end::Content footer-->
 				</div>
