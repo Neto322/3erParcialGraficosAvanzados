@@ -3,7 +3,7 @@
 	<!--begin::Head-->
 	<head><base href="../../../">
 		<meta charset="utf-8" />
-		<title>Login Page 1 | Keenthemes</title>
+		<title>Registrate | CFS</title>
 		<meta name="description" content="Login page example" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -34,22 +34,22 @@
 			<!--begin::Login-->
 			<div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white" id="kt_login">
 				<!--begin::Aside-->
-				<div class="login-aside d-flex flex-column flex-row-auto" style="background-color: #F2C98A;">
+				<div class="login-aside d-flex flex-column flex-row-auto" style="background-color: #F9F9F9;">
 					<!--begin::Aside Top-->
 					<div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
 						<a href="#" class="text-center mb-10">
-							<img src="assets/media/logos/logo-letter-1.png" class="max-h-70px" alt="" />
+							<img src="/assets/media/logos/centro100.png" class="max-h-80px" alt="" />
 						</a>
 						<!--end::Aside header-->
 						<!--begin::Aside title-->
-						<h3 class="font-weight-bolder text-center font-size-h4 font-size-h1-lg" style="color: #986923;">Discover Amazing Metronic
-						<br />with great build tools</h3>
+						<h3 class="font-weight-bolder text-center font-size-h4 font-size-h1-lg" style="color: #5C8397;">Bienvenido
+						
 						<!--end::Aside title-->
 					</div>
 					<!--end::Aside Top-->
 
 					<!--begin::Aside Bottom-->
-					<div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center" style="background-image: url(assets/media/svg/illustrations/login-visual-1.svg)"></div>
+					<div class="aside-img d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center" style="background-image: url(assets/media/svg/illustrations/login-visual-4.svg)"></div>
 					<!--end::Aside Bottom-->
 				</div>
 				<!--begin::Aside-->
@@ -67,8 +67,8 @@
                                 @csrf
 								<!--begin::Title-->
 								<div class="pb-13 pt-lg-0 pt-5">
-									<h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Sign Up</h3>
-									<p class="text-muted font-weight-bold font-size-h4">Enter your details to create your account</p>
+									<h3 class="font-weight-bolder text-dark font-size-h4 font-size-h1-lg">Registrate</h3>
+									<p class="text-muted font-weight-bold font-size-h4">Ingresa tu información para crear tu cuenta</p>
 								</div>
 								<!--end::Title-->
 								<!--begin::Form group-->
@@ -108,7 +108,7 @@
 								<!--end::Form group-->
                                 	<!--begin::Form group-->
 								<div class="form-group">
-									<input id="id_tipo_usuario" class="form-control" type="number" placeholder="id Tipo de Usuario" name="id_tipo_usuario" required autocomplete="1" />
+									<input id="id_tipo_usuario" class="form-control form-control-solid h-auto py-6 px-6 rounded-lg font-size-h6" type="number" placeholder="id Tipo de Usuario" name="id_tipo_usuario" required autocomplete="1" />
                                    
 								</div>
 								<!--end::Form group-->
@@ -118,7 +118,7 @@
 								<!--end::Form group-->
 								<!--begin::Form group-->
 								<div class="form-group d-flex flex-wrap pb-lg-0 pb-3">
-									<button type="submit" id="kt_login_signup_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Submit</button>
+									<button type="submit" id="kt_login_signup_submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-4">Comenzar</button>
 									
 								</div>
 								<!--end::Form group-->
