@@ -54,7 +54,11 @@ class TagsController extends Controller
 
         if($nuevoTag->save())
         {
-            return view("tags");        
+            $descripcion = Tags::all();
+            $argumentos = array();
+            $argumentos["tags"] = $descripcion;
+            return view("tags", $argumentos);
+
         }
 
 
