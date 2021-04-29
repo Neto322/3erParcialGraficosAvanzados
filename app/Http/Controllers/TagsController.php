@@ -13,8 +13,23 @@ class TagsController extends Controller
         $this->middleware('auth');
     }
 
+    public function widgets() {
+        $descripcion = Tags::all();
+        $argumentos = array();
+        $argumentos["tags.widgets"] = $descripcion;
+        return view('tags.widgets', $argumentos);
+    }
+
     public function tags()
     {
+        //if($request) {
+          //  $query = trim($request->get('search'));
+            //$tags = Tags::where('descripcion', 'LIKE', '%' . $query . '%')
+              //  ->orderBy('id', 'asc')
+                //->get();
+            //return view("tags", $argumentos, ['search' => $query]);
+        //}
+
         $descripcion = Tags::all();
         $argumentos = array();
         $argumentos["tags"] = $descripcion;

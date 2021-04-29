@@ -224,6 +224,18 @@ License: You must have a valid license purchased only from themeforest(the above
 													<i class="menu-arrow"></i> --}}
 												</a>
 											</li>
+											<li class="menu-item menu-item-submenu" >
+												<a href="{{route("tags.widgets")}}" class="menu-link">
+													<i class="menu-bullet menu-bullet-dot">
+														<span></span>
+													</i>
+													<span class="menu-text">Widgets</span>
+													{{-- <span class="menu-label">
+														<span class="label label-rounded label-primary">6</span>
+													</span>
+													<i class="menu-arrow"></i> --}}
+												</a>
+											</li>
 										</ul>
 									</div>
 								</li>
@@ -276,6 +288,17 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</div>
 								<!--end::User-->
+								<form class="form-inline ml-3">
+									<div class="input-group input-group-sm">
+										<input class="form-control form-control-navbar" type="search" name="search" placeholder="Buscar" aria-label="Search">
+										<div class="input-group-append">
+											<button class="btn btn-navbar" type="submit">
+												<i class="fas fa-search"></i>
+											</button>
+										</div>
+									</div>
+								</form>
+
 							</div>
 							<!--end::Topbar-->
 						</div>
