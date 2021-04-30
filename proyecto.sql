@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-04-2021 a las 10:08:17
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 7.3.27
+-- Tiempo de generación: 30-04-2021 a las 10:51:34
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 7.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -62,8 +62,22 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (6, '2021_04_18_041856_add_colunms', 4),
 (7, '2021_04_18_184152_remove_colunm', 5),
 (8, '2021_04_18_211805_add_boolean', 6),
-(9, '2021_04_19_000148_add_columns', 7),
-(10, '2021_04_24_063116_create_tags_table', 8);
+(9, '2021_04_19_000148_add_columns', 7);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `oscs`
+--
+
+CREATE TABLE `oscs` (
+  `id` int(11) NOT NULL,
+  `id_organizacion` int(11) NOT NULL,
+  `nombre` varchar(128) NOT NULL,
+  `oficina` varchar(64) DEFAULT NULL,
+  `celualr` varchar(64) DEFAULT NULL,
+  `correo` varchar(64) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -84,11 +98,9 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `tags` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `id` int(11) NOT NULL,
+  `descripcion` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -133,22 +145,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `id_tipo_usuario`, `activo`) VALUES
-(1, 'David', 'arturo@correo.com', NULL, '$2y$10$SqavYKYDHQcIbzx1JLLVneOPkPvRSf3tKGcvpAUulM6bLkiebVg3q', NULL, '2021-04-17 11:54:53', '2021-04-24 11:54:37', 2, 0),
-(2, 'sadas', 'sadsa@correo.com', NULL, '$2y$10$gc8tQ8tCz1rLtcElIM9REubL1koKqGw1.cV6dZwulRgcpTQXXSeL.', NULL, '2021-04-18 05:17:46', '2021-04-24 05:50:45', 2, 0),
-(3, 'as', 'as@correco.com', NULL, '$2y$10$MdvG9FglK5oDwPEHwHpdmemsbt33rw08uqiL.OxrDRj7p3uDOn5Q.', NULL, '2021-04-18 08:04:51', '2021-04-18 08:04:51', 2, 1),
-(5, 'Ernesto admin', 'asr@go.com', NULL, '$2y$10$EkyFS6qeLJJzKkeAowl3MepX1UFacyl7uz7H/dhWkwOCRgezo6FZu', NULL, '2021-04-18 11:42:46', '2021-04-18 11:42:46', 2, 1),
-(28, 'Ernerdst sdsd', 'manuelsdsd123317@hotmail.com', NULL, '$2y$10$7JU4C0fDdwykuZ07dM0RI.Pbc5piIaO1fO3pE3TNVyP0L4QHwLczW', NULL, '2021-04-19 13:55:32', '2021-04-19 13:55:32', 2, 1),
-(29, 'wdwdwdwdwdw', 'sssssdsdadsa@correo.com', NULL, '$2y$10$emvim7OxsMKc1.pt7KUjmO4Yfh1stQvbbA8hZo15bqx0XP6Enh4yi', NULL, '2021-04-20 07:30:25', '2021-04-20 07:30:25', 2, 1),
-(30, 'dddddddddd', 'manfefefefefuel123317@hotmail.com', NULL, '$2y$10$v0vXAkvX75sbzcwWHgg4TOt8v4.pkykN7BjpaTiLDVfJQ6tOsQyhK', NULL, '2021-04-20 12:03:22', '2021-04-20 12:03:22', 2, 1),
-(31, 'Hola soi ernesto', 'holasoierensto@soiernesto.com', NULL, '$2y$10$amtsmCsS8mifyhSF3cYDoOqmTtDg/VVa1FmDtbeKQNC6lt5yO4Rke', NULL, '2021-04-21 00:14:43', '2021-04-21 00:14:43', 2, 1),
-(32, 'sadassssss', 'sadssdsa@correo.com', NULL, '$2y$10$uhkNs1FbEs41mR5sjUlYteLauoM06xS6jRt/ojtqaFPKg1KM6zxFK', NULL, '2021-04-21 00:32:30', '2021-04-21 00:32:30', 2, 1),
-(33, 'proandio equisdeeeeeeeee', 'adfdfdaaa@correco.com', NULL, '$2y$10$nqCPKdlZ0OAjxcgKMjqq/uuB8F6uooqFl4Npp89iIFV6h/ixjLxCW', NULL, '2021-04-21 00:33:09', '2021-04-21 00:33:09', 2, 1),
-(34, 'Aaaaaaaaaaaa', 'aaaa@correco.com', NULL, '$2y$10$Q1tVtit.A1CMLJppMI3BUe9qv95cBYr2L4u9fJq.jM1f7gPhQ2cBq', NULL, '2021-04-23 06:32:26', '2021-04-23 06:32:26', 2, 1),
-(35, 'HolaSoiAdmin', 'dfdfd@hotmail.com', NULL, '$2y$10$GSGp1A9bpE3VZjiH3mc.VOi4cGFFATYY.xNIaGwixwKTHUsn4zUvW', NULL, '2021-04-23 07:29:32', '2021-04-23 07:29:32', 2, 1),
-(36, 'uSUARIO CREADO', 'usuario@creado.com', NULL, '$2y$10$YFijRUXZwf.Ks73GVP4t.uBmj0MGEzCKQx4dUT4kzCQlE4Ufbtj6K', NULL, '2021-04-24 06:44:56', '2021-04-24 06:44:56', 2, 1),
-(37, 'Ernerdst efsefssssssssssssssss', 'manuel123317@hotmail.com', NULL, 'Ernerdst efsefssssss', NULL, '2021-04-24 07:31:08', '2021-04-24 07:31:08', 1, 1),
-(38, 'prueba', 'a', NULL, 'asd', NULL, '2021-04-24 07:31:21', '2021-04-24 07:31:21', 1, 1),
-(41, 'Ernerdst efsefssssssssssssssssss', 'manuel1sdsdsd23317@hotmail.com', NULL, 'Ernerdst efsefssssssssssssssssss', NULL, '2021-04-24 07:32:34', '2021-04-24 07:32:34', 1, 1);
+(1, 'David', 'arturo@correo.com', NULL, '$2y$10$SqavYKYDHQcIbzx1JLLVneOPkPvRSf3tKGcvpAUulM6bLkiebVg3q', NULL, '2021-04-17 11:54:53', '2021-04-30 13:34:17', 2, 1),
+(2, 'sada', 'sadsa@correo.com', NULL, '$2y$10$UekQopVeg4Hze3D6aAuHDu1IPdKuPMtrxdW9E90l8MqdTi7UWVD6O', NULL, '2021-04-18 05:17:46', '2021-04-23 16:37:26', 2, 1),
+(3, 'as', 'as@correco.com', NULL, '$2y$10$MdvG9FglK5oDwPEHwHpdmemsbt33rw08uqiL.OxrDRj7p3uDOn5Q.', NULL, '2021-04-18 08:04:51', '2021-04-23 16:37:29', 2, 1),
+(5, 'Ernesto admin', 'asr@go.com', NULL, '$2y$10$EkyFS6qeLJJzKkeAowl3MepX1UFacyl7uz7H/dhWkwOCRgezo6FZu', NULL, '2021-04-18 11:42:46', '2021-04-23 16:37:33', 2, 1),
+(28, 'José', 'jose@correo.com', NULL, '123456789', NULL, '2021-04-30 13:39:51', '2021-04-30 13:39:51', 1, 1),
+(29, 'Maria', 'maria@correo.com', NULL, '123456789', NULL, '2021-04-30 13:41:45', '2021-04-30 13:41:45', 1, 1),
+(30, 'prueba', 'prueba@correo.com', NULL, '123456789', NULL, '2021-04-30 13:59:36', '2021-04-30 13:59:36', 1, 1),
+(31, 'a', 'a', NULL, '123456789', NULL, '2021-04-30 14:03:11', '2021-04-30 14:03:11', 1, 1),
+(32, 'Pepe', 'pepe@correo.com', NULL, '123456789', NULL, '2021-04-30 14:05:27', '2021-04-30 14:05:27', 1, 1),
+(33, 'quepe', 'quepe@correo.com', NULL, '123456789', NULL, '2021-04-30 14:14:40', '2021-04-30 14:14:40', 1, 1),
+(34, 'wue', 'wue@correo.com', NULL, '123456789', NULL, '2021-04-30 14:16:18', '2021-04-30 14:16:18', 1, 1),
+(35, 'Emiliano', 'emiliano@correo.com', NULL, '123456789', NULL, '2021-04-30 14:26:40', '2021-04-30 14:26:40', 1, 1),
+(36, 'romina', 'romina@correo.com', NULL, '123456789', NULL, '2021-04-30 14:28:07', '2021-04-30 14:28:07', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -166,6 +175,13 @@ ALTER TABLE `failed_jobs`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `oscs`
+--
+ALTER TABLE `oscs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK_organizacion` (`id_organizacion`) USING BTREE;
 
 --
 -- Indices de la tabla `password_resets`
@@ -207,13 +223,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `oscs`
+--
+ALTER TABLE `oscs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_usuario`
@@ -225,11 +247,17 @@ ALTER TABLE `tipos_usuario`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `oscs`
+--
+ALTER TABLE `oscs`
+  ADD CONSTRAINT `FK_organizaciones` FOREIGN KEY (`id_organizacion`) REFERENCES `oscs` (`id`);
 
 --
 -- Filtros para la tabla `users`

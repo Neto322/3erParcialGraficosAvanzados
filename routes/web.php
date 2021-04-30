@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\TableroController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TagsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\OscController;
 
 
 /*
@@ -33,13 +34,17 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 Route::get('/home', [HomeController::class, "index"])->name("home");
-Route::get('/lista', [UsersController::class, "lista"])->name("lista");
-Route::put("/lista/{id}",[UsersController::class, "revocar"])->name("revocar");
-Route::get('/create', [UsersController::class, "create"])->name("create");
-Route::post('/guardar', [UsersController::class, "guardar"])->name("guardar");
-Route::get("/editar/{id}", [UsersController::class, "editar"])->name("editar");
-Route::put("/editar/{id}/actualizar", [UsersController::class, "actualizar"])->name("actualizar");
-Route::post("/create",[UsersController::class, "store"])->name("store");
+Route::get('/lista/editores', [UsersController::class, "lista"])->name("lista");
+Route::put("/lista/editores/{id}",[UsersController::class, "revocar"])->name("revocar");
+Route::get('/create/editores', [UsersController::class, "create"])->name("create");
+Route::post('/guardar/editores', [UsersController::class, "guardar"])->name("guardar");
+Route::get("/editar/editores/{id}", [UsersController::class, "editar"])->name("editar");
+Route::put("/editar/editores/{id}/actualizar", [UsersController::class, "actualizar"])->name("actualizar");
+Route::post("/create/editores",[UsersController::class, "store"])->name("store");
+
+//OSCs
+Route::get('/lista/OSC', [OscController::class, "listaOSC"])->name("listaOSC");
+Route::get('/crear/OSC', [OscController::class, "crearOSC"])->name("crearOSC");
 
 //TAGS
 
