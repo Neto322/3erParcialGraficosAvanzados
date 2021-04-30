@@ -27,12 +27,14 @@
                   <h4>Lo mas buscado del mes</h4>
                   <ol class="list-group list-group-numbered">
                   @foreach($tags as $tag)
+                    
                     <li class="list-group-item"><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}</button></li>
                   @endforeach
                   </ol>
                 </div>
                 <div class="col-4"></br>
                   <h4>Lo mas buscado del año</h4>
+                  
                   <ol class="list-group list-group-numbered">
                   @foreach($tags as $tag)
                     <li class="list-group-item"><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}</button></li>

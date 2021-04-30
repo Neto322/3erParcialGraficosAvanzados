@@ -17,6 +17,10 @@ class TagsController extends Controller
         $descripcion = Tags::all();
         $argumentos = array();
         $argumentos["tags"] = $descripcion;
+
+        //$tags = Tags::whereMonth('registered_at', '>=', '04')->get();
+       // $tags = Tags::whereYear('registered_at', '2021')->get();
+
         return view('widgets', $argumentos);
     }
 
@@ -37,6 +41,10 @@ class TagsController extends Controller
         
         //return view("tags", $argumentos);
 
+    }
+
+    public function busquedastags() {
+        
     }
 
     public function confirmdelete($id) {

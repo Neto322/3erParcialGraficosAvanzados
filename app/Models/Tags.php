@@ -11,14 +11,4 @@ class Tags extends Model
 
     protected $table = "tags";
 
-        //Query Scope
-    public function scopeTag($query, $descripcion)
-    {
-        if($descripcion)
-        {
-            return $query->where('descripcion', 'LIKE', "%$descripcion%");
-        }
-        
-    }
-
 }

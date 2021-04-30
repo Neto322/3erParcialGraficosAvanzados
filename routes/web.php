@@ -50,6 +50,7 @@ Route::put("tags/edit/{id}/actualizar", [TagsController::class, "actualizar"])->
 Route::get("tags/edit/{id}/confirmdelete",[TagsController::class, "confirmdelete"])->name("tags.confirmdelete");
 Route::delete('/tags/{id}', [TagsController::class, "destroy"])->name("tags.destroy");
 Route::get('/widgets', [TagsController::class, "widgets"])->name("tags.widgets");
+Route::get('/busquedastags', [TagsController::class, "busquedastags"])->name("tags.busquedastags");
 
 Route::post("tags/create",[TagsController::class, "store"])->name("tags.store");
 
