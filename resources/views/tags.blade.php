@@ -24,7 +24,23 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Lista de Tags</h3>
+          <div class="row">
+            <div class="col-3">
+              <h3 class="card-title">Lista de Tags</h3>
+            </div>
+            <div class="col-3">
+              <form class="form-inline ml-3">
+              <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" name="search" placeholder="Buscar" aria-label="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-navbar" type="submit">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+                </div>
+              </form>
+            </div>
+          </div>    
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">

@@ -23,16 +23,25 @@
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-4">
-                <ol class="list-group list-group-numbered">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Cras justo odio</li>
-                </ol>
+                <div class="col-4"></br>
+                  <h4>Lo mas buscado del mes</h4>
+                  <ol class="list-group list-group-numbered">
+                  @foreach($tags as $tag)
+                    <li class="list-group-item"><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}</button></li>
+                  @endforeach
+                  </ol>
+                </div>
+                <div class="col-4"></br>
+                  <h4>Lo mas buscado del año</h4>
+                  <ol class="list-group list-group-numbered">
+                  @foreach($tags as $tag)
+                    <li class="list-group-item"><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}</button></li>
+                  @endforeach
+                  </ol>
                 </div>
             </div>
         </div>    
-          
+     
         <!-- /.card-body -->
         <div class="card-footer">
           Pie de la tabla de widgets

@@ -16,26 +16,29 @@ class TagsController extends Controller
     public function widgets() {
         $descripcion = Tags::all();
         $argumentos = array();
-        $argumentos["tags.widgets"] = $descripcion;
-        return view('tags.widgets', $argumentos);
-    }
-
-    public function tags()
-    {
-        //if($request) {
-          //  $query = trim($request->get('search'));
-            //$tags = Tags::where('descripcion', 'LIKE', '%' . $query . '%')
-              //  ->orderBy('id', 'asc')
-                //->get();
-            //return view("tags", $argumentos, ['search' => $query]);
-        //}
-
-        $descripcion = Tags::all();
-        $argumentos = array();
         $argumentos["tags"] = $descripcion;
-        return view("tags", $argumentos);
+        return view('widgets', $argumentos);
+    }
+
+    public function tags(Request $request)
+    {
+        //$descripcion = Tags::all();
+        //$argumentos = array();
+        //$argumentos["tags"] = $descripcion;
+        
+        if($request) {
+           $query = trim($request->get('search'));
+            $tags = Tags::where('descripcion', 'LIKE', '%' . $query . '%')
+                ->orderBy('id', 'asc')
+                ->get();
+            return view("tags", ['tags' => $tags, 'search' => $query]);
+        }
+
+        
+        //return view("tags", $argumentos);
 
     }
+
     public function confirmdelete($id) {
         $descripcion = Tags::find($id);
 
