@@ -37,7 +37,9 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="/assets/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
 		<link href="/assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
 		<!--end::Layout Themes-->
-		<link rel="shortcut icon" href="/assets/favicon.png" />
+		<!--<link rel="shortcut icon" href="/assets/favicon.png" /> -->
+		
+		<link rel="shortcut icon" href="https://lasallesaltillo.mx/wp-content/uploads/2019/12/icon_lasalle_512x512.png" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	</head>
 	<!--end::Head-->
@@ -332,7 +334,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="topbar-item">
 									<div class="btn btn-icon btn-icon-mobile w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
 										<span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-										<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">Sean</span>
+										<span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ $usuario->name}}</span>
 										<span class="symbol symbol-lg-35 symbol-25 symbol-light-success">
 											<span class="symbol-label font-size-h5 font-weight-bold">S</span>
 										</span>
