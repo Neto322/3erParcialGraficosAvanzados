@@ -45,6 +45,7 @@ Route::post("/create/editores",[UsersController::class, "store"])->name("store")
 //OSCs
 Route::get('/lista/OSC', [OscController::class, "listaOSC"])->name("listaOSC");
 Route::get('/crear/OSC', [OscController::class, "crearOSC"])->name("crearOSC");
+Route::post('/crear/OSC', [OscController::class, "guardarOSC"])->name("guardarOSC");
 
 //TAGS
 

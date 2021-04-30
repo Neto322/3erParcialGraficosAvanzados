@@ -101,59 +101,53 @@
     <div class="card-body">
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
-        <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-           
-        <form method="POST" action="{{route("store")}}">
-        @csrf
-                <div class="form-group">
-                    <label>Nombre:</label>
-                    <input class="form-control" name="name" type="text">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <form method="POST" action="{{route("store")}}">
+                            @csrf
+                            <div class="form-group">
+                                <label>Nombre:</label>
+                                <input class="form-control" name="name" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input class="form-control" name="email" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Nueva contraseña</label>
+                                <input type="password" class="form-control" name="password" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Confirmar contraseña:</label>
+                                <input type="password" class="form-control" name="confirm_password" value="" onclick="$('.password').slideUp();">
+                                @error('confirm_password')
+                                <div class="alert-danger password">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group row">
+                                <label for="">Id tipo usuario</label>
+                                <input id="id_tipo_usuario" type="text" class="form-control" name="id_tipo_usuario">
+                            </div>
+                            <div class="form-group row">
+                                <label for="">activo</label>
+                                <input id="activo" type="text" class="form-control" name="activo">
+                            </div>
+                            {{-- <div class="form-group row">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                    <input type="checkbox" class="form-check-input" name="activo" id="activo" value="checkedValue" checked>
+                                    Activo
+                                        </label>
+                                    </div>
+                                </div> --}}
+                            <div class="form-group">
+                                <button class="btn btn-primary" type="submit">Agregar nuevo usuario</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Email:</label>
-                    <input class="form-control" name="email" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label for="">Nueva contraseña</label>
-                    <input type="password" class="form-control" name="password" value="">
-                </div>
-                <div class="form-group">
-                    <label for="">Confirmar contraseña:</label>
-                    <input type="password" class="form-control" name="confirm_password" value="" onclick="$('.password').slideUp();">
-                    @error('confirm_password')
-                      <div class="alert-danger password">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group row">
-                    <label for="">Id tipo usuario</label>
-                    <input id="id_tipo_usuario" type="text" class="form-control" name="id_tipo_usuario">
-                </div>
-                <div class="form-group row">
-                    <label for="">activo</label>
-                    <input id="activo" type="text" class="form-control" name="activo">
-                </div>
-                {{-- <div class="form-group row">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" name="activo" id="activo" value="checkedValue" checked>
-                        Activo
-                            </label>
-                        </div>
-                    </div> --}}
-                <div class="form-group">
-                <button class="btn btn-primary" type="submit">agregar nuevo usuario</button>
-                </div>
-
-            
-           
-        </form>
-            
-        </div>
-    </div>
-</div>
+            </div>
         </table>
     </div>
 </div>
