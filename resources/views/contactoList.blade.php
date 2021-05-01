@@ -1,15 +1,18 @@
 @extends('index')
 @section("titulo")
-<h1>Crear OSC</h1>
+<h1>lista de Contactos</h1>
 @endsection
 @section('contenido_principal')
 
 <div class="card card-custom gutter-b">
     <div class="card-header flex-wrap py-3">
         <div class="card-title">
-            {{-- <h3 class="card-label">Crear nuevo editor</h3> --}}
+            {{-- <h3 class="card-label">Editores registrados</h3> --}}
                 @if(Session::has('exito'))
                     <h5><p style="color: #15b915">{{Session::get('exito')}}</p></h5>
+                @endif
+                @if(Session::has('exito2'))
+                    <h5><p style="color: #15b915">{{Session::get('exito2')}}</p></h5>
                 @endif
                 @if(Session::has('error'))
                     <h5><p style="color: #bb1717">{{Session::get('error')}}</p></h5>
@@ -101,38 +104,68 @@
     <div class="card-body">
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <form method="POST" action="{{route("guardarOSC")}}">
-                            @csrf
-                            <div class="form-group">
-                                <label>id organizacion:</label>
-                                <input class="form-control" name="id_organizacion" type="text">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>id_organizacion</th>
+                    <th>nombre</th>
+                    <th>oficina</th>
+                    <th>celular</th>
+                    <th>correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($contactos as $contacto)
+                    <tr>
+                        <td>{{ $contacto->id}}</td>
+                        <td>{{ $contacto->id_organizacion}}</td>
+                        <td>{{ $contacto->nombre}}</td>
+                        <td>{{ $contacto->oficina}}</td>
+                        <td>{{ $contacto->celular}}</td>
+                        <td>{{ $contacto->correo}}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                Dar de baja
+                            </button>
+                            <a href="{{route('editar', $contacto->id)}}">
+                                <button type="button" class="btn btn-primary">
+                                    Editar
+                                </button>
+                            </a>
+                            <a href="#">
+                                <button type="button" class="btn btn-primary">
+                                    Detalles
+                                </button>
+                            </a>
+                            {{-- modal --}}
+                            <div class="modal fade" id="exampleModal{{$contacto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Cuidado!</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ¿Seguro de querer dar de baja a {{$contacto->nombre}}?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="POST" action="{{route("baja", $contacto->id)}}">
+                                                @csrf
+                                                @method('put')
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Nombre:</label>
-                                <input class="form-control" name="nombre" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label>Oficina:</label>
-                                <input class="form-control" name="oficina" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label>Celular:</label>
-                                <input class="form-control" name="celular" type="text">
-                            </div>
-                            <div class="form-group">
-                                <label>Correo:</label>
-                                <input class="form-control" name="correo" type="text">
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Agregar nuevo OSC</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
     </div>
 </div>

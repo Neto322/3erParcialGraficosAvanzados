@@ -215,7 +215,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</span>
 											</li>
 											<li class="menu-item menu-item-submenu" >
-												<a href="{{route("listaOSC")}}" class="menu-link">
+												<a href="{{route("listarContacto")}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
@@ -227,7 +227,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												</a>
 											</li>
 											<li class="menu-item menu-item-submenu" >
-												<a href="{{route("crearOSC")}}" class="menu-link">
+												<a href="{{route("crearContacto")}}" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
