@@ -1,18 +1,15 @@
 @extends('index')
 @section("titulo")
-<h1>lista de Contactos</h1>
+<h1>Crear Contacto</h1>
 @endsection
 @section('contenido_principal')
 
 <div class="card card-custom gutter-b">
     <div class="card-header flex-wrap py-3">
         <div class="card-title">
-            {{-- <h3 class="card-label">Editores registrados</h3> --}}
+            {{-- <h3 class="card-label">Crear nuevo editor</h3> --}}
                 @if(Session::has('exito'))
                     <h5><p style="color: #15b915">{{Session::get('exito')}}</p></h5>
-                @endif
-                @if(Session::has('exito2'))
-                    <h5><p style="color: #15b915">{{Session::get('exito2')}}</p></h5>
                 @endif
                 @if(Session::has('error'))
                     <h5><p style="color: #bb1717">{{Session::get('error')}}</p></h5>
@@ -104,68 +101,53 @@
     <div class="card-body">
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>id_organizacion</th>
-                    <th>nombre</th>
-                    <th>oficina</th>
-                    <th>celular</th>
-                    <th>correo</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($contactos as $contacto)
-                    <tr>
-                        <td>{{ $contacto->id}}</td>
-                        <td>{{ $contacto->id_organizacion}}</td>
-                        <td>{{ $contacto->nombre}}</td>
-                        <td>{{ $contacto->oficina}}</td>
-                        <td>{{ $contacto->celular}}</td>
-                        <td>{{ $contacto->correo}}</td>
-                        <td>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
-                                Dar de baja
-                            </button>
-                            <a href="{{route('editarContacto', $contacto->id)}}">
-                                <button type="button" class="btn btn-primary">
-                                    Editar
-                                </button>
-                            </a>
-                            <a href="#">
-                                <button type="button" class="btn btn-primary">
-                                    Detalles
-                                </button>
-                            </a>
-                            {{-- modal --}}
-                            <div class="modal fade" id="exampleModal{{$contacto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Cuidado!</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ¿Seguro de querer dar de baja a {{$contacto->nombre}}?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <form method="POST" action="{{route("baja", $contacto->id)}}">
-                                                @csrf
-                                                @method('put')
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                <button type="submit" class="btn btn-primary">Guardar</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                         <!-- Default box -->
+                        <div class="card">
+                            <div class="card-header">
+                            <h3 class="card-title">Editar Organizacion</h3>
+
+                            
                             </div>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
+                            <div class="card-body">
+                            @if(Session::has("exito"))
+                                <p style="color: #87adff">{{Session::get("exito")}}</p>
+                            @endif
+                            @if(Session::has("error"))
+                            <p style="color: #ff7070">{{Session::get("error")}}</p>
+                            @endif
+                            <form method="POST" action="{{ route("update", $contacto->id) }}">
+                            @csrf
+                            @method('POST')
+                            <div class="form-group">
+                            <label>Título:</label>
+                            <input  class =" form-control" name="titulo" type="text" value="{{ $noticia->titulo }}" required >
+                            </div>
+                            <div class="form-group">
+                            <label>Fecha:</label>
+                            <input class =" form-control" name="fecha" value="{{ $noticia->fecha }}"type="date">
+                            </div>
+                            <div class="form-group">
+                            <label>Autor:</label>
+                            <input class =" form-control" name="autor" value="{{ $noticia->autor }}" type="text">
+                            </div>
+                            <div class="form-group">
+                            <label>Cuerpo:</label>
+                            <textarea class =" form-control"  rows="5" name="cuerpo" >{{$noticia->cuerpo}}</textarea>
+                            </div>
+                            <div class="form-group">
+                            <label>Foto:</label>
+                            <input class =" form-control"  name="foto" value="{{ $noticia->foto }}" type="text">
+                            </div>
+                            <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Actualizar noticia</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </table>
     </div>
 </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contacto;
+use App\Models\organization;
 use Illuminate\Http\Request;
 
 class ContactoController extends Controller
@@ -15,14 +15,25 @@ class ContactoController extends Controller
     public function listarContacto()
     {
         $contactos = Contacto::all();
-        $argumentos=array();
+        $argumentos = array();
         $argumentos["contactos"] = $contactos;
         return view("contactoList",$argumentos);
     }
 
     public function baja()
     {
-        
+
+    }
+
+    public function editarContacto($id)
+    {
+        $cotacto = Contacto::find($id);
+
+        $argumentos = array();
+        $argumentos["contactos"]= $cotacto;
+
+        return view("contactoedit", $argumentos);
+
     }
     
     public function crearContacto()
@@ -35,11 +46,17 @@ class ContactoController extends Controller
         $nuevoContacto = new Contacto();
         
         $nuevoContacto->nombre = $request->input("nombre");
-        $nuevoContacto->oficina = $request->input("oficina");
-        $nuevoContacto->celular = $request->input("celular");
-        $nuevoContacto->correo = $request->input("correo");
-
-        
+        $nuevoContacto->objetoSocial = $request->input("objetoSocial");
+        $nuevoContacto->presidente = $request->input("presidente");
+        $nuevoContacto->representanteLegal = $request->input("representanteLegal");
+        $nuevoContacto->director = $request->input("director");
+        $nuevoContacto->domicilio = $request->input("domicilio");
+        $nuevoContacto->telefono = $request->input("telefono");
+        $nuevoContacto->email = $request->input("email");
+        $nuevoContacto->sitioWeb = $request->input("sitioWeb");
+        $nuevoContacto->facebook = $request->input("facebook");
+        $nuevoContacto->instagram = $request->input("instagram");
+        $nuevoContacto->twitter = $request->input("twitter");
 
         if($nuevoContacto->save())
         {

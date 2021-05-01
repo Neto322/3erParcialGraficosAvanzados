@@ -111,16 +111,48 @@
                                 <input class="form-control" name="nombre" type="text">
                             </div>
                             <div class="form-group">
-                                <label>Oficina:</label>
-                                <input class="form-control" name="oficina" type="text">
+                                <label>Objeto social:</label>
+                                <input class="form-control" name="objetoSocial" type="text">
                             </div>
                             <div class="form-group">
-                                <label>Celular:</label>
-                                <input class="form-control" name="celular" type="text">
+                                <label>Presidente:</label>
+                                <input class="form-control" name="presidente" type="text">
                             </div>
                             <div class="form-group">
-                                <label>Correo:</label>
-                                <input class="form-control" name="correo" type="text">
+                                <label>Representante legal:</label>
+                                <input class="form-control" name="representanteLegal" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Director:</label>
+                                <input class="form-control" name="director" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Domicilio:</label>
+                                <input class="form-control" name="domicilio" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Telefono:</label>
+                                <input class="form-control" name="telefono" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input class="form-control" name="email" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Sitio web:</label>
+                                <input class="form-control" name="sitioWeb" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Facebook:</label>
+                                <input class="form-control" name="facebook" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Instagram:</label>
+                                <input class="form-control" name="instagram" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label>Twitter:</label>
+                                <input class="form-control" name="twitter" type="text">
                             </div>
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Agregar nuevo Contacto</button>

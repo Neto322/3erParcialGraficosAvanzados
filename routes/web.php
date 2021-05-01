@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TagsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\OrganizationController;
 
 
 /*
@@ -47,7 +48,11 @@ Route::post("/create",[UsersController::class, "store"])->name("store");
 Route::get('/contacto/crear', [ContactoController::class, "crearContacto"])->name("crearContacto");
 Route::put('/contacto/crear', [ContactoController::class, "guardarContacto"])->name("guardarContacto");
 Route::get('/contacto/listar', [ContactoController::class, "listarContacto"])->name("listarContacto");
+Route::get('/contacto/editar/{id}', [ContactoController::class, "editarContacto"])->name("editarContacto");
 Route::get('/contacto/listar/baja', [ContactoController::class, "baja"])->name("baja");
+
+
+
 
 //TAGS
 
