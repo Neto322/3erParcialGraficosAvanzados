@@ -149,22 +149,22 @@
                         </td>
                         <td>
                             @if ($contacto->activo > 0)
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                            <button type="button" class="btn btn-danger pt-1 pb-1 mt-2 mr-1 ml-1" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
                                 Dar de baja
                             </button>
                             @endif
                             @if ($contacto->activo == 0)
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                <button type="button" class="btn btn-success pt-1 pb-1 mt-2 mr-1 ml-1" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
                                     Dar de alta
                                 </button>
                             @endif
                             <a href="{{route('editarContacto', $contacto->id)}}">
-                                <button type="button" class="btn btn-primary">
+                                <button type="button" class="btn btn-primary pt-1 pb-1 mt-2 mr-1 ml-1">
                                     Editar
                                 </button>
                             </a>
                             <a href="{{route('consultarContacto', $contacto->id)}}">
-                                <button type="button" class="btn btn-primary">
+                                <button type="button" class="btn btn-info pt-1 pb-1 mt-2 mr-1 ml-1">
                                     Detalles
                                 </button>
                             </a>
