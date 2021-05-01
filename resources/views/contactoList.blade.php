@@ -148,37 +148,26 @@
                             @endif
                         </td>
                         <td>
-                                <div class="row">
-                                    <div class="col-4">
-                                        @if ($contacto->activo > 0)
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
-                                            Dar de baja
-                                        </button>
-                                        @endif
-                                        @if ($contacto->activo == 0)
-                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
-                                                Dar de alta
-                                            </button>
-                                        @endif
-                                    </div>
-                                    <div class="col-2">
-                                        <a href="{{route('editarContacto', $contacto->id)}}">
-                                            <button type="button" class="btn btn-primary">
-                                                Editar
-                                            </button>
-                                        </a>
-                                    </div>
-                                    <div class="col-2">
-                                        <a href="{{route('editarContacto', $contacto->id)}}">
-                                            <button type="button" class="btn btn-primary">
-                                                Detalles
-                                            </button>
-                                        </a>
-                                    </div>
-                                </div>
-                            
-                            
-                            
+                            @if ($contacto->activo > 0)
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                Dar de baja
+                            </button>
+                            @endif
+                            @if ($contacto->activo == 0)
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                    Dar de alta
+                                </button>
+                            @endif
+                            <a href="{{route('editarContacto', $contacto->id)}}">
+                                <button type="button" class="btn btn-primary">
+                                    Editar
+                                </button>
+                            </a>
+                            <a href="{{route('editarContacto', $contacto->id)}}">
+                                <button type="button" class="btn btn-primary">
+                                    Detalles
+                                </button>
+                            </a>
                             {{-- modal --}}
                             <div class="modal fade" id="exampleModal{{$contacto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">

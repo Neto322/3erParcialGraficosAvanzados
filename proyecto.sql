@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-05-2021 a las 05:14:08
+-- Tiempo de generación: 01-05-2021 a las 08:25:02
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 7.3.27
 
@@ -77,20 +77,31 @@ CREATE TABLE `organizations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `nombre` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `objeto_social` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `objetosocial` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   `presidente` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `represetante_legal` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `represetantelegal` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `director` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `domicilio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `telefono` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `sitio_web` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sitioweb` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `facebook` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `instagram` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `twitter` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `activo` int(11) NOT NULL DEFAULT 1,
   `comentario_baja` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `organizations`
+--
+
+INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objetosocial`, `presidente`, `represetantelegal`, `director`, `domicilio`, `telefono`, `email`, `sitioweb`, `facebook`, `instagram`, `twitter`, `activo`, `comentario_baja`) VALUES
+(1, NULL, '2021-05-01 11:07:02', 'sdadsaEDITADOJAJAJAJJA', 'sdadsa', 'sdadsa', 'sdadsa', 'sdadsa', 'sdadsa', 'sdadsa', 'sdadsa', NULL, 'sdadsa', 'sdadsa', 'sdadsa', 0, 'sdadsa'),
+(2, '2021-05-01 09:13:33', '2021-05-01 09:13:33', 'nombre', 'objeto social', 'presidente', 'representante legal', 'director', 'domicilio', 'telefono', 'email', 'sitioweb', 'facebook', 'instagram', NULL, 1, NULL),
+(3, '2021-05-01 09:16:22', '2021-05-01 09:16:22', 'nombre', 'objeto social', 'presidente', 'representante legal', 'director', 'domicilio', 'telefono', 'email', 'sitioweb', 'facebook', 'instagram', NULL, 1, NULL),
+(4, '2021-05-01 09:19:14', '2021-05-01 09:19:14', 'prueba', 'obj', 'pre', 'rep', 'dir', 'dom', 'rel', 'email', 'sit', 'fac', 'inst', 'twit', 1, NULL),
+(5, '2021-05-01 10:13:13', '2021-05-01 10:13:13', 'obj', 'obj', 'obj', 'obj', 'obj', 'obj', 'obj', 'obj', 'obj', 'obj', 'obj', 'obj', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -283,7 +294,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `organizations`
 --
 ALTER TABLE `organizations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `oscs`
