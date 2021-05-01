@@ -1,6 +1,6 @@
 @extends('index')
 @section("titulo")
-<h1>Crear Contacto</h1>
+<h1>Editar organizacion</h1>
 @endsection
 @section('contenido_principal')
 
@@ -111,38 +111,69 @@
 
                             
                             </div>
-                            <div class="card-body">
-                            @if(Session::has("exito"))
-                                <p style="color: #87adff">{{Session::get("exito")}}</p>
-                            @endif
-                            @if(Session::has("error"))
-                            <p style="color: #ff7070">{{Session::get("error")}}</p>
-                            @endif
-                            <form method="POST" action="{{ route("update", $contacto->id) }}">
+                          
+                            <form method="POST" action="{{ route("actualizarContacto", $contactos->id) }}">
                             @csrf
-                            @method('POST')
+                            @method('PUT')
                             <div class="form-group">
-                            <label>Título:</label>
-                            <input  class =" form-control" name="titulo" type="text" value="{{ $noticia->titulo }}" required >
+                            <label>Nombre:</label>
+                            <input  class =" form-control" name="nombre" type="text" value="{{ $contactos->nombre }}"  >
                             </div>
                             <div class="form-group">
-                            <label>Fecha:</label>
-                            <input class =" form-control" name="fecha" value="{{ $noticia->fecha }}"type="date">
+                            <label>Objeto social:</label>
+                            <input class =" form-control" name="objetosocial" type="text" value="{{ $contactos->objetosocial }}" >
                             </div>
                             <div class="form-group">
-                            <label>Autor:</label>
-                            <input class =" form-control" name="autor" value="{{ $noticia->autor }}" type="text">
+                            <label>Presidente:</label>
+                            <input class =" form-control" name="presidente" value="{{ $contactos->presidente }}" type="text">
                             </div>
                             <div class="form-group">
-                            <label>Cuerpo:</label>
-                            <textarea class =" form-control"  rows="5" name="cuerpo" >{{$noticia->cuerpo}}</textarea>
+                            <label>Representante legal:</label>
+                            <input class =" form-control"  name="represetantelegal" value="{{ $contactos->represetantelegal }}"  type="text">
                             </div>
                             <div class="form-group">
-                            <label>Foto:</label>
-                            <input class =" form-control"  name="foto" value="{{ $noticia->foto }}" type="text">
+                            <label>Director:</label>
+                            <input class =" form-control"  name="director" value="{{ $contactos->director }}" type="text">
                             </div>
                             <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Actualizar noticia</button>
+                            <label>Domicilio:</label>
+                            <input class =" form-control"  name="domicilio" value="{{ $contactos->domicilio }}" type="text">
+                            </div>
+                            <div class="form-group">
+
+                            <div class="form-group">
+                            <label>Telefono:</label>
+                            <input class =" form-control"  name="telefono" value="{{ $contactos->telefono }}" type="text">
+                            </div>
+
+                            <div class="form-group">
+                            <label>Email:</label>
+                            <input class =" form-control"  name="email" value="{{ $contactos->email }}" type="text" >
+                            </div>
+
+                            <div class="form-group">
+                            <label>Sitio web:</label>
+                            <input class =" form-control"  name="sitioweb	" value="{{ $contactos->sitioweb}}" type="text">
+                            </div>
+
+                            <div class="form-group">
+                            <label>Facebook:</label>
+                            <input class =" form-control"  name="facebook" value="{{ $contactos->facebook }}" type="text">
+                            </div>
+
+                            <div class="form-group">
+                            <label>Instagram:</label>
+                            <input class =" form-control"  name="instagram" value="{{ $contactos->instagram }}" type="text">
+                            </div>
+
+                            <div class="form-group">
+                            <label>Twitter:</label>
+                            <input class =" form-control"  name="twitter" value="{{ $contactos->twitter }}" type="text">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary">Actualizar organizacion</button>
+
                             </div>
                         </form>
                     </div>

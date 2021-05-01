@@ -11,4 +11,22 @@ class organization extends Model
 
     protected $table = "organizations";
 
+    protected $fillable = [
+        'id',
+        'nombre',
+        'objeto_social',
+        'presidente',
+        'representantelegal',
+        'director',
+        'domicilio',
+        'telefono',
+        'email',
+        'sitioweb',
+        'facebook',
+        'instagram',
+        'twitter',
+        'activo',
+
+    ];
+
 }

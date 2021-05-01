@@ -1,6 +1,6 @@
 @extends('index')
 @section("titulo")
-<h1>Crear Contacto</h1>
+<h1>Crear organizacion</h1>
 @endsection
 @section('contenido_principal')
 
@@ -155,7 +155,7 @@
                                 <input class="form-control" name="twitter" type="text">
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">Agregar nuevo Contacto</button>
+                                <button class="btn btn-primary" type="submit">Agregar nueva organizacion</button>
                             </div>
                         </form>
                     </div>

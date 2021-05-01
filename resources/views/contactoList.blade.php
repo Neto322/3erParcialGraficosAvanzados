@@ -1,6 +1,6 @@
 @extends('index')
 @section("titulo")
-<h1>lista de Contactos</h1>
+<h1>lista de organizaciones</h1>
 @endsection
 @section('contenido_principal')
 
@@ -107,11 +107,19 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>id_organizacion</th>
                     <th>nombre</th>
-                    <th>oficina</th>
-                    <th>celular</th>
-                    <th>correo</th>
+                    {{-- <th>objeto social</th> --}}
+                    <th>presidente</th>
+                    {{-- <th>representante legal</th> --}}
+                    <th>director</th>
+                    {{-- <th>domicilio</th> --}}
+                    {{-- <th>telefono</th> --}}
+                    <th>email</th>
+                    {{-- <th>sitio web</th> --}}
+                    {{-- <th>facebook</th> --}}
+                    {{-- <th>instagram</th> --}}
+                    {{-- <th>twitter</th> --}}
+                    <th>activo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -119,21 +127,43 @@
                 @foreach($contactos as $contacto)
                     <tr>
                         <td>{{ $contacto->id}}</td>
-                        <td>{{ $contacto->id_organizacion}}</td>
                         <td>{{ $contacto->nombre}}</td>
-                        <td>{{ $contacto->oficina}}</td>
-                        <td>{{ $contacto->celular}}</td>
-                        <td>{{ $contacto->correo}}</td>
+                        {{-- <td>{{ $contacto->objetosocial}}</td> --}}
+                        <td>{{ $contacto->presidente}}</td>
+                        {{-- <td>{{ $contacto->represetantelegal}}</td> --}}
+                        <td>{{ $contacto->director}}</td>
+                        {{-- <td>{{ $contacto->domicilio}}</td> --}}
+                        {{-- <td>{{ $contacto->telefono}}</td> --}}
+                        <td>{{ $contacto->email}}</td>
+                        {{-- <td>{{ $contacto->sitioweb}}</td>
+                        <td>{{ $contacto->facebook}}</td>
+                        <td>{{ $contacto->instagram}}</td>
+                        <td>{{ $contacto->twitter}}</td> --}}
                         <td>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
-                                Dar de baja
-                            </button>
+                            @if($contacto->activo > 0)
+                                <div class="text-success">Activo</div>
+                            @endif
+                            @if($contacto->activo == 0)
+                                <div class="text-danger">No Activo</div>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($contacto->activo > 0)
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                    Dar de baja
+                                </button>
+                            @endif
+                            @if ($contacto->activo == 0)
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                    Dar de alta
+                                </button>
+                            @endif
                             <a href="{{route('editarContacto', $contacto->id)}}">
                                 <button type="button" class="btn btn-primary">
                                     Editar
                                 </button>
                             </a>
-                            <a href="#">
+                            <a href="{{route('editarContacto', $contacto->id)}}">
                                 <button type="button" class="btn btn-primary">
                                     Detalles
                                 </button>
@@ -149,10 +179,15 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            ¿Seguro de querer dar de baja a {{$contacto->nombre}}?
+                                            @if ($contacto->activo > 0)
+                                                ¿Seguro de querer dar de baja a {{$contacto->nombre}}?
+                                            @endif
+                                            @if ($contacto->activo == 0)
+                                                ¿Seguro de querer dar de alta a {{$contacto->nombre}}?
+                                            @endif
                                         </div>
                                         <div class="modal-footer">
-                                            <form method="POST" action="{{route("baja", $contacto->id)}}">
+                                            <form method="POST" action="{{route("bajaContacto", $contacto->id)}}">
                                                 @csrf
                                                 @method('put')
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -162,6 +197,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- find del modal --}}
                         </td>
                     </tr>
                 @endforeach

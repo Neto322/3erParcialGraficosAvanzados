@@ -170,6 +170,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- find del modal --}}
                         </td>
                     </tr>
                 @endforeach
