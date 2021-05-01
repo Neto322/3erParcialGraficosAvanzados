@@ -153,7 +153,7 @@
 
                             <div class="form-group">
                             <label>Sitio web:</label>
-                            <input class =" form-control"  name="sitioweb	" value="{{ $contactos->sitioweb}}" type="text">
+                            <input class =" form-control"  name="sitioweb" value="{{ $contactos->sitioweb}}" type="text">
                             </div>
 
                             <div class="form-group">
