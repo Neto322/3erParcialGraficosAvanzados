@@ -12,6 +12,8 @@ class ContactoController extends Controller
         $this->middleware('auth');
     }
 
+
+
     public function listarContacto()
     {
         $contactos = organization::all();
@@ -74,6 +76,13 @@ class ContactoController extends Controller
 
     }
     
+    public function consultarContacto($id)
+    {
+        $contactos = organization::find($id);
+        $argumentos = array();
+        $argumentos["contactos"] = $contactos;
+        return view("contactoShow",$argumentos);
+    }
 
     public function editarContacto($id)
     {

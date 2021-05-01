@@ -50,6 +50,7 @@ Route::post('/contacto/crear', [ContactoController::class, "guardarContacto"])->
 Route::get('/contacto/listar', [ContactoController::class, "listarContacto"])->name("listarContacto");
 Route::put('/contacto/listar/baja/{id}', [ContactoController::class, "bajaContacto"])->name("bajaContacto");
 Route::get('/contacto/editar/{id}', [ContactoController::class, "editarContacto"])->name("editarContacto");
+Route::get('/contacto/consultar/{id}', [ContactoController::class, "consultarContacto"])->name("consultarContacto");
 Route::put('/contacto/editar/{id}/actualizar', [ContactoController::class, "actualizarContacto"])->name("actualizarContacto");
 
 

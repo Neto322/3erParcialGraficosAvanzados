@@ -1,18 +1,15 @@
 @extends('index')
 @section("titulo")
-<h1>lista de organizaciones</h1>
+<h1>Consultar Organización</h1>
 @endsection
 @section('contenido_principal')
 
 <div class="card card-custom gutter-b">
     <div class="card-header flex-wrap py-3">
         <div class="card-title">
-            {{-- <h3 class="card-label">Editores registrados</h3> --}}
+            {{-- <h3 class="card-label">Crear nuevo editor</h3> --}}
                 @if(Session::has('exito'))
                     <h5><p style="color: #15b915">{{Session::get('exito')}}</p></h5>
-                @endif
-                @if(Session::has('exito2'))
-                    <h5><p style="color: #15b915">{{Session::get('exito2')}}</p></h5>
                 @endif
                 @if(Session::has('error'))
                     <h5><p style="color: #bb1717">{{Session::get('error')}}</p></h5>
@@ -104,104 +101,81 @@
     <div class="card-body">
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>nombre</th>
-                    {{-- <th>objeto social</th> --}}
-                    <th>presidente</th>
-                    {{-- <th>representante legal</th> --}}
-                    <th>director</th>
-                    {{-- <th>domicilio</th> --}}
-                    {{-- <th>telefono</th> --}}
-                    <th>email</th>
-                    {{-- <th>sitio web</th> --}}
-                    {{-- <th>facebook</th> --}}
-                    {{-- <th>instagram</th> --}}
-                    {{-- <th>twitter</th> --}}
-                    <th>activo</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($contactos as $contacto)
-                    <tr>
-                        <td>{{ $contacto->id}}</td>
-                        <td>{{ $contacto->nombre}}</td>
-                        {{-- <td>{{ $contacto->objetosocial}}</td> --}}
-                        <td>{{ $contacto->presidente}}</td>
-                        {{-- <td>{{ $contacto->represetantelegal}}</td> --}}
-                        <td>{{ $contacto->director}}</td>
-                        {{-- <td>{{ $contacto->domicilio}}</td> --}}
-                        {{-- <td>{{ $contacto->telefono}}</td> --}}
-                        <td>{{ $contacto->email}}</td>
-                        {{-- <td>{{ $contacto->sitioweb}}</td>
-                        <td>{{ $contacto->facebook}}</td>
-                        <td>{{ $contacto->instagram}}</td>
-                        <td>{{ $contacto->twitter}}</td> --}}
-                        <td>
-                            @if($contacto->activo > 0)
-                                <div class="text-success">Activo</div>
-                            @endif
-                            @if($contacto->activo == 0)
-                                <div class="text-danger">No Activo</div>
-                            @endif
-                        </td>
-                        <td>
-                            @if ($contacto->activo > 0)
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
-                                Dar de baja
-                            </button>
-                            @endif
-                            @if ($contacto->activo == 0)
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
-                                    Dar de alta
-                                </button>
-                            @endif
-                            <a href="{{route('editarContacto', $contacto->id)}}">
-                                <button type="button" class="btn btn-primary">
-                                    Editar
-                                </button>
-                            </a>
-                            <a href="{{route('consultarContacto', $contacto->id)}}">
-                                <button type="button" class="btn btn-primary">
-                                    Detalles
-                                </button>
-                            </a>
-                            {{-- modal --}}
-                            <div class="modal fade" id="exampleModal{{$contacto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Cuidado!</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            @if ($contacto->activo > 0)
-                                                ¿Seguro de querer dar de baja a {{$contacto->nombre}}?
-                                            @endif
-                                            @if ($contacto->activo == 0)
-                                                ¿Seguro de querer dar de alta a {{$contacto->nombre}}?
-                                            @endif
-                                        </div>
-                                        <div class="modal-footer">
-                                            <form method="POST" action="{{route("bajaContacto", $contacto->id)}}">
-                                                @csrf
-                                                @method('put')
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                <button type="submit" class="btn btn-primary">Guardar</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                         <!-- Default box -->
+                        <div class="card">
+                            <div class="card-header">
+                            <h3 class="card-title">Consultar Organizacion</h3>
+
+                            
                             </div>
-                            {{-- find del modal --}}
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
+                          
+                            
+                            <br>
+                            <label>Nombre:</label>
+                            <h4> {{ $contactos->nombre }} </h4><br>
+                            
+                            <div >
+                            <p>Objeto social:</p>
+                            <h4>{{ $contactos->objetosocial }}</h4><br>
+                            </div>
+                            <div >
+                            <label>Presidente:</label>
+                            <h4>{{ $contactos->presidente }}</h4><br>
+                            </div>
+                            <div >
+                            <label>Representante legal:</label>
+                            <h4 >{{ $contactos->represetantelegal }}</h4><br>
+                            </div>
+                            <div >
+                            <label>Director:</label>
+                            <h4>{{ $contactos->director }}</h4><br>
+                            </div>
+                            <div>
+                            <label>Domicilio:</label>
+                            <h4>{{ $contactos->domicilio }}<h4><br>
+                            </div>
+                            
+
+                            <div >
+                            <label>Telefono:</label>
+                            <h4> {{ $contactos->telefono }}</h4><br>
+                            </div>
+
+                            <div>
+                            <label>Email:</label>
+                            <h4>{{ $contactos->email }} </h4><br>
+                            </div>
+
+                            <div>
+                            <label>Sitio web:</label>
+                            <h4> {{ $contactos->sitioweb}}</h4><br>
+                            </div>
+
+                            <div>
+                            <label>Facebook:</label>
+                            <h4>{{ $contactos->facebook }}</h4><br>
+                            </div>
+
+                            <div>
+                            <label>Instagram:</label>
+                            <h4>{{ $contactos->instagram }}</h4><br>
+                            </div>
+
+                            <div>
+                            <label>Twitter:</label>
+                            <h4>{{ $contactos->twitter }}</h4><br>
+                            </div>
+
+
+                           
+
+                          
+                    </div>
+                </div>
+            </div>
         </table>
     </div>
 </div>
