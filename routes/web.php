@@ -56,7 +56,7 @@ Route::put('/contacto/editar/{id}/actualizar', [ContactoController::class, "actu
 
 
 
-//TAGS
+//Tags
 
 Route::get('/tags', [TagsController::class, "tags"])->name("tags");
 Route::get('/tags/create', [TagsController::class, "create"])->name("tags.create");

@@ -17,7 +17,7 @@
             {{-- <span class="d-block text-muted pt-2 font-size-sm">sorting &amp; pagination remote datasource</span></h3> --}}
         </div>
         <div class="card-toolbar">
-            <!--begin::Dropdown-->
+            <!--begin::Dropdownn-->
             <div class="dropdown dropdown-inline mr-2">
                 {{-- <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> --}}
                 {{-- <span class="svg-icon svg-icon-md"> --}}
