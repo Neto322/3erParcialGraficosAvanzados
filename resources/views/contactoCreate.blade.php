@@ -154,6 +154,13 @@
                                 <label>Twitter:</label>
                                 <input class="form-control" name="twitter" type="text">
                             </div>
+
+                            
+                            <div class="form-group">
+                            <label>Fecha vigencia:</label>
+                            <input class =" form-control"  name="fecha_vigencia" type="date">
+                            </div>
+
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Agregar nueva organizacion</button>
                             </div>

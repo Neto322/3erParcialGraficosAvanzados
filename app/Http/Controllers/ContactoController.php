@@ -66,7 +66,7 @@ class ContactoController extends Controller
         $contactos->facebook = $request->input("facebook");
         $contactos->instagram = $request->input("instagram");
         $contactos->twitter = $request->input("twitter");
-
+        $contactos->fecha_vigencia = $request->input("fecha_vigencia");
        
         if($contactos->save())
         {
@@ -118,6 +118,7 @@ class ContactoController extends Controller
         $nuevoContacto->facebook = $request->input("facebook");
         $nuevoContacto->instagram = $request->input("instagram");
         $nuevoContacto->twitter = $request->input("twitter");
+        $nuevoContacto->fecha_vigencia = $request->input("fecha_vigencia");
 
         if($nuevoContacto->save())
         {

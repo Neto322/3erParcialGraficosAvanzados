@@ -35,6 +35,7 @@ class TagsController extends Controller
             $tags = Tags::where('descripcion', 'LIKE', '%' . $query . '%')
                 ->orderBy('id', 'asc')
                 ->get();
+
             return view("tags", ['tags' => $tags, 'search' => $query]);
         }
 

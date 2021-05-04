@@ -26,26 +26,15 @@
                 <div class="col-4"></br>
                   <h4>Lo mas buscado del mes</h4>
                   <ol class="list-group list-group-numbered">
-                  @foreach($tags as $tag)
-                    
-                        <div>
-                        <?php 
-                        
-                        if(date("m", strtotime($tag->created_at)) == date("m"))
-                        {
-                          echo "<br />";
-                          echo $tag->descripcion;
-                        
-                     
-                        }
-                        
-
-                        
-                        ?>
-                        
-                        
-                        
+                  @foreach($tags as $tag)                  
+                        <div>  
+                                      
+                        @if(date("m", strtotime($tag->updated_at)) == date("m"))
+                          <br/>
+                          <div class="bg-secondary">{{ $tag->descripcion }}</div>                 
+                   
                         </div>
+                        @endif
                   @endforeach
                   </ol>
                 </div>
@@ -55,7 +44,7 @@
                   <ol class="list-group list-group-numbered">
                   @foreach($tags as $tag)
                     <br/>
-                    <div>{{ $tag->descripcion }}</div>
+                    <div class="bg-secondary">{{ $tag->descripcion }}</div>                 
                  
                   @endforeach
                   </ol>

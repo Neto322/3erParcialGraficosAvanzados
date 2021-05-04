@@ -106,6 +106,11 @@
         <table class="table table-bordered table-checkable" id="kt_datatable">
             <thead>
                 <tr>
+                    <th class="bg-secondary">Total Registrados</th>
+
+                </tr>
+
+                <tr>
                     <th>id</th>
                     <th>nombre</th>
                     {{-- <th>objeto social</th> --}}
@@ -119,12 +124,15 @@
                     {{-- <th>facebook</th> --}}
                     {{-- <th>instagram</th> --}}
                     {{-- <th>twitter</th> --}}
+                    <th>fecha vigencia</th> 
+                    <th>vigente</th> 
                     <th>activo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($contactos as $contacto)
+
                     <tr>
                         <td>{{ $contacto->id}}</td>
                         <td>{{ $contacto->nombre}}</td>
@@ -139,6 +147,23 @@
                         <td>{{ $contacto->facebook}}</td>
                         <td>{{ $contacto->instagram}}</td>
                         <td>{{ $contacto->twitter}}</td> --}}
+                        <td>{{ $contacto->fecha_vigencia }}</td>
+                        <td>  <?php 
+                        if($contacto->fecha_vigencia >= date("Y-m-d"))
+                        {
+                            echo ' <button type="button" class="btn btn-success pt-1 pb-1 mt-2 mr-1 ml-1"> Vigente </button>';
+                           
+                        }                       
+                        else
+                        {
+                            echo ' <button type="button" class="btn btn-danger pt-1 pb-1 mt-2 mr-1 ml-1"> No vigente </button>';
+                            $date = new DateTime(date("Y-m-d"));
+                            $date->modify("+7 day");
+                      
+                        }
+                        
+                        ?></td>
+
                         <td>
                             @if($contacto->activo > 0)
                                 <div class="text-success">Activo</div>
@@ -155,7 +180,7 @@
                             @endif
                             @if ($contacto->activo == 0)
                                 <button type="button" class="btn btn-success pt-1 pb-1 mt-2 mr-1 ml-1" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
-                                    Dar de alta
+                                Dar de alta
                                 </button>
                             @endif
                             <a href="{{route('editarContacto', $contacto->id)}}">
@@ -200,6 +225,402 @@
                             {{-- find del modal --}}
                         </td>
                     </tr>
+                   
+                @endforeach
+            </tbody>
+        </table>
+
+
+        <table class="table table-bordered table-checkable" id="kt_datatable">
+            <thead>
+                <tr>
+                    <th class="bg-secondary">Total vigentes</th>
+
+                </tr>
+
+                <tr>
+                    <th>id</th>
+                    <th>nombre</th>
+                    {{-- <th>objeto social</th> --}}
+                    <th>presidente</th>
+                    {{-- <th>representante legal</th> --}}
+                    <th>director</th>
+                    {{-- <th>domicilio</th> --}}
+                    {{-- <th>telefono</th> --}}
+                    <th>email</th>
+                    {{-- <th>sitio web</th> --}}
+                    {{-- <th>facebook</th> --}}
+                    {{-- <th>instagram</th> --}}
+                    {{-- <th>twitter</th> --}}
+                    <th>fecha vigencia</th> 
+                    <th>vigente</th> 
+                    <th>activo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($contactos as $contacto)
+                        @if($contacto->fecha_vigencia >= date("Y-m-d"))
+                    <tr>
+                        <td>{{ $contacto->id}}</td>
+                        <td>{{ $contacto->nombre}}</td>
+                        {{-- <td>{{ $contacto->objetosocial}}</td> --}}
+                        <td>{{ $contacto->presidente}}</td>
+                        {{-- <td>{{ $contacto->represetantelegal}}</td> --}}
+                        <td>{{ $contacto->director}}</td>
+                        {{-- <td>{{ $contacto->domicilio}}</td> --}}
+                        {{-- <td>{{ $contacto->telefono}}</td> --}}
+                        <td>{{ $contacto->email}}</td>
+                        {{-- <td>{{ $contacto->sitioweb}}</td>
+                        <td>{{ $contacto->facebook}}</td>
+                        <td>{{ $contacto->instagram}}</td>
+                        <td>{{ $contacto->twitter}}</td> --}}
+                        <td>{{ $contacto->fecha_vigencia }}</td>
+                        <td>  <?php 
+                        if($contacto->fecha_vigencia >= date("Y-m-d"))
+                        {
+                            echo ' <button type="button" class="btn btn-success pt-1 pb-1 mt-2 mr-1 ml-1"> Vigente </button>';
+                           
+                        }                       
+                      
+                        
+                        ?></td>
+
+                        <td>
+                            @if($contacto->activo > 0)
+                                <div class="text-success">Activo</div>
+                            @endif
+                            @if($contacto->activo == 0)
+                                <div class="text-danger">No Activo</div>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($contacto->activo > 0)
+                            <button type="button" class="btn btn-danger pt-1 pb-1 mt-2 mr-1 ml-1" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                Dar de baja
+                            </button>
+                            @endif
+                            @if ($contacto->activo == 0)
+                                <button type="button" class="btn btn-success pt-1 pb-1 mt-2 mr-1 ml-1" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                Dar de alta
+                                </button>
+                            @endif
+                            <a href="{{route('editarContacto', $contacto->id)}}">
+                                <button type="button" class="btn btn-primary pt-1 pb-1 mt-2 mr-1 ml-1">
+                                    Editar
+                                </button>
+                            </a>
+                            <a href="{{route('consultarContacto', $contacto->id)}}">
+                                <button type="button" class="btn btn-info pt-1 pb-1 mt-2 mr-1 ml-1">
+                                    Detalles
+                                </button>
+                            </a>
+                            {{-- modal --}}
+                            <div class="modal fade" id="exampleModal{{$contacto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Cuidado!</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @if ($contacto->activo > 0)
+                                                ¿Seguro de querer dar de baja a {{$contacto->nombre}}?
+                                            @endif
+                                            @if ($contacto->activo == 0)
+                                                ¿Seguro de querer dar de alta a {{$contacto->nombre}}?
+                                            @endif
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="POST" action="{{route("bajaContacto", $contacto->id)}}">
+                                                @csrf
+                                                @method('put')
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- find del modal --}}
+                        </td>
+                    </tr>
+                   @endif
+                @endforeach
+            </tbody>
+        </table>
+
+
+        <table class="table table-bordered table-checkable" id="kt_datatable">
+            <thead>
+                <tr>
+                    <th class="bg-success">Proximas a perder vigencia</th>
+
+                </tr>
+
+                <tr>
+                    <th>id</th>
+                    <th>nombre</th>
+                    {{-- <th>objeto social</th> --}}
+                    <th>presidente</th>
+                    {{-- <th>representante legal</th> --}}
+                    <th>director</th>
+                    {{-- <th>domicilio</th> --}}
+                    {{-- <th>telefono</th> --}}
+                    <th>email</th>
+                    {{-- <th>sitio web</th> --}}
+                    {{-- <th>facebook</th> --}}
+                    {{-- <th>instagram</th> --}}
+                    {{-- <th>twitter</th> --}}
+                    <th>fecha vigencia</th> 
+                    <th>vigente</th> 
+                    <th>activo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($contactos as $contacto)
+                    <?php 
+                            $date = new DateTime(date("Y-m-d"));
+                            $date->modify("+31 day");
+                            
+                            
+                    ?>
+                    @if($contacto->fecha_vigencia >= date("Y-m-d"))
+                       
+                  
+                    <tr>
+                        <td>{{ $contacto->id}}</td>
+                        <td>{{ $contacto->nombre}}</td>
+                        {{-- <td>{{ $contacto->objetosocial}}</td> --}}
+                        <td>{{ $contacto->presidente}}</td>
+                        {{-- <td>{{ $contacto->represetantelegal}}</td> --}}
+                        <td>{{ $contacto->director}}</td>
+                        {{-- <td>{{ $contacto->domicilio}}</td> --}}
+                        {{-- <td>{{ $contacto->telefono}}</td> --}}
+                        <td>{{ $contacto->email}}</td>
+                        {{-- <td>{{ $contacto->sitioweb}}</td>
+                        <td>{{ $contacto->facebook}}</td>
+                        <td>{{ $contacto->instagram}}</td>
+                        <td>{{ $contacto->twitter}}</td> --}}
+                        <td>{{ $contacto->fecha_vigencia }}</td>
+                        <td>  <?php 
+                        if($contacto->fecha_vigencia >= date("Y-m-d"))
+                        {
+                            echo ' <button type="button" class="btn btn-success pt-1 pb-1 mt-2 mr-1 ml-1"> Vigente </button>';
+                           
+                        }                       
+                        else
+                        {
+                            echo ' <button type="button" class="btn btn-danger pt-1 pb-1 mt-2 mr-1 ml-1"> No vigente </button>';
+                            $date = new DateTime(date("Y-m-d"));
+                            $date->modify("+7 day");
+                            echo $date->format("Y-m-d");
+                        }
+                        
+                        ?></td>
+
+                        <td>
+                            @if($contacto->activo > 0)
+                                <div class="text-success">Activo</div>
+                            @endif
+                            @if($contacto->activo == 0)
+                                <div class="text-danger">No Activo</div>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($contacto->activo > 0)
+                            <button type="button" class="btn btn-danger pt-1 pb-1 mt-2 mr-1 ml-1" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                Dar de baja
+                            </button>
+                            @endif
+                            @if ($contacto->activo == 0)
+                                <button type="button" class="btn btn-success pt-1 pb-1 mt-2 mr-1 ml-1" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                Dar de alta
+                                </button>
+                            @endif
+                            <a href="{{route('editarContacto', $contacto->id)}}">
+                                <button type="button" class="btn btn-primary pt-1 pb-1 mt-2 mr-1 ml-1">
+                                    Editar
+                                </button>
+                            </a>
+                            <a href="{{route('consultarContacto', $contacto->id)}}">
+                                <button type="button" class="btn btn-info pt-1 pb-1 mt-2 mr-1 ml-1">
+                                    Detalles
+                                </button>
+                            </a>
+                            {{-- modal --}}
+                            <div class="modal fade" id="exampleModal{{$contacto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Cuidado!</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @if ($contacto->activo > 0)
+                                                ¿Seguro de querer dar de baja a {{$contacto->nombre}}?
+                                            @endif
+                                            @if ($contacto->activo == 0)
+                                                ¿Seguro de querer dar de alta a {{$contacto->nombre}}?
+                                            @endif
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="POST" action="{{route("bajaContacto", $contacto->id)}}">
+                                                @csrf
+                                                @method('put')
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- find del modal --}}
+                        </td>
+                    </tr>
+                    @endif
+                @endforeach
+            </tbody>
+        </table>
+
+
+
+        <table class="table table-bordered table-checkable" id="kt_datatable">
+            <thead>
+                <tr>
+                    <th class="bg-danger">Perdieron vigencia</th>
+
+                </tr>
+
+                <tr>
+                    <th>id</th>
+                    <th>nombre</th>
+                    {{-- <th>objeto social</th> --}}
+                    <th>presidente</th>
+                    {{-- <th>representante legal</th> --}}
+                    <th>director</th>
+                    {{-- <th>domicilio</th> --}}
+                    {{-- <th>telefono</th> --}}
+                    <th>email</th>
+                    {{-- <th>sitio web</th> --}}
+                    {{-- <th>facebook</th> --}}
+                    {{-- <th>instagram</th> --}}
+                    {{-- <th>twitter</th> --}}
+                    <th>fecha vigencia</th> 
+                    <th>vigente</th> 
+                    <th>activo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($contactos as $contacto)
+                    <?php 
+                            $date = new DateTime(date("Y-m-d"));
+                            $date->modify("-31 day");
+                            
+                            
+                    ?>
+                    @if($contacto->fecha_vigencia < date("Y-m-d"))
+                       
+                  
+                    <tr>
+                        <td>{{ $contacto->id}}</td>
+                        <td>{{ $contacto->nombre}}</td>
+                        {{-- <td>{{ $contacto->objetosocial}}</td> --}}
+                        <td>{{ $contacto->presidente}}</td>
+                        {{-- <td>{{ $contacto->represetantelegal}}</td> --}}
+                        <td>{{ $contacto->director}}</td>
+                        {{-- <td>{{ $contacto->domicilio}}</td> --}}
+                        {{-- <td>{{ $contacto->telefono}}</td> --}}
+                        <td>{{ $contacto->email}}</td>
+                        {{-- <td>{{ $contacto->sitioweb}}</td>
+                        <td>{{ $contacto->facebook}}</td>
+                        <td>{{ $contacto->instagram}}</td>
+                        <td>{{ $contacto->twitter}}</td> --}}
+                        <td>{{ $contacto->fecha_vigencia }}</td>
+                        <td>  <?php 
+                        if($contacto->fecha_vigencia >= date("Y-m-d"))
+                        {
+                            echo ' <button type="button" class="btn btn-success pt-1 pb-1 mt-2 mr-1 ml-1"> Vigente </button>';
+                           
+                        }                       
+                        else
+                        {
+                            echo ' <button type="button" class="btn btn-danger pt-1 pb-1 mt-2 mr-1 ml-1"> No vigente </button>';
+                            $date = new DateTime(date("Y-m-d"));
+                            $date->modify("+7 day");
+                          
+                        }
+                        
+                        ?>
+
+                        <td>
+                            @if($contacto->activo > 0)
+                                <div class="text-success">Activo</div>
+                            @endif
+                            @if($contacto->activo == 0)
+                                <div class="text-danger">No Activo</div>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($contacto->activo > 0)
+                            <button type="button" class="btn btn-danger pt-1 pb-1 mt-2 mr-1 ml-1" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                Dar de baja
+                            </button>
+                            @endif
+                            @if ($contacto->activo == 0)
+                                <button type="button" class="btn btn-success pt-1 pb-1 mt-2 mr-1 ml-1" data-toggle="modal" data-target="#exampleModal{{$contacto->id}}">
+                                Dar de alta
+                                </button>
+                            @endif
+                            <a href="{{route('editarContacto', $contacto->id)}}">
+                                <button type="button" class="btn btn-primary pt-1 pb-1 mt-2 mr-1 ml-1">
+                                    Editar
+                                </button>
+                            </a>
+                            <a href="{{route('consultarContacto', $contacto->id)}}">
+                                <button type="button" class="btn btn-info pt-1 pb-1 mt-2 mr-1 ml-1">
+                                    Detalles
+                                </button>
+                            </a>
+                            {{-- modal --}}
+                            <div class="modal fade" id="exampleModal{{$contacto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Cuidado!</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @if ($contacto->activo > 0)
+                                                ¿Seguro de querer dar de baja a {{$contacto->nombre}}?
+                                            @endif
+                                            @if ($contacto->activo == 0)
+                                                ¿Seguro de querer dar de alta a {{$contacto->nombre}}?
+                                            @endif
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form method="POST" action="{{route("bajaContacto", $contacto->id)}}">
+                                                @csrf
+                                                @method('put')
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- find del modal --}}
+                        </td>
+                    </tr>
+                    @endif
                 @endforeach
             </tbody>
         </table>
