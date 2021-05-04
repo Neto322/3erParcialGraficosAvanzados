@@ -28,7 +28,24 @@
                   <ol class="list-group list-group-numbered">
                   @foreach($tags as $tag)
                     
-                    <li class="list-group-item"><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}</button></li>
+                        <div>
+                        <?php 
+                        
+                        if(date("m", strtotime($tag->created_at)) == date("m"))
+                        {
+                          echo "<br />";
+                          echo $tag->descripcion;
+                        
+                     
+                        }
+                        
+
+                        
+                        ?>
+                        
+                        
+                        
+                        </div>
                   @endforeach
                   </ol>
                 </div>
@@ -37,7 +54,9 @@
                   
                   <ol class="list-group list-group-numbered">
                   @foreach($tags as $tag)
-                    <li class="list-group-item"><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}</button></li>
+                    <br/>
+                    <div>{{ $tag->descripcion }}</div>
+                 
                   @endforeach
                   </ol>
                 </div>

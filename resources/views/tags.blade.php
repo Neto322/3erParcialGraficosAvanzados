@@ -29,7 +29,7 @@
               <h3 class="card-title">Lista de Tags</h3>
             </div>
             <div class="col-3">
-              <form class="form-inline ml-3">
+              <form class="form-inline ml-3" type="get">
               <div class="input-group input-group-sm">
                 <input class="form-control form-control-navbar" type="search" name="search" placeholder="Buscar" aria-label="Search">
                 <div class="input-group-append">
@@ -65,6 +65,9 @@
             <tbody>
                 @foreach($tags as $tag)
                     <tr>
+
+
+
                         <td><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}<a data-toggle="modal" data-target="#confirmarEliminacion{{ $tag->id }}"><i class="far fa-trash-alt"></i></a></button></td>
                         <td>
                             <a href="{{route('tags.editar', $tag->id)}}"><button class="btn btn-xs btn-primary">Editar</button></a>

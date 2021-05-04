@@ -43,10 +43,6 @@ class TagsController extends Controller
 
     }
 
-    public function busquedastags() {
-        
-    }
-
     public function confirmdelete($id) {
         $descripcion = Tags::find($id);
 
