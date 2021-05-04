@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-05-2021 a las 09:04:01
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 7.3.26
+-- Tiempo de generación: 04-05-2021 a las 20:10:32
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -64,7 +64,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2021_04_18_211805_add_boolean', 6),
 (9, '2021_04_19_000148_add_columns', 7),
 (11, '2021_05_01_021713_create_organizations_table', 8),
-(12, '2021_05_01_021950_add_fields', 9);
+(12, '2021_05_01_021950_add_fields', 9),
+(13, '2021_04_24_063116_create_tags_table', 10),
+(14, '2021_05_04_160216_add_fields_osc', 11);
 
 -- --------------------------------------------------------
 
@@ -89,22 +91,24 @@ CREATE TABLE `organizations` (
   `instagram` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `twitter` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `activo` int(11) NOT NULL DEFAULT 1,
-  `comentario_baja` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `comentario_baja` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `comentario` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fecha_vigencia` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `organizations`
 --
 
-INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objetosocial`, `presidente`, `represetantelegal`, `director`, `domicilio`, `telefono`, `email`, `sitioweb`, `facebook`, `instagram`, `twitter`, `activo`, `comentario_baja`) VALUES
-(6, '2021-05-01 13:26:31', '2021-05-01 13:26:31', 'Abuelos Contentos Club Adultos Mayores A.C.', 'Promover ayuda y asistencia social a persona de la tercera edad.', 'José Adalberto Gaxiola Mendivil', 'José Adalberto Gaxiola Mendivil', 'Ramón Rafael Salazar Mendez', 'Privada #17 5027 Ejido Toribio Velazquez, Zona Urbana Luis Echeverria.', '6444440569', 'yotambienpued2010@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL),
-(7, '2021-05-01 13:37:33', '2021-05-01 13:37:33', 'Agrupación de Fibrosis Quística del Noroeste, IAP', 'La asistencia y rehabilitación médica sin fines de lucro en beneficio de pacientes de escasos recursos que padecen Fibrosis Quistica.', 'Lic. Carmen Yolanda Avilés Castro', 'Lic. Carmen Yolanda Avilés Castro', 'Jacqueline Inclan de la Vega', 'Durango # 310 Nte. Col. Zona Norte', '01 (644) 414 23 88', 'afq_noroeste@hotmail.com', 'www.afqnoroeste.org.mx', '@FibrosisQuisticaNoroeste', NULL, NULL, 1, NULL),
-(8, '2021-05-01 13:45:00', '2021-05-01 13:47:24', 'Agrupación George Papanicolaou de Cd. Obregón, A.C.', 'Prevenir y Detectar el cáncer Cervicouterino, de mama y de próstata.', 'Virginia Gracia Rosas', 'Virginia Gracia Rosas', 'Miriam Zuleth Villareal Iribe', 'Coahuila # 632 Sur entre Jesús García y Niños Héroes', '01 (644) 414 89 58', 'gpapanicolaouobr@hotmail.com', 'www.agpobregon.com', NULL, NULL, NULL, 0, NULL),
-(9, '2021-05-01 13:47:04', '2021-05-01 13:47:04', 'APFA Comprometidos y Unidos por el progreso en la Educación de Sonora AC', 'Brindar atención a niños, jovenes y adolescentes a través de la orientacións social, educación o capacitación para el trabajo, la promoción de la participación organizada de la población en las acciones que mejoren sus propias condiciones de susbsistencia en beneficio de la comunidad, a través del diseño y desarrollo de programas y proyectos de desarrollo educativos, culturales y sociales.', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Hermanos Talamante #149 Pte. Col. Campesrte', 'Cel. (044) 644 218 58 01', 'arturo_baron33@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL),
-(10, '2021-05-01 13:49:24', '2021-05-01 13:50:55', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Organización, sostenimiento y cuidado de un centro donde se proporcione alimentación, asistencia médica y alojamiento sin fines de lucro a personas de escasos recursos que así lo requieran.', 'Rebeca Terán Tineo', 'Rebeca Terán Tineo', 'Elizabeth Arias Verdugo', 'Ignacio Zaragoza S/n San José de Bacum Sonora.', '(044) 149 01 45', 'asilomadreteresabacum@hotmail.com', NULL, '@asiloteresabacum', NULL, NULL, 0, NULL),
-(11, '2021-05-01 13:50:43', '2021-05-01 13:50:43', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Prestar atención de guardería', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Calle Puebla 620 Sur entre Niños Heroes y Jesus Garcial.', '(644) 414 87 07', 'ampcob@gmail.com', 'Facebook: ampco Ac', NULL, NULL, NULL, 1, NULL),
-(12, '2021-05-01 13:52:31', '2021-05-01 13:52:31', 'Asociación de Profesionistas de la Salud en Ciudad Obregón, I.A.P.', 'Oganizar jornadas médico quirurgicas gratuitas de asistencia social, dirigidas a las clases marginadas de la población rural del estado de sonora, aprovechando para tal fin los recursos humanos de la asociación (Médicos, Dentistas, Químicos, y Representantes de la Industria Farmacéutica.', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Veracruz Núm 621 - 7-A, Col. Zona Norte, C.P. 85010, Cajeme, Sonora', '(644) 415 15 18', 'barrerapar@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL),
-(13, '2021-05-01 13:54:03', '2021-05-01 13:54:12', 'Asociación Fray Julio César, A.C.', '----', 'Ing. Uriel Mendoza Acuña', NULL, 'Elia Mendoza de Clayton', 'Flavio Bórquez 1613 Col. Prados del Tepeyac', NULL, 'ely@cabsaconsultorias.com', NULL, NULL, NULL, NULL, 0, NULL);
+INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objetosocial`, `presidente`, `represetantelegal`, `director`, `domicilio`, `telefono`, `email`, `sitioweb`, `facebook`, `instagram`, `twitter`, `activo`, `comentario_baja`, `comentario`, `fecha_vigencia`) VALUES
+(6, '2021-05-01 13:26:31', '2021-05-01 13:26:31', 'Abuelos Contentos Club Adultos Mayores A.C.', 'Promover ayuda y asistencia social a persona de la tercera edad.', 'José Adalberto Gaxiola Mendivil', 'José Adalberto Gaxiola Mendivil', 'Ramón Rafael Salazar Mendez', 'Privada #17 5027 Ejido Toribio Velazquez, Zona Urbana Luis Echeverria.', '6444440569', 'yotambienpued2010@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-04'),
+(7, '2021-05-01 13:37:33', '2021-05-01 13:37:33', 'Agrupación de Fibrosis Quística del Noroeste, IAP', 'La asistencia y rehabilitación médica sin fines de lucro en beneficio de pacientes de escasos recursos que padecen Fibrosis Quistica.', 'Lic. Carmen Yolanda Avilés Castro', 'Lic. Carmen Yolanda Avilés Castro', 'Jacqueline Inclan de la Vega', 'Durango # 310 Nte. Col. Zona Norte', '01 (644) 414 23 88', 'afq_noroeste@hotmail.com', 'www.afqnoroeste.org.mx', '@FibrosisQuisticaNoroeste', NULL, NULL, 1, NULL, '', '2021-04-07'),
+(8, '2021-05-01 13:45:00', '2021-05-01 13:47:24', 'Agrupación George Papanicolaou de Cd. Obregón, A.C.', 'Prevenir y Detectar el cáncer Cervicouterino, de mama y de próstata.', 'Virginia Gracia Rosas', 'Virginia Gracia Rosas', 'Miriam Zuleth Villareal Iribe', 'Coahuila # 632 Sur entre Jesús García y Niños Héroes', '01 (644) 414 89 58', 'gpapanicolaouobr@hotmail.com', 'www.agpobregon.com', NULL, NULL, NULL, 0, NULL, '', '2021-05-31'),
+(9, '2021-05-01 13:47:04', '2021-05-01 13:47:04', 'APFA Comprometidos y Unidos por el progreso en la Educación de Sonora AC', 'Brindar atención a niños, jovenes y adolescentes a través de la orientacións social, educación o capacitación para el trabajo, la promoción de la participación organizada de la población en las acciones que mejoren sus propias condiciones de susbsistencia en beneficio de la comunidad, a través del diseño y desarrollo de programas y proyectos de desarrollo educativos, culturales y sociales.', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Hermanos Talamante #149 Pte. Col. Campesrte', 'Cel. (044) 644 218 58 01', 'arturo_baron33@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-11'),
+(10, '2021-05-01 13:49:24', '2021-05-01 13:50:55', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Organización, sostenimiento y cuidado de un centro donde se proporcione alimentación, asistencia médica y alojamiento sin fines de lucro a personas de escasos recursos que así lo requieran.', 'Rebeca Terán Tineo', 'Rebeca Terán Tineo', 'Elizabeth Arias Verdugo', 'Ignacio Zaragoza S/n San José de Bacum Sonora.', '(044) 149 01 45', 'asilomadreteresabacum@hotmail.com', NULL, '@asiloteresabacum', NULL, NULL, 0, NULL, '', '2021-05-10'),
+(11, '2021-05-01 13:50:43', '2021-05-01 13:50:43', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Prestar atención de guardería', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Calle Puebla 620 Sur entre Niños Heroes y Jesus Garcial.', '(644) 414 87 07', 'ampcob@gmail.com', 'Facebook: ampco Ac', NULL, NULL, NULL, 1, NULL, '', '2021-05-01'),
+(12, '2021-05-01 13:52:31', '2021-05-01 13:52:31', 'Asociación de Profesionistas de la Salud en Ciudad Obregón, I.A.P.', 'Oganizar jornadas médico quirurgicas gratuitas de asistencia social, dirigidas a las clases marginadas de la población rural del estado de sonora, aprovechando para tal fin los recursos humanos de la asociación (Médicos, Dentistas, Químicos, y Representantes de la Industria Farmacéutica.', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Veracruz Núm 621 - 7-A, Col. Zona Norte, C.P. 85010, Cajeme, Sonora', '(644) 415 15 18', 'barrerapar@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-03'),
+(13, '2021-05-01 13:54:03', '2021-05-01 13:54:12', 'Asociación Fray Julio César, A.C.', '----', 'Ing. Uriel Mendoza Acuña', NULL, 'Elia Mendoza de Clayton', 'Flavio Bórquez 1613 Col. Prados del Tepeyac', NULL, 'ely@cabsaconsultorias.com', NULL, NULL, NULL, NULL, 0, NULL, '', '2021-05-14');
 
 -- --------------------------------------------------------
 
@@ -158,9 +162,19 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `tags` (
-  `id` int(11) NOT NULL,
-  `descripcion` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `tags`
+--
+
+INSERT INTO `tags` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
+(1, 'Tag numero 1', '2021-05-04 08:35:16', '2021-05-04 08:35:36'),
+(2, 'Tag numero 2', '2021-05-04 08:47:32', '2021-05-04 08:47:32');
 
 -- --------------------------------------------------------
 
@@ -219,7 +233,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (35, 'Emiliano', 'emiliano@correo.com', NULL, '123456789', NULL, '2021-04-30 14:26:40', '2021-04-30 14:26:40', 1, 1),
 (36, 'romina', 'romina@correo.com', NULL, '123456789', NULL, '2021-04-30 14:28:07', '2021-04-30 14:28:07', 1, 1),
 (37, 'Ernesto Alvarado', 'asddasdasdadawdawdaw@hotmail.com', NULL, '$2y$10$rD9j47FonntgfE3uKxHnxOij82d2OmD7ifFKZFNKfjYBKCQg6VKp6', NULL, '2021-05-01 05:26:45', '2021-05-01 05:26:45', 2, 1),
-(38, 'Karla Jaime', 'carlyc_98@hotmail.com', NULL, '$2y$10$KcPfXj8IstFdfc6LyuEAtusc5cKkIvwd3RNn74/HLpLtMkGgtocIO', NULL, '2021-05-01 05:41:27', '2021-05-01 05:41:27', 2, 1);
+(38, 'Karla Jaime', 'carlyc_98@hotmail.com', NULL, '$2y$10$KcPfXj8IstFdfc6LyuEAtusc5cKkIvwd3RNn74/HLpLtMkGgtocIO', NULL, '2021-05-01 05:41:27', '2021-05-01 05:41:27', 2, 1),
+(39, 'uSUARIO CREADO', 'usuario@creado.com', NULL, '$2y$10$76SvGx0aF3x4Ao2H5OG/yuzobnimolJ4g9owa1aKtx.AHwtWib1Su', NULL, '2021-05-04 08:34:53', '2021-05-04 08:34:53', 2, 1);
 
 --
 -- Índices para tablas volcadas
@@ -291,13 +306,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `organizations`
 --
 ALTER TABLE `organizations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `oscs`
@@ -309,7 +324,7 @@ ALTER TABLE `oscs`
 -- AUTO_INCREMENT de la tabla `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_usuario`
@@ -321,7 +336,7 @@ ALTER TABLE `tipos_usuario`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Restricciones para tablas volcadas
