@@ -356,7 +356,7 @@
         <table class="table table-bordered table-checkable" id="kt_datatable">
             <thead>
                 <tr>
-                    <th class="bg-success">Proximas a perder vigencia</th>
+                    <th class="bg-success">Proximas a perder vigencia en 31 dias</th>
 
                 </tr>
 
@@ -493,7 +493,7 @@
         <table class="table table-bordered table-checkable" id="kt_datatable">
             <thead>
                 <tr>
-                    <th class="bg-danger">Perdieron vigencia</th>
+                    <th class="bg-danger">Perdieron vigencia hace 31 dias</th>
 
                 </tr>
 
