@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-05-2021 a las 04:05:22
+-- Tiempo de generación: 08-05-2021 a las 04:13:46
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.3.26
 
@@ -178,6 +178,18 @@ INSERT INTO `tags` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tags_organizacion`
+--
+
+CREATE TABLE `tags_organizacion` (
+  `id` bigint(20) NOT NULL,
+  `id_tag` bigint(20) UNSIGNED NOT NULL,
+  `id_organizacion` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tipos_usuario`
 --
 
@@ -291,6 +303,14 @@ ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `tags_organizacion`
+--
+ALTER TABLE `tags_organizacion`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `test2` (`id_tag`),
+  ADD KEY `2` (`id_organizacion`);
+
+--
 -- Indices de la tabla `tipos_usuario`
 --
 ALTER TABLE `tipos_usuario`
@@ -346,6 +366,12 @@ ALTER TABLE `tags`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT de la tabla `tags_organizacion`
+--
+ALTER TABLE `tags_organizacion`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `tipos_usuario`
 --
 ALTER TABLE `tipos_usuario`
@@ -372,6 +398,13 @@ ALTER TABLE `vigencias`
 --
 ALTER TABLE `oscs`
   ADD CONSTRAINT `FK_organizacion` FOREIGN KEY (`id_organizacion`) REFERENCES `oscs` (`id`);
+
+--
+-- Filtros para la tabla `tags_organizacion`
+--
+ALTER TABLE `tags_organizacion`
+  ADD CONSTRAINT `2` FOREIGN KEY (`id_organizacion`) REFERENCES `organizations` (`id`),
+  ADD CONSTRAINT `test2` FOREIGN KEY (`id_tag`) REFERENCES `tags` (`id`);
 
 --
 -- Filtros para la tabla `users`
