@@ -289,6 +289,18 @@ License: You must have a valid license purchased only from themeforest(the above
 													<i class="menu-arrow"></i> --}}
 												</a>
 											</li>
+											<li class="menu-item menu-item-submenu" >
+												<a href="{{route("colonias")}}" class="menu-link">
+													<i class="menu-bullet menu-bullet-dot">
+														<span></span>
+													</i>
+													<span class="menu-text">Colonias</span>
+													{{-- <span class="menu-label">
+														<span class="label label-rounded label-primary">6</span>
+													</span>
+													<i class="menu-arrow"></i> --}}
+												</a>
+											</li>
 										</ul>
 									</div>
 								</li>

@@ -7,6 +7,7 @@ use App\Http\Controllers\TagsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\ColoniasController;
 
 
 /*
@@ -69,3 +70,17 @@ Route::get('/busquedastags', [TagsController::class, "busquedastags"])->name("ta
 
 Route::post("tags/create",[TagsController::class, "store"])->name("tags.store");
 
+
+
+//Colonias
+
+Route::get('/colonias', [ColoniasController::class, "colonias"])->name("colonias");
+Route::get('/colonias/create', [ColoniasController::class, "create"])->name("colonias.create");
+Route::get('colonias/edit/{id}', [ColoniasController::class, "editar"])->name("colonias.editar");
+Route::put("colonias/edit/{id}/actualizar", [ColoniasController::class, "actualizar"])->name("colonias.actualizar");
+Route::get("colonias/edit/{id}/confirmdelete",[ColoniasController::class, "confirmdelete"])->name("colonias.confirmdelete");
+Route::delete('/colonias/{id}', [ColoniasController::class, "destroy"])->name("colonias.destroy");
+//Route::get('/widgets', [ColoniasController::class, "widgets"])->name("colonias.widgets");
+//Route::get('/busquedastags', [ColoniasController::class, "busquedastags"])->name("colonias.busquedastags");
+
+Route::post("colonias/create",[ColoniasController::class, "storecolonias"])->name("colonias.storecolonias");
