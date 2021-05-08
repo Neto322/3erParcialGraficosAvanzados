@@ -168,7 +168,7 @@
 
                             <div class="form-group">
                                 <label>Selección de tags:</label>
-                                &nbsp <br>
+                                &nbsp;<BR>
                                 <select class="selectpicker" multiple data-live-search="true">
                                     <option>Mustard</option>
                                     <option>Ketchup</option>

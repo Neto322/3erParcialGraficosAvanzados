@@ -177,8 +177,18 @@
                             </div>
 
                             <div class="form-group">
-                            <label>Prueba de vigencia:</label>
-                            <textarea class="form-control" rows="3">Escribe aqui la prueba de vigencia...</textarea>
+                                <label>Prueba de vigencia:</label>
+                                <textarea class="form-control" rows="3">Escribe aqui la prueba de vigencia...</textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Selección de tags:</label>
+                                &nbsp;<BR>
+                                <select class="selectpicker" multiple data-live-search="true">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
                             </div>
 
                             <button type="submit" class="btn btn-primary">Actualizar organizacion</button>
