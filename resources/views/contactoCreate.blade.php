@@ -157,19 +157,29 @@
 
                             
                             <div class="form-group">
-                            <label>Fecha vigencia:</label>
-                            <input class =" form-control"  name="fecha_vigencia" type="date">
+                                <label>Fecha vigencia:</label>
+                                <input class =" form-control"  name="fecha_vigencia" type="date">
                             </div>
 
                             <div class="form-group">
-                            <label>Prueba de vigencia:</label>
-                            <textarea class="form-control" rows="3">Escribe aqui la prueba de vigencia...</textarea>
+                                <label>Prueba de vigencia:</label>
+                                <textarea class="form-control" rows="3">Escribe aqui la prueba de vigencia...</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Selección de tags:</label>
+                                &nbsp <br>
+                                <select class="selectpicker" multiple data-live-search="true">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
                             </div>
 
                             <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Agregar nueva organizacion</button>
                             </div>
-                            </form>
+                        </form>
                     </div>
                 </div>
             </div>
