@@ -19,6 +19,7 @@ class organization extends Model
         'representantelegal',
         'director',
         'domicilio',
+        'colonia'
         'telefono',
         'email',
         'sitioweb',
