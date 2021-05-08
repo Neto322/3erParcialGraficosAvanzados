@@ -60,6 +60,7 @@ class ContactoController extends Controller
         $contactos->represetantelegal = $request->input("represetantelegal");
         $contactos->director = $request->input("director");
         $contactos->domicilio = $request->input("domicilio");
+        $contactos->colonia = $request->input("colonia");
         $contactos->telefono = $request->input("telefono");
         $contactos->email = $request->input("email");
         $contactos->sitioweb = $request->input("sitioweb");
@@ -112,6 +113,7 @@ class ContactoController extends Controller
         $nuevoContacto->represetantelegal = $request->input("representanteLegal");
         $nuevoContacto->director = $request->input("director");
         $nuevoContacto->domicilio = $request->input("domicilio");
+        $nuevoContacto->colonia = $request->input("colonia");
         $nuevoContacto->telefono = $request->input("telefono");
         $nuevoContacto->email = $request->input("email");
         $nuevoContacto->sitioweb = $request->input("sitioWeb");
