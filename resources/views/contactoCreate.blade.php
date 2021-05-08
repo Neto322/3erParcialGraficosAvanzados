@@ -162,9 +162,14 @@
                             </div>
 
                             <div class="form-group">
+                            <label>Prueba de vigencia:</label>
+                            <textarea class="form-control" rows="3">Escribe aqui la prueba de vigencia...</textarea>
+                            </div>
+
+                            <div class="form-group">
                                 <button class="btn btn-primary" type="submit">Agregar nueva organizacion</button>
                             </div>
-                        </form>
+                            </form>
                     </div>
                 </div>
             </div>
