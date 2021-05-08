@@ -103,7 +103,7 @@
         <table class="table table-bordered table-checkable" id="kt_datatable">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col">
                          <!-- Default box -->
                         <div class="card">
                             <div class="card-header">
@@ -168,47 +168,39 @@
                             <label>Twitter:</label>
                             <h4>{{ $contactos->twitter }}</h4><br>
                             </div>
-
-
-                             <div   class="container w-auto" >
-                                <div class="col-md-8 "> 
-                                <table class="table ">
-                                    <thead>
-                                        <tr>
-                                        <th style="width: 16.66%" scope="col">Fecha de vigencia</th>
-                                        <th scope="col">Prueba de vigencia</th>
-                                    
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <th scope="row">10/02/2021</th>
-                                        <td>adoptaron 13 perrito</td>
-                                
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">02/03/2021</th>
-                                        <td>Jacob</td>
-                                        
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">03/02/2021</th>
-                                        <td colspan="2">adoptaron 7 perrito</td>
-                                    
-                                        </tr>
-                                    </tbody>
-                                </div>
-                                </div>
-                           
-
-                          
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <div   class="container w-auto" >
+                <div class="col-md-8"> 
+                <h1>Vigencias</h1>
+                <table class="table ">
+                    <thead>
+                        <tr>
+                        <th style="width: 16.66%" scope="col">Fecha de vigencia</th>
+                        <th scope="col">Prueba de vigencia</th>
                     
-                   
-
-
-
-
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">10/02/2021</th>
+                        <td>adoptaron 13 perrito</td>
+                
+                        </tr>
+                        <tr>
+                        <th scope="row">02/03/2021</th>
+                        <td>Jacob</td>
+                        
+                        </tr>
+                        <tr>
+                        <th scope="row">03/02/2021</th>
+                        <td colspan="2">adoptaron 7 perrito</td>
+                    
+                        </tr>
+                    </tbody>
                 </div>
             </div>
         </table>
