@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-05-2021 a las 20:10:32
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 7.3.27
+-- Tiempo de generación: 08-05-2021 a las 04:05:22
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 7.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -173,8 +173,7 @@ CREATE TABLE `tags` (
 --
 
 INSERT INTO `tags` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
-(1, 'Tag numero 1', '2021-05-04 08:35:16', '2021-05-04 08:35:36'),
-(2, 'Tag numero 2', '2021-05-04 08:47:32', '2021-05-04 08:47:32');
+(4, 'animales', '2021-05-08 08:38:05', '2021-05-08 08:38:05');
 
 -- --------------------------------------------------------
 
@@ -236,6 +235,19 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (38, 'Karla Jaime', 'carlyc_98@hotmail.com', NULL, '$2y$10$KcPfXj8IstFdfc6LyuEAtusc5cKkIvwd3RNn74/HLpLtMkGgtocIO', NULL, '2021-05-01 05:41:27', '2021-05-01 05:41:27', 2, 1),
 (39, 'uSUARIO CREADO', 'usuario@creado.com', NULL, '$2y$10$76SvGx0aF3x4Ao2H5OG/yuzobnimolJ4g9owa1aKtx.AHwtWib1Su', NULL, '2021-05-04 08:34:53', '2021-05-04 08:34:53', 2, 1);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vigencias`
+--
+
+CREATE TABLE `vigencias` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_organizacion` bigint(20) UNSIGNED NOT NULL,
+  `fecha_verificacion` date NOT NULL,
+  `comentario` int(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Índices para tablas volcadas
 --
@@ -293,6 +305,13 @@ ALTER TABLE `users`
   ADD KEY `TipoUsuario` (`id_tipo_usuario`);
 
 --
+-- Indices de la tabla `vigencias`
+--
+ALTER TABLE `vigencias`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `test` (`id_organizacion`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -324,7 +343,7 @@ ALTER TABLE `oscs`
 -- AUTO_INCREMENT de la tabla `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_usuario`
@@ -337,6 +356,12 @@ ALTER TABLE `tipos_usuario`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT de la tabla `vigencias`
+--
+ALTER TABLE `vigencias`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -353,6 +378,12 @@ ALTER TABLE `oscs`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `TipoUsuario` FOREIGN KEY (`id_tipo_usuario`) REFERENCES `tipos_usuario` (`id`);
+
+--
+-- Filtros para la tabla `vigencias`
+--
+ALTER TABLE `vigencias`
+  ADD CONSTRAINT `test` FOREIGN KEY (`id_organizacion`) REFERENCES `organizations` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
