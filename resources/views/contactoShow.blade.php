@@ -170,10 +170,45 @@
                             </div>
 
 
+                             <div   class="container w-auto" >
+                                <div class="col-md-8 "> 
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                        <th style="width: 16.66%" scope="col">Fecha de vigencia</th>
+                                        <th scope="col">Prueba de vigencia</th>
+                                    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <th scope="row">10/02/2021</th>
+                                        <td>adoptaron 13 perrito</td>
+                                
+                                        </tr>
+                                        <tr>
+                                        <th scope="row">02/03/2021</th>
+                                        <td>Jacob</td>
+                                        
+                                        </tr>
+                                        <tr>
+                                        <th scope="row">03/02/2021</th>
+                                        <td colspan="2">adoptaron 7 perrito</td>
+                                    
+                                        </tr>
+                                    </tbody>
+                                </div>
+                                </div>
                            
 
                           
                     </div>
+                    
+                   
+
+
+
+
                 </div>
             </div>
         </table>
