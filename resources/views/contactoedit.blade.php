@@ -176,6 +176,11 @@
                             <input class =" form-control"  name="fecha_vigencia" value="{{ $contactos->fecha_vigencia }}" type="date">
                             </div>
 
+                            <div class="form-group">
+                            <label>Prueba de vigencia:</label>
+                            <textarea class="form-control" rows="3">Escribe aqui la prueba de vigencia...</textarea>
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Actualizar organizacion</button>
 
                             </div>
