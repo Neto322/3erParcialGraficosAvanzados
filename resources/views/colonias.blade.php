@@ -57,7 +57,7 @@
                         <td><p>{{ $colonia->nombre }}</p></td>
                         <td>
                             <a href="{{route('colonias.editar', $colonia->id)}}"><button class="btn btn-xs btn-primary">Editar</button></a>
-                            <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmarEliminacion{{ $colonia->id }}">Eliminar</button>
+                            <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmarEliminacion{{ $colonia->id }}">Dar de baja</button>
                             <!-- Modal -->
                             <div class="modal fade" id="confirmarEliminacion{{ $colonia->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog">
