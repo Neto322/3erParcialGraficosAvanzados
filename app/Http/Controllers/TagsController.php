@@ -44,6 +44,7 @@ class TagsController extends Controller
 
     }
 
+
     public function confirmdelete($id) {
         $descripcion = Tags::find($id);
 

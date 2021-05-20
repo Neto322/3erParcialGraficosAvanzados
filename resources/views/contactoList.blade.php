@@ -1,6 +1,6 @@
 @extends('index')
 @section("titulo")
-<h1>lista de organizaciones</h1>
+<h1>Lista de organizaciones</h1>
 @endsection
 @section('contenido_principal')
 
@@ -104,29 +104,40 @@
     <div class="card-body">
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
+        
+            <div class="form-group">
+                <label>Filtro con tags:</label>
+                &nbsp;<BR>
+                <select class="selectpicker col-md-12" multiple data-live-search="true">
+                    <option>Mustard</option>
+                    <option>Ketchup</option>
+                    <option>Relish</option>
+                </select>
+            </div>
+            
             <thead>
                 <tr>
-                    <th class="bg-secondary">Total Registrados</th>
+                    <th class="bg-secondary">Total de OSCs Registrados</th>
 
                 </tr>
 
                 <tr>
-                    <th>id</th>
-                    <th>nombre</th>
-                    {{-- <th>objeto social</th> --}}
-                    <th>presidente</th>
-                    {{-- <th>representante legal</th> --}}
-                    <th>director</th>
-                    {{-- <th>domicilio</th> --}}
-                    {{-- <th>telefono</th> --}}
-                    <th>email</th>
-                    {{-- <th>sitio web</th> --}}
-                    {{-- <th>facebook</th> --}}
-                    {{-- <th>instagram</th> --}}
-                    {{-- <th>twitter</th> --}}
-                    <th>fecha vigencia</th> 
-                    <th>vigente</th> 
-                    <th>activo</th>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    {{-- <th>Objeto social</th> --}}
+                    <th>Presidente</th>
+                    {{-- <th>Representante legal</th> --}}
+                    <th>Director</th>
+                    {{-- <th>Domicilio</th> --}}
+                    {{-- <th>Telefono</th> --}}
+                    <th>E-mail</th>
+                    {{-- <th>Sitio web</th> --}}
+                    {{-- <th>Facebook</th> --}}
+                    {{-- <th>Instagram</th> --}}
+                    {{-- <th>Twitter</th> --}}
+                    <th>Fecha vigencia</th> 
+                    <th>Vigente</th> 
+                    <th>Activo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -234,27 +245,27 @@
         <table class="table table-bordered table-checkable" id="kt_datatable">
             <thead>
                 <tr>
-                    <th class="bg-secondary">Total vigentes</th>
+                    <th class="bg-secondary">Total de OSCs vigentes</th>
 
                 </tr>
 
                 <tr>
-                    <th>id</th>
-                    <th>nombre</th>
-                    {{-- <th>objeto social</th> --}}
-                    <th>presidente</th>
-                    {{-- <th>representante legal</th> --}}
-                    <th>director</th>
-                    {{-- <th>domicilio</th> --}}
-                    {{-- <th>telefono</th> --}}
-                    <th>email</th>
-                    {{-- <th>sitio web</th> --}}
-                    {{-- <th>facebook</th> --}}
-                    {{-- <th>instagram</th> --}}
-                    {{-- <th>twitter</th> --}}
-                    <th>fecha vigencia</th> 
-                    <th>vigente</th> 
-                    <th>activo</th>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    {{-- <th>Objeto social</th> --}}
+                    <th>Presidente</th>
+                    {{-- <th>Representante legal</th> --}}
+                    <th>Director</th>
+                    {{-- <th>Domicilio</th> --}}
+                    {{-- <th>Telefono</th> --}}
+                    <th>E-mail</th>
+                    {{-- <th>Sitio web</th> --}}
+                    {{-- <th>Facebook</th> --}}
+                    {{-- <th>Instagram</th> --}}
+                    {{-- <th>Twitter</th> --}}
+                    <th>Fecha vigencia</th> 
+                    <th>Vigente</th> 
+                    <th>Activo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -361,22 +372,22 @@
                 </tr>
 
                 <tr>
-                    <th>id</th>
-                    <th>nombre</th>
-                    {{-- <th>objeto social</th> --}}
-                    <th>presidente</th>
-                    {{-- <th>representante legal</th> --}}
-                    <th>director</th>
-                    {{-- <th>domicilio</th> --}}
-                    {{-- <th>telefono</th> --}}
-                    <th>email</th>
-                    {{-- <th>sitio web</th> --}}
-                    {{-- <th>facebook</th> --}}
-                    {{-- <th>instagram</th> --}}
-                    {{-- <th>twitter</th> --}}
-                    <th>fecha vigencia</th> 
-                    <th>vigente</th> 
-                    <th>activo</th>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    {{-- <th>Objeto social</th> --}}
+                    <th>Presidente</th>
+                    {{-- <th>Representante legal</th> --}}
+                    <th>Director</th>
+                    {{-- <th>Domicilio</th> --}}
+                    {{-- <th>Telefono</th> --}}
+                    <th>E-mail</th>
+                    {{-- <th>Sitio web</th> --}}
+                    {{-- <th>Facebook</th> --}}
+                    {{-- <th>Instagram</th> --}}
+                    {{-- <th>Twitter</th> --}}
+                    <th>Fecha vigencia</th> 
+                    <th>Vigente</th> 
+                    <th>Activo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -498,22 +509,22 @@
                 </tr>
 
                 <tr>
-                    <th>id</th>
-                    <th>nombre</th>
-                    {{-- <th>objeto social</th> --}}
-                    <th>presidente</th>
-                    {{-- <th>representante legal</th> --}}
-                    <th>director</th>
-                    {{-- <th>domicilio</th> --}}
-                    {{-- <th>telefono</th> --}}
-                    <th>email</th>
-                    {{-- <th>sitio web</th> --}}
-                    {{-- <th>facebook</th> --}}
-                    {{-- <th>instagram</th> --}}
-                    {{-- <th>twitter</th> --}}
-                    <th>fecha vigencia</th> 
-                    <th>vigente</th> 
-                    <th>activo</th>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    {{-- <th>Objeto social</th> --}}
+                    <th>Presidente</th>
+                    {{-- <th>Representante legal</th> --}}
+                    <th>Director</th>
+                    {{-- <th>Domicilio</th> --}}
+                    {{-- <th>Telefono</th> --}}
+                    <th>E-mail</th>
+                    {{-- <th>Sitio web</th> --}}
+                    {{-- <th>Facebook</th> --}}
+                    {{-- <th>Instagram</th> --}}
+                    {{-- <th>Twitter</th> --}}
+                    <th>Fecha vigencia</th> 
+                    <th>Vigente</th> 
+                    <th>Activo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>

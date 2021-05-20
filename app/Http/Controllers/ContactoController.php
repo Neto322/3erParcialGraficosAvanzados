@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\organization;
+use App\Models\Tags;
+use App\Models\tags_organizacion;
 use Illuminate\Http\Request;
 
 class ContactoController extends Controller
@@ -12,13 +14,12 @@ class ContactoController extends Controller
         $this->middleware('auth');
     }
 
-
-
     public function listarContacto()
     {
         $contactos = organization::all();
         $argumentos = array();
         $argumentos["contactos"] = $contactos;
+
         return view("contactoList",$argumentos);
     }
 
@@ -52,7 +53,7 @@ class ContactoController extends Controller
     public function actualizarContacto(Request $request,$id)
     {
         $contactos = organization::find($id);
-
+        $tags = tags_organizacion::find($id);
          
         $contactos->nombre = $request->input("nombre");
         $contactos->objetosocial = $request->input("objetosocial");
@@ -60,7 +61,7 @@ class ContactoController extends Controller
         $contactos->represetantelegal = $request->input("represetantelegal");
         $contactos->director = $request->input("director");
         $contactos->domicilio = $request->input("domicilio");
-        $contactos->colonia = $request->input("colonia");
+        //$contactos->id_colonia = $request->input("colonia");
         $contactos->telefono = $request->input("telefono");
         $contactos->email = $request->input("email");
         $contactos->sitioweb = $request->input("sitioweb");
@@ -68,6 +69,8 @@ class ContactoController extends Controller
         $contactos->instagram = $request->input("instagram");
         $contactos->twitter = $request->input("twitter");
         $contactos->fecha_vigencia = $request->input("fecha_vigencia");
+        $contactos->id_Tags = $request->input("tag");
+        $tags->id_tag = $contactos->id_Tags;
        
         if($contactos->save())
         {
@@ -88,24 +91,33 @@ class ContactoController extends Controller
     public function editarContacto($id)
     {
         $contactos = organization::find($id);
-
+        $tags = Tags::all();
         $argumentos = array();
-        $argumentos["contactos"]= $contactos;
-
+        $argumentos["contactos"] = $contactos;
+        $argumentos["tags"] = $tags;
         return view("contactoedit", $argumentos);
 
     }
 
     
     
+    
+    
     public function crearContacto()
     {
-        return view("contactoCreate");
+        $contactos = organization::all();
+        $tags = Tags::all();
+        $argumentos = array();
+        $argumentos["contactos"] = $contactos;
+        $argumentos["tags"] = $tags;
+
+        return view("contactoCreate",$argumentos);
     }
     
     public function guardarContacto(Request $request)
     {
         $nuevoContacto = new organization();
+        $tags = new tags_organizacion();
         
         $nuevoContacto->nombre = $request->input("nombre");
         $nuevoContacto->objetosocial = $request->input("objetoSocial");
@@ -113,7 +125,7 @@ class ContactoController extends Controller
         $nuevoContacto->represetantelegal = $request->input("representanteLegal");
         $nuevoContacto->director = $request->input("director");
         $nuevoContacto->domicilio = $request->input("domicilio");
-        $nuevoContacto->colonia = $request->input("colonia");
+        //$nuevoContacto->id_colonia = $request->input("colonia");
         $nuevoContacto->telefono = $request->input("telefono");
         $nuevoContacto->email = $request->input("email");
         $nuevoContacto->sitioweb = $request->input("sitioWeb");
@@ -121,8 +133,10 @@ class ContactoController extends Controller
         $nuevoContacto->instagram = $request->input("instagram");
         $nuevoContacto->twitter = $request->input("twitter");
         $nuevoContacto->fecha_vigencia = $request->input("fecha_vigencia");
+        $nuevoContacto->id_Tags = $request->input("tag");
+        $tags->id_tag = $nuevoContacto->id_Tags;
 
-        if($nuevoContacto->save())
+        if($nuevoContacto->save() && $tags->save())
         {
             return redirect()->route("listarContacto")->with("exito", "Se agregó el usuario $nuevoContacto->name exitosamente");
         }

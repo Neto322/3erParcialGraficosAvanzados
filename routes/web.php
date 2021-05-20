@@ -56,7 +56,6 @@ Route::put('/contacto/editar/{id}/actualizar', [ContactoController::class, "actu
 
 
 
-
 //Tags
 
 Route::get('/tags', [TagsController::class, "tags"])->name("tags");
@@ -67,6 +66,7 @@ Route::get("tags/edit/{id}/confirmdelete",[TagsController::class, "confirmdelete
 Route::delete('/tags/{id}', [TagsController::class, "destroy"])->name("tags.destroy");
 Route::get('/widgets', [TagsController::class, "widgets"])->name("tags.widgets");
 Route::get('/busquedastags', [TagsController::class, "busquedastags"])->name("tags.busquedastags");
+
 
 Route::post("tags/create",[TagsController::class, "store"])->name("tags.store");
 

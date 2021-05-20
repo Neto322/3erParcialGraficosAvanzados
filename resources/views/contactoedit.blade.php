@@ -28,7 +28,7 @@
                             <path d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z" fill="#000000" opacity="0.3" />
                             <path d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z" fill="#000000" />
                         </g>
-                    </svg> --}}
+                    </svg> --}}c
                     <!--end::Svg Icon-->
                 {{-- </span>Export</button> --}}
                 <!--begin::Dropdown Menu-->
@@ -140,10 +140,10 @@
                             <input class =" form-control"  name="domicilio" value="{{ $contactos->domicilio }}" type="text">
                             </div>
 
-                            /*<div class="form-group">
+                            <!--/*<div class="form-group">
                             <label>Colonia:</label>
                             <input class=" form-control" name="colonia" value="{{ $contactos->colonia }}" type="text">
-                            </div>*/
+                            </div>*/-->
 
                             <div class="form-group">
                             <label>Telefono:</label>
@@ -182,19 +182,26 @@
 
                             <div class="form-group">
                                 <label>Prueba de vigencia:</label>
-                                <textarea class="form-control" rows="3">Escribe aqui la prueba de vigencia...</textarea>
+                                <textarea class="form-control" rows="3" placeholder="Escribe aqui la prueba de vigencia..."></textarea>
                             </div>
                             
                             <div class="form-group">
                                 <label>Selección de tags:</label>
                                 &nbsp;<BR>
-                                <select class="selectpicker" multiple data-live-search="true">
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
+                                
+                                <select name="tag" class="selectpicker col-md-12" multiple data-live-search="true">
+                                        @foreach($tags as $tag)
+                                        @if($contactos->id_Tags == $tag->id)  
+                                            <option selected="selected" value="{{$tag->id}}">{{$tag->descripcion}}</option>
+                                        @endif
+                                        @if($contactos->id_Tags != $tag->id)
+                                            <option value="{{$tag->id}}">{{$tag->descripcion}}</option>
+                                        @endif
+                                        @endforeach
                                 </select>
                             </div>
 
+                            
                             <button type="submit" class="btn btn-primary">Actualizar organizacion</button>
 
                             </div>
