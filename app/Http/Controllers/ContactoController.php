@@ -118,6 +118,7 @@ class ContactoController extends Controller
     {
         $nuevoContacto = new organization();
         $tags = new tags_organizacion();
+        //dd($nuevoContacto->id);
         
         $nuevoContacto->nombre = $request->input("nombre");
         $nuevoContacto->objetosocial = $request->input("objetoSocial");
@@ -133,12 +134,15 @@ class ContactoController extends Controller
         $nuevoContacto->instagram = $request->input("instagram");
         $nuevoContacto->twitter = $request->input("twitter");
         $nuevoContacto->fecha_vigencia = $request->input("fecha_vigencia");
-        $nuevoContacto->id_Tags = $request->input("tag");
-        $tags->id_tag = $nuevoContacto->id_Tags;
+        $tags->id_tag = $request->input("tag");
+        $tags->id_organizacion = $nuevoContacto->id;
 
-        if($nuevoContacto->save() && $tags->save())
+        if($nuevoContacto->save())
         {
-            return redirect()->route("listarContacto")->with("exito", "Se agregó el usuario $nuevoContacto->name exitosamente");
+            if($tags->save())
+            {
+                return redirect()->route("listarContacto")->with("exito", "Se agregó el usuario $nuevoContacto->name exitosamente");
+            }
         }
 
         return redirect()->route("listarContacto")->with("error", "no se pudo agregar el usuario");
