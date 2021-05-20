@@ -56,6 +56,10 @@ Route::put('/contacto/editar/{id}/actualizar', [ContactoController::class, "actu
 
 
 
+Route::get('/searchTag', [ContactoController::class, "searchFilter"])->name("searchFilter");
+
+
+
 //Tags
 
 Route::get('/tags', [TagsController::class, "tags"])->name("tags");

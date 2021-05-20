@@ -17,8 +17,10 @@ class ContactoController extends Controller
     public function listarContacto()
     {
         $contactos = organization::all();
+        $tags = tags::all();
         $argumentos = array();
         $argumentos["contactos"] = $contactos;
+        $argumentos["tags"] = $tags;
 
         return view("contactoList",$argumentos);
     }
@@ -69,11 +71,12 @@ class ContactoController extends Controller
         $contactos->instagram = $request->input("instagram");
         $contactos->twitter = $request->input("twitter");
         $contactos->fecha_vigencia = $request->input("fecha_vigencia");
-        $contactos->id_Tags = $request->input("tag");
-        $tags->id_tag = $contactos->id_Tags;
+
        
         if($contactos->save())
         {
+            $tags->id_tag = $request->input("tag");
+            $tags->id_organizacion = $contacto->id;
             return redirect()->route("listarContacto",$id)->with("exito", "Se actualizó correctamente la organizacion");
         }
         return redirect()->route("listarContacto",$id)->with("error", "No se ha podio actualizar  la organizacion");
@@ -134,11 +137,12 @@ class ContactoController extends Controller
         $nuevoContacto->instagram = $request->input("instagram");
         $nuevoContacto->twitter = $request->input("twitter");
         $nuevoContacto->fecha_vigencia = $request->input("fecha_vigencia");
-        $tags->id_tag = $request->input("tag");
-        $tags->id_organizacion = $nuevoContacto->id;
+        
 
         if($nuevoContacto->save())
         {
+            $tags->id_tag = $request->input("tag");
+            $tags->id_organizacion = $nuevoContacto->id;
             if($tags->save())
             {
                 return redirect()->route("listarContacto")->with("exito", "Se agregó el usuario $nuevoContacto->name exitosamente");
@@ -146,6 +150,28 @@ class ContactoController extends Controller
         }
 
         return redirect()->route("listarContacto")->with("error", "no se pudo agregar el usuario");
+    }
+
+    public function searchFilter(Request $request)
+    {
+        $filter = $request->input("tag");
+        $tags = Tags::where("descripcion", $filter);
+        if($tags == null){
+            return redirect();
+        }
+        else{
+            $organizaciones = organization::select('organizations.id', 'organizations.nombre', 'organizations.presidente', 'organizations.director', 
+            'organizations.email', 'organizations.fecha_vigencia', 'organizations.activo')->
+            leftjoin("tags_organizacion", "tags_organizacion.id_organizacion", "organizations.id")->
+            where("tags_organizacion.id_tag", $filter)->get();
+            $tags = Tags::all();
+            
+            $argumentos = array();
+            $argumentos["contactos"] = $organizaciones;
+            $argumentos["tags"] = $tags;
+
+            return view("contactoList",$argumentos);
+        }
     }
 
 }

@@ -105,15 +105,23 @@
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
         
-            <div class="form-group">
-                <label>Filtro con tags:</label>
-                &nbsp;<BR>
-                <select class="selectpicker col-md-12" multiple data-live-search="true">
-                    <option>Mustard</option>
-                    <option>Ketchup</option>
-                    <option>Relish</option>
-                </select>
-            </div>
+            <form action="/searchTag" id="formFilter">
+                <div class="form-group">
+                    <label>Selección de tags:</label>
+                    &nbsp;<BR>
+                    
+                    <select onchange="searchFilter();" name="tag" class="selectpicker col-md-12" multiple data-live-search="true">
+                            @foreach($tags as $tag)
+                                <option value="{{$tag->id}}">{{$tag->descripcion}}</option>
+                            @endforeach
+                    </select>
+                </div>
+                <script>
+                    function searchFilter(){
+                        document.querySelector("#formFilter").submit();
+                    }
+                </script>
+            </form>
             
             <thead>
                 <tr>
