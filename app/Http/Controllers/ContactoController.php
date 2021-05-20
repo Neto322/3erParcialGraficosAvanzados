@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\organization;
 use App\Models\Tags;
+use App\Models\Colonias;
 use App\Models\tags_organizacion;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,11 @@ class ContactoController extends Controller
     {
         $contactos = organization::all();
         $tags = tags::all();
+        $colonias = Colonias::all();
         $argumentos = array();
         $argumentos["contactos"] = $contactos;
         $argumentos["tags"] = $tags;
+        $argumentos["colonias"] = $colonias;
 
         return view("contactoList",$argumentos);
     }
@@ -63,7 +66,7 @@ class ContactoController extends Controller
         $contactos->represetantelegal = $request->input("represetantelegal");
         $contactos->director = $request->input("director");
         $contactos->domicilio = $request->input("domicilio");
-        //$contactos->id_colonia = $request->input("colonia");
+        $contactos->colonia = $request->input("colonia");
         $contactos->telefono = $request->input("telefono");
         $contactos->email = $request->input("email");
         $contactos->sitioweb = $request->input("sitioweb");
@@ -129,7 +132,7 @@ class ContactoController extends Controller
         $nuevoContacto->represetantelegal = $request->input("representanteLegal");
         $nuevoContacto->director = $request->input("director");
         $nuevoContacto->domicilio = $request->input("domicilio");
-        //$nuevoContacto->id_colonia = $request->input("colonia");
+        $nuevoContacto->colonia = $request->input("colonia");
         $nuevoContacto->telefono = $request->input("telefono");
         $nuevoContacto->email = $request->input("email");
         $nuevoContacto->sitioweb = $request->input("sitioWeb");
@@ -173,5 +176,7 @@ class ContactoController extends Controller
             return view("contactoList",$argumentos);
         }
     }
+
+    
 
 }

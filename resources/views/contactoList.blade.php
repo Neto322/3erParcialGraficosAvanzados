@@ -105,23 +105,54 @@
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
         
-            <form action="/searchTag" id="formFilter">
-                <div class="form-group">
-                    <label>Selección de tags:</label>
-                    &nbsp;<BR>
-                    
-                    <select onchange="searchFilter();" name="tag" class="selectpicker col-md-12" multiple data-live-search="true">
-                            @foreach($tags as $tag)
-                                <option value="{{$tag->id}}">{{$tag->descripcion}}</option>
-                            @endforeach
-                    </select>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-5">
+                        <form action="/searchTag" id="formFilter">
+                            <div class="form-group">
+                                <label>Selección de tags:</label>
+                                &nbsp;<BR>
+                                
+                                <select onchange="searchFilter();" name="tag" class="selectpicker col-md-12" multiple data-live-search="true">
+                                        @foreach($tags as $tag)
+                                            <option value="{{$tag->id}}">{{$tag->descripcion}}</option>
+                                        @endforeach
+                                </select>
+                            </div>
+                            <script>
+                                function searchFilter(){
+                                    document.querySelector("#formFilter").submit();
+                                }
+                            </script>
+                        </form>
+                    </div>
+
+                    <div class="col-2"></div>
+
+                    <div class="col-5">
+                        <form action="/searchColonia" id="formFilterColonia">
+                            <div class="form-group">
+                                <label>Selección de colonias:</label>
+                                &nbsp;<BR>
+                                
+                                <select name="colonia" class="selectpicker col-md-12" multiple data-live-search="true">
+                                         @foreach($colonias as $colonia)
+                                            <option value="{{$colonia->id}}">{{$colonia->nombre}}</option>
+                                        @endforeach
+                                </select>
+                            </div>
+                            <script>
+                                function searchColonia(){
+                                    document.querySelector("#formFilterColonia").submit();
+                                }
+                            </script>
+                        </form>
+                    </div>
                 </div>
-                <script>
-                    function searchFilter(){
-                        document.querySelector("#formFilter").submit();
-                    }
-                </script>
-            </form>
+            </div>
+            
+
+
             
             <thead>
                 <tr>
@@ -137,6 +168,7 @@
                     {{-- <th>Representante legal</th> --}}
                     <th>Director</th>
                     {{-- <th>Domicilio</th> --}}
+                    <th>Colonia</th>
                     {{-- <th>Telefono</th> --}}
                     <th>E-mail</th>
                     {{-- <th>Sitio web</th> --}}
@@ -160,6 +192,7 @@
                         {{-- <td>{{ $contacto->represetantelegal}}</td> --}}
                         <td>{{ $contacto->director}}</td>
                         {{-- <td>{{ $contacto->domicilio}}</td> --}}
+                        <td>{{ $contacto->colonia}}</td>
                         {{-- <td>{{ $contacto->telefono}}</td> --}}
                         <td>{{ $contacto->email}}</td>
                         {{-- <td>{{ $contacto->sitioweb}}</td>
@@ -265,6 +298,7 @@
                     {{-- <th>Representante legal</th> --}}
                     <th>Director</th>
                     {{-- <th>Domicilio</th> --}}
+                    {{-- <th>Colonia</th> --}}
                     {{-- <th>Telefono</th> --}}
                     <th>E-mail</th>
                     {{-- <th>Sitio web</th> --}}
@@ -288,6 +322,7 @@
                         {{-- <td>{{ $contacto->represetantelegal}}</td> --}}
                         <td>{{ $contacto->director}}</td>
                         {{-- <td>{{ $contacto->domicilio}}</td> --}}
+                        {{-- <td>{{ $contacto->colonia}}</td> --}}
                         {{-- <td>{{ $contacto->telefono}}</td> --}}
                         <td>{{ $contacto->email}}</td>
                         {{-- <td>{{ $contacto->sitioweb}}</td>
@@ -387,6 +422,7 @@
                     {{-- <th>Representante legal</th> --}}
                     <th>Director</th>
                     {{-- <th>Domicilio</th> --}}
+                    {{-- <th>Colonia</th> --}}
                     {{-- <th>Telefono</th> --}}
                     <th>E-mail</th>
                     {{-- <th>Sitio web</th> --}}
@@ -418,6 +454,7 @@
                         {{-- <td>{{ $contacto->represetantelegal}}</td> --}}
                         <td>{{ $contacto->director}}</td>
                         {{-- <td>{{ $contacto->domicilio}}</td> --}}
+                        {{-- <td>{{ $contacto->colonia}}</td> --}}
                         {{-- <td>{{ $contacto->telefono}}</td> --}}
                         <td>{{ $contacto->email}}</td>
                         {{-- <td>{{ $contacto->sitioweb}}</td>
@@ -524,6 +561,7 @@
                     {{-- <th>Representante legal</th> --}}
                     <th>Director</th>
                     {{-- <th>Domicilio</th> --}}
+                    {{-- <th>Colonia</th> --}}
                     {{-- <th>Telefono</th> --}}
                     <th>E-mail</th>
                     {{-- <th>Sitio web</th> --}}
@@ -555,6 +593,7 @@
                         {{-- <td>{{ $contacto->represetantelegal}}</td> --}}
                         <td>{{ $contacto->director}}</td>
                         {{-- <td>{{ $contacto->domicilio}}</td> --}}
+                        {{-- <td>{{ $contacto->colonias}}</td> --}}
                         {{-- <td>{{ $contacto->telefono}}</td> --}}
                         <td>{{ $contacto->email}}</td>
                         {{-- <td>{{ $contacto->sitioweb}}</td>

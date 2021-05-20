@@ -77,7 +77,6 @@ Route::post("tags/create",[TagsController::class, "store"])->name("tags.store");
 
 
 //Colonias
-
 Route::get('/colonias', [ColoniasController::class, "colonias"])->name("colonias");
 Route::get('/colonias/create', [ColoniasController::class, "create"])->name("colonias.create");
 Route::get('colonias/edit/{id}', [ColoniasController::class, "editar"])->name("colonias.editar");

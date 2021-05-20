@@ -130,10 +130,10 @@
                                 <label>Domicilio:</label>
                                 <input class="form-control" name="domicilio" type="text">
                             </div>
-                            <!---<div class="form-group">
+                            <div class="form-group">
                                 <label>Colonia:</label>
                                 <input class="form-control" name="colonia" type="text">
-                            </div>---> 
+                            </div> 
                             <div class="form-group">
                                 <label>Telefono:</label>
                                 <input class="form-control" name="telefono" type="text">
