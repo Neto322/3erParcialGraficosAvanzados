@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 20, 2021 at 10:53 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.26
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-05-2021 a las 01:20:52
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 7.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `proyecto`
+-- Base de datos: `proyecto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `colonias`
+-- Estructura de tabla para la tabla `colonias`
 --
 
 CREATE TABLE `colonias` (
@@ -35,7 +35,7 @@ CREATE TABLE `colonias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `colonias`
+-- Volcado de datos para la tabla `colonias`
 --
 
 INSERT INTO `colonias` (`id`, `nombre`, `updated_at`, `created_at`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `colonias` (`id`, `nombre`, `updated_at`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Estructura de tabla para la tabla `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -62,7 +62,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Estructura de tabla para la tabla `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -72,7 +72,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Volcado de datos para la tabla `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -93,7 +93,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `organizations`
+-- Estructura de tabla para la tabla `organizations`
 --
 
 CREATE TABLE `organizations` (
@@ -106,7 +106,7 @@ CREATE TABLE `organizations` (
   `represetantelegal` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `director` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `domicilio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `id_colonias` int(10) UNSIGNED DEFAULT NULL,
+  `colonia` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `telefono` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sitioweb` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -120,38 +120,38 @@ CREATE TABLE `organizations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `organizations`
+-- Volcado de datos para la tabla `organizations`
 --
 
-INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objetosocial`, `presidente`, `represetantelegal`, `director`, `domicilio`, `id_colonias`, `telefono`, `email`, `sitioweb`, `facebook`, `instagram`, `twitter`, `activo`, `comentario_baja`, `comentario`, `fecha_vigencia`) VALUES
-(6, '2021-05-01 13:26:31', '2021-05-20 13:51:02', 'Abuelos Contentos Club Adultos Mayores A.C.', 'Promover ayuda y asistencia social a persona de la tercera edad.', 'José Adalberto Gaxiola Mendivil', 'José Adalberto Gaxiola Mendivil', 'Ramón Rafael Salazar Mendez', 'Privada #17 5027 Ejido Toribio Velazquez, Zona Urbana Luis Echeverria.', 0, '6444440569', 'yotambienpued2010@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-04'),
-(7, '2021-05-01 13:37:33', '2021-05-01 13:37:33', 'Agrupación de Fibrosis Quística del Noroeste, IAP', 'La asistencia y rehabilitación médica sin fines de lucro en beneficio de pacientes de escasos recursos que padecen Fibrosis Quistica.', 'Lic. Carmen Yolanda Avilés Castro', 'Lic. Carmen Yolanda Avilés Castro', 'Jacqueline Inclan de la Vega', 'Durango # 310 Nte. Col. Zona Norte', 0, '01 (644) 414 23 88', 'afq_noroeste@hotmail.com', 'www.afqnoroeste.org.mx', '@FibrosisQuisticaNoroeste', NULL, NULL, 1, NULL, '', '2021-04-07'),
-(8, '2021-05-01 13:45:00', '2021-05-20 10:04:02', 'Agrupación George Papanicolaou de Cd. Obregón, A.C.', 'Prevenir y Detectar el cáncer Cervicouterino, de mama y de próstata.', 'Virginia Gracia Rosas', 'Virginia Gracia Rosas', 'Miriam Zuleth Villareal Iribe', 'Coahuila # 632 Sur entre Jesús García y Niños Héroes', 0, '01 (644) 414 89 58', 'gpapanicolaouobr@hotmail.com', 'www.agpobregon.com', 'facebook', 'instagram', 'twitter', 0, NULL, '', '2021-05-31'),
-(9, '2021-05-01 13:47:04', '2021-05-01 13:47:04', 'APFA Comprometidos y Unidos por el progreso en la Educación de Sonora AC', 'Brindar atención a niños, jovenes y adolescentes a través de la orientacións social, educación o capacitación para el trabajo, la promoción de la participación organizada de la población en las acciones que mejoren sus propias condiciones de susbsistencia en beneficio de la comunidad, a través del diseño y desarrollo de programas y proyectos de desarrollo educativos, culturales y sociales.', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Hermanos Talamante #149 Pte. Col. Campesrte', 0, 'Cel. (044) 644 218 58 01', 'arturo_baron33@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-11'),
-(10, '2021-05-01 13:49:24', '2021-05-01 13:50:55', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Organización, sostenimiento y cuidado de un centro donde se proporcione alimentación, asistencia médica y alojamiento sin fines de lucro a personas de escasos recursos que así lo requieran.', 'Rebeca Terán Tineo', 'Rebeca Terán Tineo', 'Elizabeth Arias Verdugo', 'Ignacio Zaragoza S/n San José de Bacum Sonora.', 0, '(044) 149 01 45', 'asilomadreteresabacum@hotmail.com', NULL, '@asiloteresabacum', NULL, NULL, 0, NULL, '', '2021-05-10'),
-(11, '2021-05-01 13:50:43', '2021-05-01 13:50:43', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Prestar atención de guardería', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Calle Puebla 620 Sur entre Niños Heroes y Jesus Garcial.', 0, '(644) 414 87 07', 'ampcob@gmail.com', 'Facebook: ampco Ac', NULL, NULL, NULL, 1, NULL, '', '2021-05-01'),
-(12, '2021-05-01 13:52:31', '2021-05-01 13:52:31', 'Asociación de Profesionistas de la Salud en Ciudad Obregón, I.A.P.', 'Oganizar jornadas médico quirurgicas gratuitas de asistencia social, dirigidas a las clases marginadas de la población rural del estado de sonora, aprovechando para tal fin los recursos humanos de la asociación (Médicos, Dentistas, Químicos, y Representantes de la Industria Farmacéutica.', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Veracruz Núm 621 - 7-A, Col. Zona Norte, C.P. 85010, Cajeme, Sonora', 0, '(644) 415 15 18', 'barrerapar@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-03'),
-(13, '2021-05-01 13:54:03', '2021-05-01 13:54:12', 'Asociación Fray Julio César, A.C.', '----', 'Ing. Uriel Mendoza Acuña', NULL, 'Elia Mendoza de Clayton', 'Flavio Bórquez 1613 Col. Prados del Tepeyac', 0, NULL, 'ely@cabsaconsultorias.com', NULL, NULL, NULL, NULL, 0, NULL, '', '2021-05-14'),
-(15, '2021-05-20 10:00:38', '2021-05-20 10:04:36', 'tata', 't', 't', 't', 't', 't', NULL, 't', 't', 't', 't', 't', 't', 1, NULL, NULL, '2021-05-18'),
-(16, '2021-05-20 11:32:42', '2021-05-20 11:32:42', 'crop-top', 't', 't', 't', 't', 't', NULL, '6441498824', 'sofi@sofi.sofi', 't', NULL, NULL, NULL, 1, NULL, NULL, '2021-05-21'),
-(17, '2021-05-20 11:33:26', '2021-05-20 11:33:26', 'crop-top', 't', 't', 't', 't', 't', NULL, '6441498824', 'sofi@sofi.sofi', 't', NULL, NULL, NULL, 1, NULL, NULL, '2021-05-21'),
-(18, '2021-05-20 13:27:59', '2021-05-20 13:30:17', 'jk', 'k', 'k', 'kk', 'k', 'k', NULL, 'k', 'kinato03@hotmail.com', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-28'),
-(19, '2021-05-20 13:36:56', '2021-05-20 13:36:56', 'Minneth', 'l', 'l', 'l', 'l', 'l', NULL, 'l', 'l', 'l', 'l', 'l', 'l', 1, NULL, NULL, '2021-05-20'),
-(20, '2021-05-20 14:05:44', '2021-05-20 14:05:44', 'Porfis', 'a', 'a', 'a', 'a', 'a', NULL, 'a', 'arturo@correo.com', 'a', 'a', 'a', 'a', 1, NULL, NULL, '2021-05-05'),
-(21, '2021-05-20 14:18:47', '2021-05-20 14:18:47', 'Porfis', 'l', 'l', 'l', 'l', 'l', NULL, 'l', 'l', 'l', 'l', 'l', 'l', 1, NULL, NULL, '2021-04-26'),
-(22, '2021-05-20 14:20:36', '2021-05-20 14:20:36', 'WEYYA', 'a', 'k', 'k', 'k', 'k', NULL, 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-30'),
-(23, '2021-05-20 15:08:43', '2021-05-20 15:08:43', 'Porfis', 'o', 'o', 'o', 'o', 'o', NULL, 'o', 'o', 'o', 'o', 'o', 'o', 1, NULL, NULL, '2021-05-04'),
-(24, '2021-05-20 15:10:12', '2021-05-20 15:10:12', 'Porfis', 'o', 'o', 'o', 'o', 'o', NULL, 'o', 'o', 'o', 'o', 'o', 'o', 1, NULL, NULL, '2021-05-04'),
-(25, '2021-05-20 15:13:08', '2021-05-20 15:13:08', 'Porfis', 'p', 'p', 'p', 'p', 'p', NULL, 'p', 'p', 'p', 'p', 'p', 'p', 1, NULL, NULL, '2021-05-26'),
-(26, '2021-05-20 15:18:55', '2021-05-20 15:18:55', 'Porfis', 'p', 'p', 'p', 'p', 'p', NULL, 'p', 'p', 'p', 'p', 'p', 'p', 1, NULL, NULL, '2021-05-26'),
-(27, '2021-05-20 15:20:01', '2021-05-20 15:20:01', 'oppopo', 'k', 'k', 'k', 'k', 'k', NULL, 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-26'),
-(28, '2021-05-20 15:23:06', '2021-05-20 15:23:06', 'PO RFA VOR', 'H', 'H', 'H', 'H', 'H', NULL, 'H', 'H', 'H', 'H', 'H', 'H', 1, NULL, NULL, '2021-05-10'),
-(29, '2021-05-20 15:46:10', '2021-05-20 15:46:10', 'Komo', '0', '0', '0', '0', '0', NULL, '0', '0', '0', '0', '0', '0', 1, NULL, NULL, '2021-05-09');
+INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objetosocial`, `presidente`, `represetantelegal`, `director`, `domicilio`, `colonia`, `telefono`, `email`, `sitioweb`, `facebook`, `instagram`, `twitter`, `activo`, `comentario_baja`, `comentario`, `fecha_vigencia`) VALUES
+(6, '2021-05-01 13:26:31', '2021-05-20 13:51:02', 'Abuelos Contentos Club Adultos Mayores A.C.', 'Promover ayuda y asistencia social a persona de la tercera edad.', 'José Adalberto Gaxiola Mendivil', 'José Adalberto Gaxiola Mendivil', 'Ramón Rafael Salazar Mendez', 'Privada #17 5027 Ejido Toribio Velazquez, Zona Urbana Luis Echeverria.', 'Zona urbana', '6444440569', 'yotambienpued2010@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-04'),
+(7, '2021-05-01 13:37:33', '2021-05-01 13:37:33', 'Agrupación de Fibrosis Quística del Noroeste, IAP', 'La asistencia y rehabilitación médica sin fines de lucro en beneficio de pacientes de escasos recursos que padecen Fibrosis Quistica.', 'Lic. Carmen Yolanda Avilés Castro', 'Lic. Carmen Yolanda Avilés Castro', 'Jacqueline Inclan de la Vega', 'Durango # 310 Nte. Col. Zona Norte', 'Zona Norte', '01 (644) 414 23 88', 'afq_noroeste@hotmail.com', 'www.afqnoroeste.org.mx', '@FibrosisQuisticaNoroeste', NULL, NULL, 1, NULL, '', '2021-04-07'),
+(8, '2021-05-01 13:45:00', '2021-05-20 10:04:02', 'Agrupación George Papanicolaou de Cd. Obregón, A.C.', 'Prevenir y Detectar el cáncer Cervicouterino, de mama y de próstata.', 'Virginia Gracia Rosas', 'Virginia Gracia Rosas', 'Miriam Zuleth Villareal Iribe', 'Coahuila # 632 Sur entre Jesús García y Niños Héroes', 'Centro', '01 (644) 414 89 58', 'gpapanicolaouobr@hotmail.com', 'www.agpobregon.com', 'facebook', 'instagram', 'twitter', 0, NULL, '', '2021-05-31'),
+(9, '2021-05-01 13:47:04', '2021-05-01 13:47:04', 'APFA Comprometidos y Unidos por el progreso en la Educación de Sonora AC', 'Brindar atención a niños, jovenes y adolescentes a través de la orientacións social, educación o capacitación para el trabajo, la promoción de la participación organizada de la población en las acciones que mejoren sus propias condiciones de susbsistencia en beneficio de la comunidad, a través del diseño y desarrollo de programas y proyectos de desarrollo educativos, culturales y sociales.', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Hermanos Talamante #149 Pte. Col. Campesrte', 'Campestre', 'Cel. (044) 644 218 58 01', 'arturo_baron33@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-11'),
+(10, '2021-05-01 13:49:24', '2021-05-01 13:50:55', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Organización, sostenimiento y cuidado de un centro donde se proporcione alimentación, asistencia médica y alojamiento sin fines de lucro a personas de escasos recursos que así lo requieran.', 'Rebeca Terán Tineo', 'Rebeca Terán Tineo', 'Elizabeth Arias Verdugo', 'Ignacio Zaragoza S/n San José de Bacum Sonora.', 'San Jose', '(044) 149 01 45', 'asilomadreteresabacum@hotmail.com', NULL, '@asiloteresabacum', NULL, NULL, 0, NULL, '', '2021-05-10'),
+(11, '2021-05-01 13:50:43', '2021-05-01 13:50:43', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Prestar atención de guardería', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Calle Puebla 620 Sur entre Niños Heroes y Jesus Garcial.', 'Centro', '(644) 414 87 07', 'ampcob@gmail.com', 'Facebook: ampco Ac', NULL, NULL, NULL, 1, NULL, '', '2021-05-01'),
+(12, '2021-05-01 13:52:31', '2021-05-01 13:52:31', 'Asociación de Profesionistas de la Salud en Ciudad Obregón, I.A.P.', 'Oganizar jornadas médico quirurgicas gratuitas de asistencia social, dirigidas a las clases marginadas de la población rural del estado de sonora, aprovechando para tal fin los recursos humanos de la asociación (Médicos, Dentistas, Químicos, y Representantes de la Industria Farmacéutica.', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Veracruz Núm 621 - 7-A, Col. Zona Norte, C.P. 85010, Cajeme, Sonora', 'Zona norte', '(644) 415 15 18', 'barrerapar@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-03'),
+(13, '2021-05-01 13:54:03', '2021-05-01 13:54:12', 'Asociación Fray Julio César, A.C.', '----', 'Ing. Uriel Mendoza Acuña', NULL, 'Elia Mendoza de Clayton', 'Flavio Bórquez 1613 Col. Prados del Tepeyac', 'Prados de tepeyac', NULL, 'ely@cabsaconsultorias.com', NULL, NULL, NULL, NULL, 0, NULL, '', '2021-05-14'),
+(15, '2021-05-20 10:00:38', '2021-05-20 10:04:36', 'tata', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 1, NULL, NULL, '2021-05-18'),
+(16, '2021-05-20 11:32:42', '2021-05-20 11:32:42', 'crop-top', 't', 't', 't', 't', 't', 't', '6441498824', 'sofi@sofi.sofi', 't', NULL, NULL, NULL, 1, NULL, NULL, '2021-05-21'),
+(17, '2021-05-20 11:33:26', '2021-05-20 11:33:26', 'crop-top', 't', 't', 't', 't', 't', 't', '6441498824', 'sofi@sofi.sofi', 't', NULL, NULL, NULL, 1, NULL, NULL, '2021-05-21'),
+(18, '2021-05-20 13:27:59', '2021-05-20 13:30:17', 'jk', 'k', 'k', 'kk', 'k', 'k', 'k', 'k', 'kinato03@hotmail.com', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-28'),
+(19, '2021-05-20 13:36:56', '2021-05-20 13:36:56', 'Minneth', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 1, NULL, NULL, '2021-05-20'),
+(20, '2021-05-20 14:05:44', '2021-05-20 14:05:44', 'Porfis', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'arturo@correo.com', 'a', 'a', 'a', 'a', 1, NULL, NULL, '2021-05-05'),
+(21, '2021-05-20 14:18:47', '2021-05-20 14:18:47', 'Porfis', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 1, NULL, NULL, '2021-04-26'),
+(22, '2021-05-20 14:20:36', '2021-05-20 14:20:36', 'WEYYA', 'a', 'k', 'k', 'k', 'k', 'l', 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-30'),
+(23, '2021-05-20 15:08:43', '2021-05-20 15:08:43', 'Porfis', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 1, NULL, NULL, '2021-05-04'),
+(24, '2021-05-20 15:10:12', '2021-05-20 15:10:12', 'Porfis', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 1, NULL, NULL, '2021-05-04'),
+(25, '2021-05-20 15:13:08', '2021-05-20 15:13:08', 'Porfis', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 1, 'p', NULL, '2021-05-26'),
+(26, '2021-05-20 15:18:55', '2021-05-20 15:18:55', 'Porfis', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 1, NULL, NULL, '2021-05-26'),
+(27, '2021-05-20 15:20:01', '2021-05-20 15:20:01', 'oppopo', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-26'),
+(28, '2021-05-20 15:23:06', '2021-05-20 15:23:06', 'PO RFA VOR', 'H', 'H', 'H', 'H', 'H', 'h', 'H', 'H', 'H', 'H', 'H', 'H', 1, NULL, NULL, '2021-05-10'),
+(29, '2021-05-20 15:46:10', '2021-05-20 15:46:10', 'Komo', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 1, NULL, NULL, '2021-05-09');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oscs`
+-- Estructura de tabla para la tabla `oscs`
 --
 
 CREATE TABLE `oscs` (
@@ -166,7 +166,7 @@ CREATE TABLE `oscs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `oscs`
+-- Volcado de datos para la tabla `oscs`
 --
 
 INSERT INTO `oscs` (`id`, `id_organizacion`, `nombre`, `oficina`, `celular`, `correo`, `created_at`, `updated_at`) VALUES
@@ -184,7 +184,7 @@ INSERT INTO `oscs` (`id`, `id_organizacion`, `nombre`, `oficina`, `celular`, `co
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Estructura de tabla para la tabla `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -196,7 +196,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tags`
+-- Estructura de tabla para la tabla `tags`
 --
 
 CREATE TABLE `tags` (
@@ -207,7 +207,7 @@ CREATE TABLE `tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tags`
+-- Volcado de datos para la tabla `tags`
 --
 
 INSERT INTO `tags` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
@@ -218,7 +218,7 @@ INSERT INTO `tags` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tags_organizacion`
+-- Estructura de tabla para la tabla `tags_organizacion`
 --
 
 CREATE TABLE `tags_organizacion` (
@@ -230,7 +230,7 @@ CREATE TABLE `tags_organizacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tags_organizacion`
+-- Volcado de datos para la tabla `tags_organizacion`
 --
 
 INSERT INTO `tags_organizacion` (`id`, `id_tag`, `id_organizacion`, `updated_at`, `created_at`) VALUES
@@ -240,7 +240,7 @@ INSERT INTO `tags_organizacion` (`id`, `id_tag`, `id_organizacion`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipos_usuario`
+-- Estructura de tabla para la tabla `tipos_usuario`
 --
 
 CREATE TABLE `tipos_usuario` (
@@ -249,7 +249,7 @@ CREATE TABLE `tipos_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tipos_usuario`
+-- Volcado de datos para la tabla `tipos_usuario`
 --
 
 INSERT INTO `tipos_usuario` (`id`, `descripcion`) VALUES
@@ -259,7 +259,7 @@ INSERT INTO `tipos_usuario` (`id`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -276,7 +276,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `id_tipo_usuario`, `activo`) VALUES
@@ -303,7 +303,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vigencias`
+-- Estructura de tabla para la tabla `vigencias`
 --
 
 CREATE TABLE `vigencias` (
@@ -314,66 +314,66 @@ CREATE TABLE `vigencias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `colonias`
+-- Indices de la tabla `colonias`
 --
 ALTER TABLE `colonias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Indices de la tabla `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `migrations`
+-- Indices de la tabla `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `organizations`
+-- Indices de la tabla `organizations`
 --
 ALTER TABLE `organizations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `oscs`
+-- Indices de la tabla `oscs`
 --
 ALTER TABLE `oscs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Indices de la tabla `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `tags`
+-- Indices de la tabla `tags`
 --
 ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tags_organizacion`
+-- Indices de la tabla `tags_organizacion`
 --
 ALTER TABLE `tags_organizacion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tipos_usuario`
+-- Indices de la tabla `tipos_usuario`
 --
 ALTER TABLE `tipos_usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -381,71 +381,71 @@ ALTER TABLE `users`
   ADD KEY `TipoUsuario` (`id_tipo_usuario`);
 
 --
--- Indexes for table `vigencias`
+-- Indices de la tabla `vigencias`
 --
 ALTER TABLE `vigencias`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `colonias`
+-- AUTO_INCREMENT de la tabla `colonias`
 --
 ALTER TABLE `colonias`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT de la tabla `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `organizations`
+-- AUTO_INCREMENT de la tabla `organizations`
 --
 ALTER TABLE `organizations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `oscs`
+-- AUTO_INCREMENT de la tabla `oscs`
 --
 ALTER TABLE `oscs`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT for table `tags`
+-- AUTO_INCREMENT de la tabla `tags`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tags_organizacion`
+-- AUTO_INCREMENT de la tabla `tags_organizacion`
 --
 ALTER TABLE `tags_organizacion`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tipos_usuario`
+-- AUTO_INCREMENT de la tabla `tipos_usuario`
 --
 ALTER TABLE `tipos_usuario`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
--- AUTO_INCREMENT for table `vigencias`
+-- AUTO_INCREMENT de la tabla `vigencias`
 --
 ALTER TABLE `vigencias`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
