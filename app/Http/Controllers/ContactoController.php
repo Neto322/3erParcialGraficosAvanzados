@@ -72,11 +72,11 @@ class ContactoController extends Controller
         $contactos->twitter = $request->input("twitter");
         $contactos->fecha_vigencia = $request->input("fecha_vigencia");
 
-       
+        $tags->id_tag = $request->input("tag");
+        
         if($contactos->save())
         {
-            $tags->id_tag = $request->input("tag");
-            $tags->id_organizacion = $contacto->id;
+            $tags->id_organizacion = $contactos->id;
             return redirect()->route("listarContacto",$id)->with("exito", "Se actualizó correctamente la organizacion");
         }
         return redirect()->route("listarContacto",$id)->with("error", "No se ha podio actualizar  la organizacion");
