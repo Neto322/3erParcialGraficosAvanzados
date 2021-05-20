@@ -139,7 +139,11 @@
                             <label>Domicilio:</label>
                             <input class =" form-control"  name="domicilio" value="{{ $contactos->domicilio }}" type="text">
                             </div>
-                            <div class="form-group">
+
+                            /*<div class="form-group">
+                            <label>Colonia:</label>
+                            <input class=" form-control" name="colonia" value="{{ $contactos->colonia }}" type="text">
+                            </div>*/
 
                             <div class="form-group">
                             <label>Telefono:</label>
