@@ -23,10 +23,20 @@
 
       <!-- Default box -->
       <div class="card">
+      <div class="card card-custom wave wave-animate-slow wave-success mb-8 mb-lg-0">
+        <div class="card-body">
+            <div class="d-flex align-items-center p-5">
+                <div class="d-flex flex-column">
+                    <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h3 mb-3">Lista de Colonias</a>
+                    <div class="text-dark-75">Conoce la ubicación de las OSC registradas.</div>
+                </div>
+            </div>
+        </div>
+    </div>
         <div class="card-header">
           <div class="row">
             <div class="col-3">
-              <h3 class="card-title">Lista de Colonias</h3>
+               <!-- Default box <h3 class="card-title">Lista de Colonias</h3>-->
             </div>
            
           </div>    
@@ -46,7 +56,7 @@
             <p style="color: #a11919a1">{{ Session::get("error") }}</p>
         @endif
         <a href="{{route("colonias.create")}}">Crear nueva colonia</button></a>
-        <table class="table table-borderer">
+        <table class="table table-borderer ">
             <thead>
                 <th>Colonias</th>
                 <th>Acciones</th>

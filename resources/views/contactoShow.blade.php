@@ -108,19 +108,16 @@
             <!--end::Button-->
         </div>
     </div>
+
     <div class="card-body">
         <!--begin: Datatable-->
         <table class="table table-bordered table-checkable" id="kt_datatable">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-12">
                          <!-- Default box -->
-                        <div class="card">
-                            <div class="card-header">
-                            <h3 class="card-title">Consultar Organizacion</h3>
-
+                        <div class="card-body">
                             
-                            </div>
                           
                             
                             <br>
@@ -147,7 +144,7 @@
                             <label>Domicilio:</label>
                             <h4>{{ $contactos->domicilio }}<h4><br>
                             </div>
-
+                            <div>
                             <label>Colonia:</label>
                             <h4>{{ $contactos->colonia }}<h4><br>
                             </div>
@@ -184,27 +181,29 @@
 
 
                             <div class="row">
-                            <div class="col-8">
-                            <strong>Tags:</strong>
-                            
-                            <ul>
-                                <form id="deleteTag" method="POST" onclick="" action="">
-                                    @csrf
-                                    @method("delete")
-                                    {{-- <a href="{{ route("tags")}}"><button>Cancelar</button></a> --}}
-                                    {{-- <button type="submit">Confirmar</button> --}}
-                                    @foreach($tags as $tag)
-                                    <li >
-                                        {{$tag->descripcion}} <button type="submit" class="btn-xs ml-2" onclick="document.getElementById('deleteTag').action='{{route("quitarTag", $tag->id)}}'" class="btn btn-danger text-center" ><i class="fa fa-trash "></i></button>
-                                    </li>
-                                    @endforeach
-                                </form>
+                                <div class="col-8">
+                                    <h4>Tags:</h4><br>
+                                    
+                                    <ul>
+                                        <form id="deleteTag" method="POST" onclick="" action="">
+                                            @csrf
+                                            @method("delete")
+                                            {{-- <a href="{{ route("tags")}}"><button>Cancelar</button></a> --}}
+                                            {{-- <button type="submit">Confirmar</button> --}}
+                                            @foreach($tags as $tag)
+                                            <li  class="pt-5">
+                                                {{$tag->descripcion}} <button type="submit" class="btn-xs  btn btn-outline-danger  ml-5 pr-3" onclick="document.getElementById('deleteTag').action='{{route("quitarTag", $tag->id)}}'" class="btn btn-danger text-center" ><i class="fa fa-trash "></i></button>
+                                            </li>
+                                            @endforeach
+                                        </form>
 
-                       
-                            </ul>
-                            </div>
+                            
+                                    </ul>
+                                </div>
+
+                            
                             <div class="col-4">
-                            <a href="{{route('agregarTag', $contactos->id)}}" class="btn btn-secondary">Agregar Tag</a>
+                                <button class="btn btn btn-light-primary justify-content-center"> Agregar Tag</button>
                             </div>
 
                             </div>
@@ -213,7 +212,7 @@
 
                              <div   class="container w-aut" >
                                 <div class="col-md-8 "> 
-                                <table class="table ">
+                                <table class="table rounded table table-striped  ">
                                     <thead>
                                         <tr>
                                         <th style="width: 16.66%" scope="col">Fecha de vigencia</th>

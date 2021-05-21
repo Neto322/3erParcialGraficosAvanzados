@@ -5,6 +5,16 @@
 @section('contenido_principal')
 
 <div class="card card-custom gutter-b">
+    <div class="card card-custom wave wave-animate-slow wave-primary mb-8 mb-lg-0">
+        <div class="card-body">
+            <div class="d-flex align-items-center p-5">
+                <div class="d-flex flex-column">
+                    <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h3 mb-3">Lista de organizaciones.</a>
+                    <div class="text-dark-75">Aqui puedes visualizar las OSC registradas.</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card-header flex-wrap py-3">
         <div class="card-title">
             {{-- <h3 class="card-label">Editores registrados</h3> --}}
@@ -103,7 +113,7 @@
     </div>
     <div class="card-body">
         <!--begin: Datatable-->
-        <table class="table table-bordered table-checkable table-responsive" id="kt_datatable">
+        <table class="table table-bordered table-checkable table-responsive table-striped" id="kt_datatable">
         
             <div class="container-fluid">
                 <div class="row">
@@ -283,7 +293,7 @@
         </table>
 
 
-        <table class="table table-bordered table-checkable table-responsive" id="kt_datatable">
+        <table class="table table-bordered table-checkable table-responsive table-striped" id="kt_datatable">
             <thead>
                 <tr>
                     <th class="bg-secondary">Total de OSCs vigentes</th>
@@ -407,7 +417,7 @@
         </table>
 
 
-        <table class="table table-bordered table-checkable table-responsive" id="kt_datatable">
+        <table class="table table-bordered table-checkable table-responsive table-striped" id="kt_datatable">
             <thead>
                 <tr>
                     <th class="bg-success">Proximas a perder vigencia en 31 dias</th>
@@ -546,7 +556,7 @@
 
 
 
-        <table class="table table-bordered table-checkable table-responsive" id="kt_datatable">
+        <table class="table table-bordered table-checkable table-responsive table-striped" id="kt_datatable">
             <thead>
                 <tr>
                     <th class="bg-danger">Perdieron vigencia hace 31 dias</th>

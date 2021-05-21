@@ -1,10 +1,20 @@
 @extends('index')
 @section("titulo")
-<h1>Crear organizacion</h1>
+<h1>Crear organización</h1>
 @endsection
 @section('contenido_principal')
 
 <div class="card card-custom gutter-b">
+<div class="card card-custom wave wave-animate-slow wave-info mb-8 mb-lg-0">
+        <div class="card-body">
+            <div class="d-flex align-items-center p-5">
+                <div class="d-flex flex-column">
+                    <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h3 mb-3">Crear organización</a>
+                    <div class="text-dark-75">Iingresa una nueva organización civil.</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card-header flex-wrap py-3">
         <div class="card-title">
             {{-- <h3 class="card-label">Crear nuevo editor</h3> --}}

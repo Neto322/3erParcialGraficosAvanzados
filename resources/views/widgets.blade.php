@@ -17,9 +17,17 @@
 
       <!-- Default box -->
       <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Widgets</h3>
+      <div class="card card-custom wave wave-animate-slow wave-success mb-8 mb-lg-0">
+        <div class="card-body">
+            <div class="d-flex align-items-center p-5">
+                <div class="d-flex flex-column">
+                    <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h3 mb-3">Widgets</a>
+                    <div class="text-dark-75">Conoce más a fondo tus OSC.</div>
+                </div>
+            </div>
         </div>
+    </div>
+      
 
         <div class="container-fluid">
             <div class="row">

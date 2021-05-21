@@ -23,14 +23,23 @@
 
       <!-- Default box -->
       <div class="card">
-        <div class="card-header">
-          <div class="row">
-            <div class="col-3">
-              <h3 class="card-title">Lista de Tags</h3>
+      <div class="card card-custom wave wave-animate-slow wave-success mb-8 mb-lg-0">
+        <div class="card-body">
+            <div class="d-flex align-items-center p-5">
+                <div class="d-flex flex-column">
+                    <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h3 mb-3">Lista de Tags</a>
+                    <div class="text-dark-75">Aqui puedes consultar los tags disponibles, editarlos y más.</div>
+                </div>
             </div>
-            <div class="col-3">
-              <form class="form-inline ml-3" type="get">
-              <div class="input-group input-group-sm">
+        </div>
+    </div>
+    
+        <div class="card-header">
+        
+          <div class="row">
+            
+              <form class="form-inline ml-4" type="get">
+              <div class="input-group input-group-xl">
                 <input class="form-control form-control-navbar" type="search" name="search" placeholder="Buscar" aria-label="Search">
                 <div class="input-group-append">
                   <button class="btn btn-navbar" type="submit">
@@ -39,7 +48,7 @@
                 </div>
                 </div>
               </form>
-            </div>
+            
           </div>    
 
           <div class="card-tools">
@@ -68,7 +77,7 @@
 
 
 
-                        <td><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}<a data-toggle="modal" data-target="#confirmarEliminacion{{ $tag->id }}"><i class="far fa-trash-alt"></i></a></button></td>
+                        <td><button class="btn btn-xs btn-secondary">{{ $tag->descripcion }}<a data-toggle="modal" data-target="#confirmarEliminacion{{ $tag->id }}"><i class="far fa-trash-alt ml-5"></i></a></button></td>
                         <td>
                             <a href="{{route('tags.editar', $tag->id)}}"><button class="btn btn-xs btn-primary">Editar</button></a>
                             <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmarEliminacion{{ $tag->id }}">Eliminar</button>
