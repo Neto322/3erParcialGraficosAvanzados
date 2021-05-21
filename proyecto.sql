@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2021 a las 04:40:40
+-- Tiempo de generación: 21-05-2021 a las 05:45:44
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.3.26
 
@@ -146,8 +146,10 @@ INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objeto
 (26, '2021-05-20 15:18:55', '2021-05-20 15:18:55', 'Porfis', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 1, NULL, NULL, '2021-05-26'),
 (27, '2021-05-20 15:20:01', '2021-05-20 15:20:01', 'oppopo', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-26'),
 (28, '2021-05-20 15:23:06', '2021-05-20 15:23:06', 'PO RFA VOR', 'H', 'H', 'H', 'H', 'H', 'h', 'H', 'H', 'H', 'H', 'H', 'H', 1, NULL, NULL, '2021-05-10'),
-(29, '2021-05-20 15:46:10', '2021-05-20 15:46:10', 'Komo', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 1, NULL, NULL, '2021-05-09'),
-(30, '2021-05-21 07:36:06', '2021-05-21 07:36:06', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', NULL, 1, NULL, NULL, '2021-05-28');
+(29, '2021-05-20 15:46:10', '2021-05-21 10:36:24', 'Komo', '0', '0', NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', 1, NULL, NULL, '2021-05-09'),
+(30, '2021-05-21 07:36:06', '2021-05-21 07:36:06', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', NULL, 1, NULL, NULL, '2021-05-28'),
+(31, '2021-05-21 10:37:14', '2021-05-21 10:37:14', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 1, NULL, NULL, '2021-05-11'),
+(32, '2021-05-21 10:43:45', '2021-05-21 10:43:45', 'aAaAA', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 1, NULL, NULL, '2021-05-27');
 
 -- --------------------------------------------------------
 
@@ -235,9 +237,7 @@ CREATE TABLE `tags_organizacion` (
 
 INSERT INTO `tags_organizacion` (`id`, `id_tag`, `id_organizacion`, `updated_at`, `created_at`) VALUES
 (1, 9, 1, '2021-05-20 08:18:55', '2021-05-20 08:18:55'),
-(2, 9, 2, '2021-05-20 08:20:01', '2021-05-20 08:20:01'),
-(3, 8, 30, '2021-05-21 00:36:06', '2021-05-21 00:36:06'),
-(4, 8, 29, '2021-05-20 00:00:00', '2021-05-20 00:00:00');
+(2, 9, 2, '2021-05-20 08:20:01', '2021-05-20 08:20:01');
 
 -- --------------------------------------------------------
 
@@ -414,7 +414,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `organizations`
 --
 ALTER TABLE `organizations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `oscs`
@@ -432,7 +432,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT de la tabla `tags_organizacion`
 --
 ALTER TABLE `tags_organizacion`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_usuario`

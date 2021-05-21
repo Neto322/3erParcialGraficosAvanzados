@@ -5,6 +5,16 @@
 @section('contenido_principal')
 
 <div class="card card-custom gutter-b">
+    <div class="card card-custom wave wave-animate-slow wave-info mb-8 mb-lg-0">
+        <div class="card-body">
+            <div class="d-flex align-items-center p-5">
+                <div class="d-flex flex-column">
+                    <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h3 mb-3">Consultar organizacion</a>
+                    <div class="text-dark-75">Aqui puedes consultar la información previamente ingresade la organización.</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card-header flex-wrap py-3">
         <div class="card-title">
             {{-- <h3 class="card-label">Crear nuevo editor</h3> --}}
@@ -175,11 +185,17 @@
                             <strong>Tags:</strong>
                             
                             <ul>
-                                @foreach($tags as $tag)
-                                <li >
-                                    {{$tag->descripcion}} <button onclick="{{route("quitarTag", $tag->id)}}" class="btn btn-danger text-center" ><i class="fa fa-trash"></i></button>
-                                </li>
-                                @endforeach
+                                <form id="deleteTag" method="POST" onclick="" action="">
+                                    @csrf
+                                    @method("delete")
+                                    {{-- <a href="{{ route("tags")}}"><button>Cancelar</button></a> --}}
+                                    {{-- <button type="submit">Confirmar</button> --}}
+                                    @foreach($tags as $tag)
+                                    <li >
+                                        {{$tag->descripcion}} <button type="submit" class="btn-xs ml-2" onclick="document.getElementById('deleteTag').action='{{route("quitarTag", $tag->id)}}'" class="btn btn-danger text-center" ><i class="fa fa-trash "></i></button>
+                                    </li>
+                                    @endforeach
+                                </form>
 
                        
                             </ul>

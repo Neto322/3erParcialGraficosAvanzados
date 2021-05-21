@@ -105,7 +105,7 @@ class ContactoController extends Controller
     public function consultarContacto($id)
     {
         $contactos = organization::find($id);
-        $tags = tags_organizacion::select("tags_organizacion.id_tag", "tags.descripcion")->
+        $tags = tags_organizacion::select("tags_organizacion.id", "tags.descripcion")->
         leftjoin("organizations", "tags_organizacion.id_organizacion", "organizations.id")->
         leftjoin("tags", "tags.id", "tags_organizacion.id_tag")->
         where("tags_organizacion.id_organizacion", $id)->get();

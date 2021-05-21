@@ -103,7 +103,7 @@
     </div>
     <div class="card-body">
         <!--begin: Datatable-->
-        <table class="table table-bordered table-checkable" id="kt_datatable">
+        <table class="table table-bordered table-checkable table-responsive" id="kt_datatable">
         
             <div class="container-fluid">
                 <div class="row">
@@ -168,7 +168,7 @@
                     {{-- <th>Representante legal</th> --}}
                     <th>Director</th>
                     {{-- <th>Domicilio</th> --}}
-                    <th>Colonia</th>
++                    <th>Colonia</th>
                     {{-- <th>Telefono</th> --}}
                     <th>E-mail</th>
                     {{-- <th>Sitio web</th> --}}
@@ -283,7 +283,7 @@
         </table>
 
 
-        <table class="table table-bordered table-checkable" id="kt_datatable">
+        <table class="table table-bordered table-checkable table-responsive" id="kt_datatable">
             <thead>
                 <tr>
                     <th class="bg-secondary">Total de OSCs vigentes</th>
@@ -407,7 +407,7 @@
         </table>
 
 
-        <table class="table table-bordered table-checkable" id="kt_datatable">
+        <table class="table table-bordered table-checkable table-responsive" id="kt_datatable">
             <thead>
                 <tr>
                     <th class="bg-success">Proximas a perder vigencia en 31 dias</th>
@@ -546,7 +546,7 @@
 
 
 
-        <table class="table table-bordered table-checkable" id="kt_datatable">
+        <table class="table table-bordered table-checkable table-responsive" id="kt_datatable">
             <thead>
                 <tr>
                     <th class="bg-danger">Perdieron vigencia hace 31 dias</th>
