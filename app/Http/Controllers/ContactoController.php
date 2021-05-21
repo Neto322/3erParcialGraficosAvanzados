@@ -63,9 +63,9 @@ class ContactoController extends Controller
         $tag = tags_organizacion::find($id);
         if ($tag) {
             $tag->delete();
-            return redirect()->route("tags")->with("exito", "se pudo eliminar el tag");
+            return redirect()->route("consultarContacto", $tag->id_organizacion)->with("exito", "se pudo eliminar el tag");
         }
-        return redirect()->route("tags")->with("error", "no se eliminó correctamente");
+        return redirect()->route("consultarContacto", $tag->id_organizacion)->with("error", "no se eliminó correctamente");
     }
     
     public function actualizarContacto(Request $request,$id)
@@ -125,9 +125,29 @@ class ContactoController extends Controller
     }
 
     public function agregarTag($id){
-        $contactos = organization::find($id);
         
+        $contactos = organization::find($id);
+        $tags = Tags::all();
+        
+        $argumentos = array();
+        $argumentos["tags"] = $tags;
+        $argumentos["contactos"] = $contactos;
         return view("addtags",$argumentos);
+    }
+
+    public function guardarTag(Request $request){
+        $tags = new tags_organizacion;
+
+        $tags->id_tag = $request->input("tag");
+        $tags->id_organizacion = $request->input("organizacion");
+
+        if($tags->save())
+        {                
+            return redirect()->route("consultarContacto", $tags->id_organizacion);
+        }
+                    
+
+        return redirect()->route("listarContacto", $tags->id_organizacion)->with("error", "no se pudo agregar el tag");
     }
 
     public function editarContacto($id)

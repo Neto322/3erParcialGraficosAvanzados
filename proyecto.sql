@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2021 a las 07:38:29
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 7.3.26
+-- Host: 127.0.0.1
+-- Generation Time: May 21, 2021 at 08:32 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `proyecto`
+-- Database: `proyecto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `colonias`
+-- Table structure for table `colonias`
 --
 
 CREATE TABLE `colonias` (
@@ -35,7 +35,7 @@ CREATE TABLE `colonias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `colonias`
+-- Dumping data for table `colonias`
 --
 
 INSERT INTO `colonias` (`id`, `nombre`, `updated_at`, `created_at`) VALUES
@@ -47,7 +47,7 @@ INSERT INTO `colonias` (`id`, `nombre`, `updated_at`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -63,7 +63,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -73,7 +73,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -94,7 +94,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `organizations`
+-- Table structure for table `organizations`
 --
 
 CREATE TABLE `organizations` (
@@ -121,7 +121,7 @@ CREATE TABLE `organizations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `organizations`
+-- Dumping data for table `organizations`
 --
 
 INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objetosocial`, `presidente`, `represetantelegal`, `director`, `domicilio`, `colonia`, `telefono`, `email`, `sitioweb`, `facebook`, `instagram`, `twitter`, `activo`, `comentario_baja`, `comentario`, `fecha_vigencia`) VALUES
@@ -159,7 +159,7 @@ INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objeto
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `oscs`
+-- Table structure for table `oscs`
 --
 
 CREATE TABLE `oscs` (
@@ -174,7 +174,7 @@ CREATE TABLE `oscs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `oscs`
+-- Dumping data for table `oscs`
 --
 
 INSERT INTO `oscs` (`id`, `id_organizacion`, `nombre`, `oficina`, `celular`, `correo`, `created_at`, `updated_at`) VALUES
@@ -192,7 +192,7 @@ INSERT INTO `oscs` (`id`, `id_organizacion`, `nombre`, `oficina`, `celular`, `co
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -204,7 +204,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tags`
+-- Table structure for table `tags`
 --
 
 CREATE TABLE `tags` (
@@ -215,7 +215,7 @@ CREATE TABLE `tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `tags`
+-- Dumping data for table `tags`
 --
 
 INSERT INTO `tags` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
@@ -225,7 +225,7 @@ INSERT INTO `tags` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tags_organizacion`
+-- Table structure for table `tags_organizacion`
 --
 
 CREATE TABLE `tags_organizacion` (
@@ -237,7 +237,7 @@ CREATE TABLE `tags_organizacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `tags_organizacion`
+-- Dumping data for table `tags_organizacion`
 --
 
 INSERT INTO `tags_organizacion` (`id`, `id_tag`, `id_organizacion`, `updated_at`, `created_at`) VALUES
@@ -251,7 +251,7 @@ INSERT INTO `tags_organizacion` (`id`, `id_tag`, `id_organizacion`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipos_usuario`
+-- Table structure for table `tipos_usuario`
 --
 
 CREATE TABLE `tipos_usuario` (
@@ -260,7 +260,7 @@ CREATE TABLE `tipos_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `tipos_usuario`
+-- Dumping data for table `tipos_usuario`
 --
 
 INSERT INTO `tipos_usuario` (`id`, `descripcion`) VALUES
@@ -270,7 +270,7 @@ INSERT INTO `tipos_usuario` (`id`, `descripcion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -287,7 +287,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `id_tipo_usuario`, `activo`) VALUES
@@ -314,7 +314,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `vigencias`
+-- Table structure for table `vigencias`
 --
 
 CREATE TABLE `vigencias` (
@@ -325,66 +325,66 @@ CREATE TABLE `vigencias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `colonias`
+-- Indexes for table `colonias`
 --
 ALTER TABLE `colonias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indices de la tabla `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `organizations`
+-- Indexes for table `organizations`
 --
 ALTER TABLE `organizations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `oscs`
+-- Indexes for table `oscs`
 --
 ALTER TABLE `oscs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indices de la tabla `tags`
+-- Indexes for table `tags`
 --
 ALTER TABLE `tags`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tags_organizacion`
+-- Indexes for table `tags_organizacion`
 --
 ALTER TABLE `tags_organizacion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tipos_usuario`
+-- Indexes for table `tipos_usuario`
 --
 ALTER TABLE `tipos_usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -392,71 +392,71 @@ ALTER TABLE `users`
   ADD KEY `TipoUsuario` (`id_tipo_usuario`);
 
 --
--- Indices de la tabla `vigencias`
+-- Indexes for table `vigencias`
 --
 ALTER TABLE `vigencias`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `colonias`
+-- AUTO_INCREMENT for table `colonias`
 --
 ALTER TABLE `colonias`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT de la tabla `organizations`
+-- AUTO_INCREMENT for table `organizations`
 --
 ALTER TABLE `organizations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT de la tabla `oscs`
+-- AUTO_INCREMENT for table `oscs`
 --
 ALTER TABLE `oscs`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT de la tabla `tags`
+-- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de la tabla `tags_organizacion`
+-- AUTO_INCREMENT for table `tags_organizacion`
 --
 ALTER TABLE `tags_organizacion`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de la tabla `tipos_usuario`
+-- AUTO_INCREMENT for table `tipos_usuario`
 --
 ALTER TABLE `tipos_usuario`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
--- AUTO_INCREMENT de la tabla `vigencias`
+-- AUTO_INCREMENT for table `vigencias`
 --
 ALTER TABLE `vigencias`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;

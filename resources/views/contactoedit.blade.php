@@ -195,34 +195,6 @@
                                 <textarea class="form-control" rows="3" placeholder="Escribe aqui la prueba de vigencia..."></textarea>
                             </div>
                             
-                            <div class="form-group">
-                                <label>Selección de tags:</label>
-                                &nbsp;<BR>
-                                
-                                <select name="tag" class="selectpicker col-md-12" multiple data-live-search="true">
-                                        @foreach($tags as $tag)
-                                            <option value="{{$tag->id}}">{{$tag->descripcion}}</option>
-                                        @endforeach
-                                </select>
-                            </div>
-                            
-                            {{-- <div class="form-group">
-                                <label>Selección de tags:</label>
-                                &nbsp;<BR>
-                                
-                                <select name="tag" class="selectpicker col-md-12" multiple data-live-search="true">
-                                        @ foreach($tags as $tag)
-                                        @ if($contactos->id_Tags == $tag->id)  
-                                            <option selected="selected" value="{{$tag->id}}">{{$tag->descripcion}}</option>
-                                        @ endif
-                                        @ if($contactos->id_Tags != $tag->id)
-                                            <option value="{{$tag->id}}">{{$tag->descripcion}}</option>
-                                        @ endif
-                                        @ endforeach
-                                </select>
-                            </div> --}}
-
-                            
                             <button type="submit" class="btn btn-primary">Actualizar organizacion</button>
 
                             </div>

@@ -55,6 +55,8 @@ Route::get('/contacto/consultar/{id}', [ContactoController::class, "consultarCon
 Route::put('/contacto/editar/{id}/actualizar', [ContactoController::class, "actualizarContacto"])->name("actualizarContacto");
 Route::get('/contacto/consultar/{id}/agregartag', [ContactoController::class, "agregarTag"])->name("agregarTag");
 Route::delete('/contacto/consultar/{id}', [ContactoController::class, "quitarTag"])->name("quitarTag");
+Route::post('/contacto/consultar/{id}/guardartag', [ContactoController::class, "guardarTag"])->name("guardarTag");
+
 
 
 

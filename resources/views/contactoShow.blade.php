@@ -204,7 +204,7 @@
                             </ul>
                             </div>
                             <div class="col-4">
-                            <button class="btn btn-secondary"> Agregar Tag</button>
+                            <a href="{{route('agregarTag', $contactos->id)}}" class="btn btn-secondary">Agregar Tag</a>
                             </div>
 
                             </div>
