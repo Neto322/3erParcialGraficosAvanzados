@@ -203,7 +203,7 @@
 
                             
                             <div class="col-4">
-                                <button class="btn btn btn-light-primary justify-content-center"> Agregar Tag</button>
+                                <a href="{{route('agregarTag', $contactos->id)}}" class="btn btn btn-light-primary justify-content-center">Agregar Tag</a>
                             </div>
 
                             </div>
