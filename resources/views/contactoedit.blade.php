@@ -121,7 +121,7 @@
                             </div>
                             <div class="form-group">
                             <label>Objeto social:</label>
-                            <input class =" form-control" name="objetosocial" type="text" value="{{ $contactos->objetosocial }}" >
+                            <input class =" form-control" name="objetoSocial" type="text" value="{{ $contactos->objetosocial }}" >
                             </div>
                             <div class="form-group">
                             <label>Presidente:</label>
@@ -129,7 +129,7 @@
                             </div>
                             <div class="form-group">
                             <label>Representante legal:</label>
-                            <input class =" form-control"  name="represetantelegal" value="{{ $contactos->represetantelegal }}"  type="text">
+                            <input class =" form-control"  name="represetanteLegal" value="{{ $contactos->represetantelegal }}"  type="text">
                             </div>
                             <div class="form-group">
                             <label>Director:</label>
@@ -157,7 +157,7 @@
 
                             <div class="form-group">
                             <label>Sitio web:</label>
-                            <input class =" form-control"  name="sitioweb" value="{{ $contactos->sitioweb}}" type="text">
+                            <input class =" form-control"  name="sitioWeb" value="{{ $contactos->sitioweb}}" type="text">
                             </div>
 
                             <div class="form-group">
