@@ -177,7 +177,7 @@
                             <ul>
                                 @foreach($tags as $tag)
                                 <li >
-                                    {{$tag->descripcion}} <button onclick="{{route("bajaTag", $tag->id)}}" class="btn btn-danger text-center" ><i class="fa fa-trash"></i></button>
+                                    {{$tag->descripcion}} <button onclick="{{route("quitarTag", $tag->id)}}" class="btn btn-danger text-center" ><i class="fa fa-trash"></i></button>
                                 </li>
                                 @endforeach
 

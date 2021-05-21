@@ -106,12 +106,12 @@
                     <div class="col-md-8">
                          <!-- Default box -->
                         <div class="card">
-                            <div class="card-header">
-                            <h3 class="card-title">Editar Organizacion</h3>
+                            <div class="card-header bg-dark">
+                            <h3 class="card-title text-primary display-4 pt-0">Editar Organizacion</h3>
 
                             
                             </div>
-                          
+                            <br>
                             <form method="POST" action="{{ route("actualizarContacto", $contactos->id) }}">
                             @csrf
                             @method('PUT')

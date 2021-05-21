@@ -55,33 +55,15 @@ class ContactoController extends Controller
         return redirect()->route("listarContacto")->with("error", "no se revoco el usuario");
     }
 
-    public function bajaTag($id)
-    {
-        $tag = organization::find($id);
-
-        $argumentos = array();
-        $argumentos["tag"] = $tag;
-
-        if($tag->activo == 0)
-        {
-            $argumentos['activo'] = 1;
-        }else{
-            $argumentos['activo'] = 0;
+    public function quitarTag($id) {
+        $tag = tags_organizacion::find($id);
+        if ($tag) {
+            $tag->delete();
+            return redirect()->route("tags")->with("exito", "se pudo eliminar el tag");
         }
-        
-
-        //$argumentos->update(['activo' => '0']);
-        $contactos->update($argumentos);
-        if($argumentos['activo'] == 0){
-            
-            return redirect()->route("listarContacto")->with("exito", "Se dio de baja a $contactos->nombre");
-        }if($argumentos['activo'] == 1){
-            return redirect()->route("listarContacto")->with("exito2", "Se dio de alta a $contactos->nombre");
-        }
-
-        return redirect()->route("listarContacto")->with("error", "no se revoco el usuario");
+        return redirect()->route("tags")->with("error", "no se eliminó correctamente");
     }
-
+    
     public function actualizarContacto(Request $request,$id)
     {
         $contactos = organization::find($id);
@@ -132,6 +114,12 @@ class ContactoController extends Controller
         $argumentos["contactos"] = $contactos;
         $argumentos["tags"] = $tags;
         return view("contactoShow",$argumentos);
+    }
+
+    public function agregarTag($id){
+        $contactos = organization::find($id);
+        
+        return view("addtags",$argumentos);
     }
 
     public function editarContacto($id)
