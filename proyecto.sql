@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2021 a las 01:20:52
+-- Tiempo de generación: 21-05-2021 a las 04:40:40
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.3.26
 
@@ -126,7 +126,7 @@ CREATE TABLE `organizations` (
 INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objetosocial`, `presidente`, `represetantelegal`, `director`, `domicilio`, `colonia`, `telefono`, `email`, `sitioweb`, `facebook`, `instagram`, `twitter`, `activo`, `comentario_baja`, `comentario`, `fecha_vigencia`) VALUES
 (6, '2021-05-01 13:26:31', '2021-05-20 13:51:02', 'Abuelos Contentos Club Adultos Mayores A.C.', 'Promover ayuda y asistencia social a persona de la tercera edad.', 'José Adalberto Gaxiola Mendivil', 'José Adalberto Gaxiola Mendivil', 'Ramón Rafael Salazar Mendez', 'Privada #17 5027 Ejido Toribio Velazquez, Zona Urbana Luis Echeverria.', 'Zona urbana', '6444440569', 'yotambienpued2010@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-04'),
 (7, '2021-05-01 13:37:33', '2021-05-01 13:37:33', 'Agrupación de Fibrosis Quística del Noroeste, IAP', 'La asistencia y rehabilitación médica sin fines de lucro en beneficio de pacientes de escasos recursos que padecen Fibrosis Quistica.', 'Lic. Carmen Yolanda Avilés Castro', 'Lic. Carmen Yolanda Avilés Castro', 'Jacqueline Inclan de la Vega', 'Durango # 310 Nte. Col. Zona Norte', 'Zona Norte', '01 (644) 414 23 88', 'afq_noroeste@hotmail.com', 'www.afqnoroeste.org.mx', '@FibrosisQuisticaNoroeste', NULL, NULL, 1, NULL, '', '2021-04-07'),
-(8, '2021-05-01 13:45:00', '2021-05-20 10:04:02', 'Agrupación George Papanicolaou de Cd. Obregón, A.C.', 'Prevenir y Detectar el cáncer Cervicouterino, de mama y de próstata.', 'Virginia Gracia Rosas', 'Virginia Gracia Rosas', 'Miriam Zuleth Villareal Iribe', 'Coahuila # 632 Sur entre Jesús García y Niños Héroes', 'Centro', '01 (644) 414 89 58', 'gpapanicolaouobr@hotmail.com', 'www.agpobregon.com', 'facebook', 'instagram', 'twitter', 0, NULL, '', '2021-05-31'),
+(8, '2021-05-01 13:45:00', '2021-05-21 08:02:12', 'Agrupación George Papanicolaou de Cd. Obregón, A.C.', 'Prevenir y Detectar el cáncer Cervicouterino, de mama y de próstata.', 'Virginia Gracia Rosas', NULL, 'Miriam Zuleth Villareal Iribe', 'Coahuila # 632 Sur entre Jesús García y Niños Héroes', 'Centro', '01 (644) 414 89 58', 'gpapanicolaouobr@hotmail.com', 'www.agpobregon.com', 'facebook', 'instagram', 'twitter', 0, NULL, '', '2021-05-31'),
 (9, '2021-05-01 13:47:04', '2021-05-01 13:47:04', 'APFA Comprometidos y Unidos por el progreso en la Educación de Sonora AC', 'Brindar atención a niños, jovenes y adolescentes a través de la orientacións social, educación o capacitación para el trabajo, la promoción de la participación organizada de la población en las acciones que mejoren sus propias condiciones de susbsistencia en beneficio de la comunidad, a través del diseño y desarrollo de programas y proyectos de desarrollo educativos, culturales y sociales.', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Hermanos Talamante #149 Pte. Col. Campesrte', 'Campestre', 'Cel. (044) 644 218 58 01', 'arturo_baron33@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-11'),
 (10, '2021-05-01 13:49:24', '2021-05-01 13:50:55', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Organización, sostenimiento y cuidado de un centro donde se proporcione alimentación, asistencia médica y alojamiento sin fines de lucro a personas de escasos recursos que así lo requieran.', 'Rebeca Terán Tineo', 'Rebeca Terán Tineo', 'Elizabeth Arias Verdugo', 'Ignacio Zaragoza S/n San José de Bacum Sonora.', 'San Jose', '(044) 149 01 45', 'asilomadreteresabacum@hotmail.com', NULL, '@asiloteresabacum', NULL, NULL, 0, NULL, '', '2021-05-10'),
 (11, '2021-05-01 13:50:43', '2021-05-01 13:50:43', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Prestar atención de guardería', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Calle Puebla 620 Sur entre Niños Heroes y Jesus Garcial.', 'Centro', '(644) 414 87 07', 'ampcob@gmail.com', 'Facebook: ampco Ac', NULL, NULL, NULL, 1, NULL, '', '2021-05-01'),
@@ -146,7 +146,8 @@ INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objeto
 (26, '2021-05-20 15:18:55', '2021-05-20 15:18:55', 'Porfis', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 1, NULL, NULL, '2021-05-26'),
 (27, '2021-05-20 15:20:01', '2021-05-20 15:20:01', 'oppopo', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-26'),
 (28, '2021-05-20 15:23:06', '2021-05-20 15:23:06', 'PO RFA VOR', 'H', 'H', 'H', 'H', 'H', 'h', 'H', 'H', 'H', 'H', 'H', 'H', 1, NULL, NULL, '2021-05-10'),
-(29, '2021-05-20 15:46:10', '2021-05-20 15:46:10', 'Komo', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 1, NULL, NULL, '2021-05-09');
+(29, '2021-05-20 15:46:10', '2021-05-20 15:46:10', 'Komo', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', 1, NULL, NULL, '2021-05-09'),
+(30, '2021-05-21 07:36:06', '2021-05-21 07:36:06', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', NULL, 1, NULL, NULL, '2021-05-28');
 
 -- --------------------------------------------------------
 
@@ -212,8 +213,7 @@ CREATE TABLE `tags` (
 
 INSERT INTO `tags` (`id`, `descripcion`, `created_at`, `updated_at`) VALUES
 (8, 'Animales', '2021-05-20 13:18:52', '2021-05-20 13:18:52'),
-(9, 'Libros', '2021-05-20 13:19:00', '2021-05-20 13:19:00'),
-(10, 'Plantas', '2021-05-20 13:19:06', '2021-05-20 13:19:06');
+(9, 'Libros', '2021-05-20 13:19:00', '2021-05-20 13:19:00');
 
 -- --------------------------------------------------------
 
@@ -235,7 +235,9 @@ CREATE TABLE `tags_organizacion` (
 
 INSERT INTO `tags_organizacion` (`id`, `id_tag`, `id_organizacion`, `updated_at`, `created_at`) VALUES
 (1, 9, 1, '2021-05-20 08:18:55', '2021-05-20 08:18:55'),
-(2, 9, 2, '2021-05-20 08:20:01', '2021-05-20 08:20:01');
+(2, 9, 2, '2021-05-20 08:20:01', '2021-05-20 08:20:01'),
+(3, 8, 30, '2021-05-21 00:36:06', '2021-05-21 00:36:06'),
+(4, 8, 29, '2021-05-20 00:00:00', '2021-05-20 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -412,7 +414,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `organizations`
 --
 ALTER TABLE `organizations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `oscs`
@@ -430,7 +432,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT de la tabla `tags_organizacion`
 --
 ALTER TABLE `tags_organizacion`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_usuario`
