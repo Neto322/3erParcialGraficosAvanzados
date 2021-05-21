@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-05-2021 a las 05:45:44
+-- Tiempo de generación: 21-05-2021 a las 07:38:29
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.3.26
 
@@ -40,8 +40,9 @@ CREATE TABLE `colonias` (
 
 INSERT INTO `colonias` (`id`, `nombre`, `updated_at`, `created_at`) VALUES
 (2, 'Mira valle3', '2021-05-08 08:15:56', '2021-05-08 07:55:14'),
-(3, '', '2021-05-08 07:55:58', '2021-05-08 14:55:58'),
-(4, '', '2021-05-08 07:56:06', '2021-05-08 14:56:06');
+(3, 'Zona Norte', '2021-05-20 21:58:30', '2021-05-08 14:55:58'),
+(4, 'Campanario', '2021-05-21 05:20:22', '2021-05-08 14:56:06'),
+(5, 'Centro', '2021-05-21 05:13:54', '2021-05-21 12:13:54');
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,7 @@ CREATE TABLE `organizations` (
   `represetantelegal` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `director` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `domicilio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `colonia` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `colonia` int(11) NOT NULL,
   `telefono` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sitioweb` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -124,32 +125,36 @@ CREATE TABLE `organizations` (
 --
 
 INSERT INTO `organizations` (`id`, `created_at`, `updated_at`, `nombre`, `objetosocial`, `presidente`, `represetantelegal`, `director`, `domicilio`, `colonia`, `telefono`, `email`, `sitioweb`, `facebook`, `instagram`, `twitter`, `activo`, `comentario_baja`, `comentario`, `fecha_vigencia`) VALUES
-(6, '2021-05-01 13:26:31', '2021-05-20 13:51:02', 'Abuelos Contentos Club Adultos Mayores A.C.', 'Promover ayuda y asistencia social a persona de la tercera edad.', 'José Adalberto Gaxiola Mendivil', 'José Adalberto Gaxiola Mendivil', 'Ramón Rafael Salazar Mendez', 'Privada #17 5027 Ejido Toribio Velazquez, Zona Urbana Luis Echeverria.', 'Zona urbana', '6444440569', 'yotambienpued2010@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-04'),
-(7, '2021-05-01 13:37:33', '2021-05-01 13:37:33', 'Agrupación de Fibrosis Quística del Noroeste, IAP', 'La asistencia y rehabilitación médica sin fines de lucro en beneficio de pacientes de escasos recursos que padecen Fibrosis Quistica.', 'Lic. Carmen Yolanda Avilés Castro', 'Lic. Carmen Yolanda Avilés Castro', 'Jacqueline Inclan de la Vega', 'Durango # 310 Nte. Col. Zona Norte', 'Zona Norte', '01 (644) 414 23 88', 'afq_noroeste@hotmail.com', 'www.afqnoroeste.org.mx', '@FibrosisQuisticaNoroeste', NULL, NULL, 1, NULL, '', '2021-04-07'),
-(8, '2021-05-01 13:45:00', '2021-05-21 08:02:12', 'Agrupación George Papanicolaou de Cd. Obregón, A.C.', 'Prevenir y Detectar el cáncer Cervicouterino, de mama y de próstata.', 'Virginia Gracia Rosas', NULL, 'Miriam Zuleth Villareal Iribe', 'Coahuila # 632 Sur entre Jesús García y Niños Héroes', 'Centro', '01 (644) 414 89 58', 'gpapanicolaouobr@hotmail.com', 'www.agpobregon.com', 'facebook', 'instagram', 'twitter', 0, NULL, '', '2021-05-31'),
-(9, '2021-05-01 13:47:04', '2021-05-01 13:47:04', 'APFA Comprometidos y Unidos por el progreso en la Educación de Sonora AC', 'Brindar atención a niños, jovenes y adolescentes a través de la orientacións social, educación o capacitación para el trabajo, la promoción de la participación organizada de la población en las acciones que mejoren sus propias condiciones de susbsistencia en beneficio de la comunidad, a través del diseño y desarrollo de programas y proyectos de desarrollo educativos, culturales y sociales.', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Hermanos Talamante #149 Pte. Col. Campesrte', 'Campestre', 'Cel. (044) 644 218 58 01', 'arturo_baron33@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-11'),
-(10, '2021-05-01 13:49:24', '2021-05-01 13:50:55', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Organización, sostenimiento y cuidado de un centro donde se proporcione alimentación, asistencia médica y alojamiento sin fines de lucro a personas de escasos recursos que así lo requieran.', 'Rebeca Terán Tineo', 'Rebeca Terán Tineo', 'Elizabeth Arias Verdugo', 'Ignacio Zaragoza S/n San José de Bacum Sonora.', 'San Jose', '(044) 149 01 45', 'asilomadreteresabacum@hotmail.com', NULL, '@asiloteresabacum', NULL, NULL, 0, NULL, '', '2021-05-10'),
-(11, '2021-05-01 13:50:43', '2021-05-01 13:50:43', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Prestar atención de guardería', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Calle Puebla 620 Sur entre Niños Heroes y Jesus Garcial.', 'Centro', '(644) 414 87 07', 'ampcob@gmail.com', 'Facebook: ampco Ac', NULL, NULL, NULL, 1, NULL, '', '2021-05-01'),
-(12, '2021-05-01 13:52:31', '2021-05-01 13:52:31', 'Asociación de Profesionistas de la Salud en Ciudad Obregón, I.A.P.', 'Oganizar jornadas médico quirurgicas gratuitas de asistencia social, dirigidas a las clases marginadas de la población rural del estado de sonora, aprovechando para tal fin los recursos humanos de la asociación (Médicos, Dentistas, Químicos, y Representantes de la Industria Farmacéutica.', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Veracruz Núm 621 - 7-A, Col. Zona Norte, C.P. 85010, Cajeme, Sonora', 'Zona norte', '(644) 415 15 18', 'barrerapar@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-03'),
-(13, '2021-05-01 13:54:03', '2021-05-01 13:54:12', 'Asociación Fray Julio César, A.C.', '----', 'Ing. Uriel Mendoza Acuña', NULL, 'Elia Mendoza de Clayton', 'Flavio Bórquez 1613 Col. Prados del Tepeyac', 'Prados de tepeyac', NULL, 'ely@cabsaconsultorias.com', NULL, NULL, NULL, NULL, 0, NULL, '', '2021-05-14'),
-(15, '2021-05-20 10:00:38', '2021-05-20 10:04:36', 'tata', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 1, NULL, NULL, '2021-05-18'),
-(16, '2021-05-20 11:32:42', '2021-05-20 11:32:42', 'crop-top', 't', 't', 't', 't', 't', 't', '6441498824', 'sofi@sofi.sofi', 't', NULL, NULL, NULL, 1, NULL, NULL, '2021-05-21'),
-(17, '2021-05-20 11:33:26', '2021-05-20 11:33:26', 'crop-top', 't', 't', 't', 't', 't', 't', '6441498824', 'sofi@sofi.sofi', 't', NULL, NULL, NULL, 1, NULL, NULL, '2021-05-21'),
-(18, '2021-05-20 13:27:59', '2021-05-20 13:30:17', 'jk', 'k', 'k', 'kk', 'k', 'k', 'k', 'k', 'kinato03@hotmail.com', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-28'),
-(19, '2021-05-20 13:36:56', '2021-05-20 13:36:56', 'Minneth', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 1, NULL, NULL, '2021-05-20'),
-(20, '2021-05-20 14:05:44', '2021-05-20 14:05:44', 'Porfis', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'arturo@correo.com', 'a', 'a', 'a', 'a', 1, NULL, NULL, '2021-05-05'),
-(21, '2021-05-20 14:18:47', '2021-05-20 14:18:47', 'Porfis', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 'l', 1, NULL, NULL, '2021-04-26'),
-(22, '2021-05-20 14:20:36', '2021-05-20 14:20:36', 'WEYYA', 'a', 'k', 'k', 'k', 'k', 'l', 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-30'),
-(23, '2021-05-20 15:08:43', '2021-05-20 15:08:43', 'Porfis', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 1, NULL, NULL, '2021-05-04'),
-(24, '2021-05-20 15:10:12', '2021-05-20 15:10:12', 'Porfis', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 1, NULL, NULL, '2021-05-04'),
-(25, '2021-05-20 15:13:08', '2021-05-20 15:13:08', 'Porfis', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 1, 'p', NULL, '2021-05-26'),
-(26, '2021-05-20 15:18:55', '2021-05-20 15:18:55', 'Porfis', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 1, NULL, NULL, '2021-05-26'),
-(27, '2021-05-20 15:20:01', '2021-05-20 15:20:01', 'oppopo', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-26'),
-(28, '2021-05-20 15:23:06', '2021-05-20 15:23:06', 'PO RFA VOR', 'H', 'H', 'H', 'H', 'H', 'h', 'H', 'H', 'H', 'H', 'H', 'H', 1, NULL, NULL, '2021-05-10'),
-(29, '2021-05-20 15:46:10', '2021-05-21 10:36:24', 'Komo', '0', '0', NULL, '0', '0', '0', '0', '0', '0', '0', '0', '0', 1, NULL, NULL, '2021-05-09'),
-(30, '2021-05-21 07:36:06', '2021-05-21 07:36:06', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', NULL, 1, NULL, NULL, '2021-05-28'),
-(31, '2021-05-21 10:37:14', '2021-05-21 10:37:14', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 't', 1, NULL, NULL, '2021-05-11'),
-(32, '2021-05-21 10:43:45', '2021-05-21 10:43:45', 'aAaAA', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 1, NULL, NULL, '2021-05-27');
+(6, '2021-05-01 13:26:31', '2021-05-21 12:21:38', 'Abuelos Contentos Club Adultos Mayores A.C.', 'Promover ayuda y asistencia social a persona de la tercera edad.', 'José Adalberto Gaxiola Mendivil', NULL, 'Ramón Rafael Salazar Mendez', 'Privada #17 5027 Ejido Toribio Velazquez,', 3, '6444440569', 'yotambienpued2010@hotmail.com', 'dfgt', 'dfht', 'dfgd', 'dfgse', 1, NULL, '', '2021-05-04'),
+(7, '2021-05-01 13:37:33', '2021-05-01 13:37:33', 'Agrupación de Fibrosis Quística del Noroeste, IAP', 'La asistencia y rehabilitación médica sin fines de lucro en beneficio de pacientes de escasos recursos que padecen Fibrosis Quistica.', 'Lic. Carmen Yolanda Avilés Castro', 'Lic. Carmen Yolanda Avilés Castro', 'Jacqueline Inclan de la Vega', 'Durango # 310 Nte. Col. Zona Norte', 0, '01 (644) 414 23 88', 'afq_noroeste@hotmail.com', 'www.afqnoroeste.org.mx', '@FibrosisQuisticaNoroeste', NULL, NULL, 1, NULL, '', '2021-04-07'),
+(8, '2021-05-01 13:45:00', '2021-05-21 08:02:12', 'Agrupación George Papanicolaou de Cd. Obregón, A.C.', 'Prevenir y Detectar el cáncer Cervicouterino, de mama y de próstata.', 'Virginia Gracia Rosas', NULL, 'Miriam Zuleth Villareal Iribe', 'Coahuila # 632 Sur entre Jesús García y Niños Héroes', 0, '01 (644) 414 89 58', 'gpapanicolaouobr@hotmail.com', 'www.agpobregon.com', 'facebook', 'instagram', 'twitter', 0, NULL, '', '2021-05-31'),
+(9, '2021-05-01 13:47:04', '2021-05-01 13:47:04', 'APFA Comprometidos y Unidos por el progreso en la Educación de Sonora AC', 'Brindar atención a niños, jovenes y adolescentes a través de la orientacións social, educación o capacitación para el trabajo, la promoción de la participación organizada de la población en las acciones que mejoren sus propias condiciones de susbsistencia en beneficio de la comunidad, a través del diseño y desarrollo de programas y proyectos de desarrollo educativos, culturales y sociales.', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Arturo Rodríguez', 'Hermanos Talamante #149 Pte. Col. Campesrte', 0, 'Cel. (044) 644 218 58 01', 'arturo_baron33@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-11'),
+(10, '2021-05-01 13:49:24', '2021-05-01 13:50:55', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Organización, sostenimiento y cuidado de un centro donde se proporcione alimentación, asistencia médica y alojamiento sin fines de lucro a personas de escasos recursos que así lo requieran.', 'Rebeca Terán Tineo', 'Rebeca Terán Tineo', 'Elizabeth Arias Verdugo', 'Ignacio Zaragoza S/n San José de Bacum Sonora.', 0, '(044) 149 01 45', 'asilomadreteresabacum@hotmail.com', NULL, '@asiloteresabacum', NULL, NULL, 0, NULL, '', '2021-05-10'),
+(11, '2021-05-01 13:50:43', '2021-05-01 13:50:43', 'Asociación de Mujeres Profesionistas de Cd. Obregón, A.C.', 'Prestar atención de guardería', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Lic. Maria Luisa Molina Iñiguez', 'Calle Puebla 620 Sur entre Niños Heroes y Jesus Garcial.', 0, '(644) 414 87 07', 'ampcob@gmail.com', 'Facebook: ampco Ac', NULL, NULL, NULL, 1, NULL, '', '2021-05-01'),
+(12, '2021-05-01 13:52:31', '2021-05-01 13:52:31', 'Asociación de Profesionistas de la Salud en Ciudad Obregón, I.A.P.', 'Oganizar jornadas médico quirurgicas gratuitas de asistencia social, dirigidas a las clases marginadas de la población rural del estado de sonora, aprovechando para tal fin los recursos humanos de la asociación (Médicos, Dentistas, Químicos, y Representantes de la Industria Farmacéutica.', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Dr. Armando Barreda Pesqueira', 'Veracruz Núm 621 - 7-A, Col. Zona Norte, C.P. 85010, Cajeme, Sonora', 0, '(644) 415 15 18', 'barrerapar@hotmail.com', NULL, NULL, NULL, NULL, 1, NULL, '', '2021-05-03'),
+(13, '2021-05-01 13:54:03', '2021-05-01 13:54:12', 'Asociación Fray Julio César, A.C.', '----', 'Ing. Uriel Mendoza Acuña', NULL, 'Elia Mendoza de Clayton', 'Flavio Bórquez 1613 Col. Prados del Tepeyac', 0, NULL, 'ely@cabsaconsultorias.com', NULL, NULL, NULL, NULL, 0, NULL, '', '2021-05-14'),
+(15, '2021-05-20 10:00:38', '2021-05-20 10:04:36', 'tata', 't', 't', 't', 't', 't', 0, 't', 't', 't', 't', 't', 't', 1, NULL, NULL, '2021-05-18'),
+(16, '2021-05-20 11:32:42', '2021-05-20 11:32:42', 'crop-top', 't', 't', 't', 't', 't', 0, '6441498824', 'sofi@sofi.sofi', 't', NULL, NULL, NULL, 1, NULL, NULL, '2021-05-21'),
+(17, '2021-05-20 11:33:26', '2021-05-20 11:33:26', 'crop-top', 't', 't', 't', 't', 't', 0, '6441498824', 'sofi@sofi.sofi', 't', NULL, NULL, NULL, 1, NULL, NULL, '2021-05-21'),
+(18, '2021-05-20 13:27:59', '2021-05-20 13:30:17', 'jk', 'k', 'k', 'kk', 'k', 'k', 0, 'k', 'kinato03@hotmail.com', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-28'),
+(19, '2021-05-20 13:36:56', '2021-05-20 13:36:56', 'Minneth', 'l', 'l', 'l', 'l', 'l', 0, 'l', 'l', 'l', 'l', 'l', 'l', 1, NULL, NULL, '2021-05-20'),
+(20, '2021-05-20 14:05:44', '2021-05-20 14:05:44', 'Porfis', 'a', 'a', 'a', 'a', 'a', 0, 'a', 'arturo@correo.com', 'a', 'a', 'a', 'a', 1, NULL, NULL, '2021-05-05'),
+(21, '2021-05-20 14:18:47', '2021-05-20 14:18:47', 'Porfis', 'l', 'l', 'l', 'l', 'l', 0, 'l', 'l', 'l', 'l', 'l', 'l', 1, NULL, NULL, '2021-04-26'),
+(22, '2021-05-20 14:20:36', '2021-05-20 14:20:36', 'WEYYA', 'a', 'k', 'k', 'k', 'k', 0, 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-30'),
+(23, '2021-05-20 15:08:43', '2021-05-20 15:08:43', 'Porfis', 'o', 'o', 'o', 'o', 'o', 0, 'o', 'o', 'o', 'o', 'o', 'o', 1, NULL, NULL, '2021-05-04'),
+(24, '2021-05-20 15:10:12', '2021-05-20 15:10:12', 'Porfis', 'o', 'o', 'o', 'o', 'o', 0, 'o', 'o', 'o', 'o', 'o', 'o', 1, NULL, NULL, '2021-05-04'),
+(25, '2021-05-20 15:13:08', '2021-05-20 15:13:08', 'Porfis', 'p', 'p', 'p', 'p', 'p', 0, 'p', 'p', 'p', 'p', 'p', 'p', 1, 'p', NULL, '2021-05-26'),
+(26, '2021-05-20 15:18:55', '2021-05-20 15:18:55', 'Porfis', 'p', 'p', 'p', 'p', 'p', 0, 'p', 'p', 'p', 'p', 'p', 'p', 1, NULL, NULL, '2021-05-26'),
+(27, '2021-05-20 15:20:01', '2021-05-20 15:20:01', 'oppopo', 'k', 'k', 'k', 'k', 'k', 0, 'k', 'k', 'k', 'k', 'k', 'k', 1, NULL, NULL, '2021-04-26'),
+(28, '2021-05-20 15:23:06', '2021-05-20 15:23:06', 'PO RFA VOR', 'H', 'H', 'H', 'H', 'H', 0, 'H', 'H', 'H', 'H', 'H', 'H', 1, NULL, NULL, '2021-05-10'),
+(29, '2021-05-20 15:46:10', '2021-05-21 10:36:24', 'Komo', '0', '0', NULL, '0', '0', 0, '0', '0', '0', '0', '0', '0', 1, NULL, NULL, '2021-05-09'),
+(30, '2021-05-21 07:36:06', '2021-05-21 07:36:06', 't', 't', 't', 't', 't', 't', 0, 't', 't', 't', 't', 't', NULL, 1, NULL, NULL, '2021-05-28'),
+(31, '2021-05-21 10:37:14', '2021-05-21 10:37:14', 't', 't', 't', 't', 't', 't', 0, 't', 't', 't', 't', 't', 't', 1, NULL, NULL, '2021-05-11'),
+(32, '2021-05-21 10:43:45', '2021-05-21 10:43:45', 'aAaAA', 'a', 'a', 'a', 'a', 'a', 0, 'a', 'a', 'a', 'a', 'a', 'a', 1, NULL, NULL, '2021-05-27'),
+(33, '2021-05-21 11:31:05', '2021-05-21 11:31:38', 'lalocomotora', 'cabum', 'elantolin', NULL, 'laliz', 'ensuksa', 0, '1234', 'deni@correo.com', 'feisbu', 'elsitiowe', 'twita', 'elig', 1, NULL, NULL, '2021-05-02'),
+(34, '2021-05-21 11:32:19', '2021-05-21 11:32:19', 'zdfbsdv', 'dfgdgd', 'dvgdfhf', 'dgdfdg', 'dfhghd', 'sgdg', 0, 'rggeas', 'grtgdf', 'dfgt', 'dfht', 'dfgd', 'dfgse', 1, NULL, NULL, '2021-05-26'),
+(35, '2021-05-21 11:32:20', '2021-05-21 11:32:20', 'zdfbsdv', 'dfgdgd', 'dvgdfhf', 'dgdfdg', 'dfhghd', 'sgdg', 0, 'rggeas', 'grtgdf', 'dfgt', 'dfht', 'dfgd', 'dfgse', 1, NULL, NULL, '2021-05-26'),
+(36, '2021-05-21 12:13:54', '2021-05-21 12:13:54', 'dfgfsdz', 'dcSDzscxz', 'dszcxzx', 'asdXz', 'asXz', 'dfsDsX', 5, 'saXz', 'sdzc', 'sdczx', 'saXZ', 'asxZ', 'asX', 1, NULL, NULL, '2021-06-05');
 
 -- --------------------------------------------------------
 
@@ -237,7 +242,11 @@ CREATE TABLE `tags_organizacion` (
 
 INSERT INTO `tags_organizacion` (`id`, `id_tag`, `id_organizacion`, `updated_at`, `created_at`) VALUES
 (1, 9, 1, '2021-05-20 08:18:55', '2021-05-20 08:18:55'),
-(2, 9, 2, '2021-05-20 08:20:01', '2021-05-20 08:20:01');
+(2, 9, 2, '2021-05-20 08:20:01', '2021-05-20 08:20:01'),
+(7, 8, 33, '2021-05-21 04:31:05', '2021-05-21 04:31:05'),
+(8, 9, 34, '2021-05-21 04:32:20', '2021-05-21 04:32:20'),
+(9, 9, 35, '2021-05-21 04:32:20', '2021-05-21 04:32:20'),
+(10, 9, 36, '2021-05-21 05:13:54', '2021-05-21 05:13:54');
 
 -- --------------------------------------------------------
 
@@ -396,7 +405,7 @@ ALTER TABLE `vigencias`
 -- AUTO_INCREMENT de la tabla `colonias`
 --
 ALTER TABLE `colonias`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -414,7 +423,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `organizations`
 --
 ALTER TABLE `organizations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `oscs`
@@ -432,7 +441,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT de la tabla `tags_organizacion`
 --
 ALTER TABLE `tags_organizacion`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_usuario`
