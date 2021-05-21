@@ -17,9 +17,13 @@ class ContactoController extends Controller
 
     public function listarContacto()
     {
-        $contactos = organization::all();
+        $contactos = organization::select('organizations.id', 'organizations.nombre', 'organizations.presidente', 'organizations.director', 
+            'organizations.email', 'organizations.fecha_vigencia', 'organizations.activo', "colonias.nombre as colonia")->
+            leftjoin("colonias", "colonias.id", "organizations.colonia")->
+            get();
         $tags = tags::all();
         $colonias = Colonias::all();
+
         $argumentos = array();
         $argumentos["contactos"] = $contactos;
         $argumentos["tags"] = $tags;
@@ -69,6 +73,7 @@ class ContactoController extends Controller
         $contactos = organization::find($id);
 
         $tags  = new tags_organizacion();
+        $colonias  = new Colonias();
         
         $contactos->nombre = $request->input("nombre");
         $contactos->objetosocial = $request->input("objetoSocial");
@@ -76,7 +81,6 @@ class ContactoController extends Controller
         $contactos->represetantelegal = $request->input("representanteLegal");
         $contactos->director = $request->input("director");
         $contactos->domicilio = $request->input("domicilio");
-        $contactos->colonia = $request->input("colonia");
         $contactos->telefono = $request->input("telefono");
         $contactos->email = $request->input("email");
         $contactos->sitioweb = $request->input("sitioWeb");
@@ -87,14 +91,18 @@ class ContactoController extends Controller
         
         if($contactos->save())
         {
-            dd($tags);
+            
             $tags->id_tag = $request->input("tag");
             $tags->id_organizacion = $contactos->id;
             if($tags->save())
             {
-            
-                return redirect()->route("listarContacto",$id)->with("exito", "Se actualizó correctamente la organizacion");
+                $colonias->nombre = $request->input("colonia");           
+                if($colonias->save())
+                {
+                    return redirect()->route("listarContacto",$id)->with("exito", "Se actualizó correctamente la organizacion");
+                }
             }
+            
            
         }
         return redirect()->route("listarContacto",$id)->with("error", "No se ha podio actualizar  la organizacion");
@@ -126,16 +134,16 @@ class ContactoController extends Controller
     {
         $contactos = organization::find($id);
         $tags = Tags::all();
+        $colonias = Colonias::select("colonias.nombre as nombre")->where("colonias.id", $contactos->colonia)->first();
+
         $argumentos = array();
         $argumentos["contactos"] = $contactos;
         $argumentos["tags"] = $tags;
+        $argumentos["colonias"] = $colonias;
         return view("contactoedit", $argumentos);
         
 
     }
-
-    
-    
     
     
     public function crearContacto()
@@ -153,6 +161,7 @@ class ContactoController extends Controller
     {
         $nuevoContacto = new organization();
         $tags = new tags_organizacion();
+        $colonias  = new Colonias();
         //dd($nuevoContacto->id);
         
         $nuevoContacto->nombre = $request->input("nombre");
@@ -161,7 +170,6 @@ class ContactoController extends Controller
         $nuevoContacto->represetantelegal = $request->input("representanteLegal");
         $nuevoContacto->director = $request->input("director");
         $nuevoContacto->domicilio = $request->input("domicilio");
-        $nuevoContacto->colonia = $request->input("colonia");
         $nuevoContacto->telefono = $request->input("telefono");
         $nuevoContacto->email = $request->input("email");
         $nuevoContacto->sitioweb = $request->input("sitioWeb");
@@ -169,15 +177,20 @@ class ContactoController extends Controller
         $nuevoContacto->instagram = $request->input("instagram");
         $nuevoContacto->twitter = $request->input("twitter");
         $nuevoContacto->fecha_vigencia = $request->input("fecha_vigencia");
-        
 
-        if($nuevoContacto->save())
+        $colonias->nombre = $request->input("colonia");
+        if($colonias->save())
         {
-            $tags->id_tag = $request->input("tag");
-            $tags->id_organizacion = $nuevoContacto->id;
-            if($tags->save())
+            $nuevoContacto->colonia = $colonias->id;
+            if($nuevoContacto->save())
             {
-                return redirect()->route("listarContacto")->with("exito", "Se agregó el usuario $nuevoContacto->name exitosamente");
+                $tags->id_tag = $request->input("tag");
+                $tags->id_organizacion = $nuevoContacto->id;
+                if($tags->save())
+                {                
+                    return redirect()->route("listarContacto")->with("exito", "Se agregó el usuario $nuevoContacto->name exitosamente");
+                }
+                    
             }
         }
 
@@ -193,8 +206,9 @@ class ContactoController extends Controller
         }
         else{
             $organizaciones = organization::select('organizations.id', 'organizations.nombre', 'organizations.presidente', 'organizations.director', 
-            'organizations.email', 'organizations.fecha_vigencia', 'organizations.activo')->
+            'organizations.email', 'organizations.fecha_vigencia', 'organizations.activo', "colonias.nombre as colonia")->
             leftjoin("tags_organizacion", "tags_organizacion.id_organizacion", "organizations.id")->
+            leftjoin("colonias", "colonias.id", "organizations.colonia")->
             where("tags_organizacion.id_tag", $filter)->get();
             $tags = Tags::all();
             $colonias = Colonias::all();
@@ -207,6 +221,28 @@ class ContactoController extends Controller
         }
     }
 
-    
+    public function searchColonia(Request $request)
+    {
+        $filter = $request->input("colonia");
+        $colonias = Colonias::where("nombre", $filter);
+        if($colonias == null){
+            return redirect();
+        }
+        else{
+            $organizaciones = organization::select('organizations.id', 'organizations.nombre', 'organizations.presidente', 'organizations.director', 
+            'organizations.email', 'organizations.fecha_vigencia', 'organizations.activo', "colonias.nombre as colonia")->
+            leftjoin("colonias", "colonias.id", "organizations.colonia")->
+            where("colonias.id", $filter)->
+            get();
+            $tags = Tags::all();
+            $colonias = Colonias::all();
+
+            $argumentos = array();
+            $argumentos["contactos"] = $organizaciones;
+            $argumentos["tags"] = $tags;
+            $argumentos["colonias"] = $colonias;
+            return view("contactoList",$argumentos);
+        }
+    }
 
 }

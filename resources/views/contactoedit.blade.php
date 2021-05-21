@@ -152,7 +152,7 @@
 
                             <div class="form-group">
                             <label>Colonia:</label>
-                            <input class=" form-control" name="colonia" value="{{ $contactos->colonia }}" type="text">
+                            <input class=" form-control" name="colonia" value="{{ $colonias->nombre }}" type="text">
                             </div>
 
                             <div class="form-group">

@@ -59,6 +59,7 @@ Route::delete('/contacto/consultar/{id}', [ContactoController::class, "quitarTag
 
 
 Route::get('/searchTag', [ContactoController::class, "searchFilter"])->name("searchFilter");
+Route::get('/searchColonia', [ContactoController::class, "searchColonia"])->name("searchColonia");
 
 
 

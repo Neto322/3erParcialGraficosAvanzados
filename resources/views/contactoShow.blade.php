@@ -147,7 +147,10 @@
                             <label>Domicilio:</label>
                             <h4>{{ $contactos->domicilio }}<h4><br>
                             </div>
-                            
+
+                            <label>Colonia:</label>
+                            <h4>{{ $contactos->colonia }}<h4><br>
+                            </div>
 
                             <div >
                             <label>Telefono:</label>

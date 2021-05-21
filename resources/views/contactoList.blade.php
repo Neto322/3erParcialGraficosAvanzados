@@ -135,10 +135,10 @@
                                 <label>Selección de colonias:</label>
                                 &nbsp;<BR>
                                 
-                                <select name="colonia" class="selectpicker col-md-12" multiple data-live-search="true">
-                                         <!-- @ foreach($colonias as $colonia)>
-                                            <option value="{ { $colonia->id } }">{ {$colonia->nombre} }</option>
-                                       @ endforeach -->
+                                <select onchange="searchColonia();" name="colonia" class="selectpicker col-md-12" multiple data-live-search="true">
+                                        @foreach($colonias as $colonia)>
+                                            <option value="{{ $colonia->id }}">{{$colonia->nombre}}</option>
+                                        @endforeach
                                 </select>
                             </div>
                             <script>
