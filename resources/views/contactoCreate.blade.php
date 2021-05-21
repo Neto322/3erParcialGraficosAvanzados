@@ -5,16 +5,6 @@
 @section('contenido_principal')
 
 <div class="card card-custom gutter-b">
-<div class="card card-custom wave wave-animate-slow wave-warning mb-8 mb-lg-0">
-        <div class="card-body">
-            <div class="d-flex align-items-center p-5">
-                <div class="d-flex flex-column">
-                    <a href="#" class="text-dark text-hover-primary font-weight-bold font-size-h3 mb-3">Crear organizacion</a>
-                    <div class="text-dark-75">Ingresa nuevas organizaciones</div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="card-header flex-wrap py-3">
         <div class="card-title">
             {{-- <h3 class="card-label">Crear nuevo editor</h3> --}}
